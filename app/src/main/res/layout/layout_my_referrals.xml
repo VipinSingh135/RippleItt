@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/relLayoutMangeList"
+        android:layout_marginBottom="5dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/relImageProductMAnge">
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/bg_border_square_black"
+                android:scaleType="centerCrop"
+                android:id="@+id/imgVwProductThumb" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$000"
+                android:fontFamily="@font/montserrat_regular"
+                android:id="@+id/txtvwItemAskPrice"
+                android:textSize="12sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/imgVwProductManageList"
+                android:layout_centerInParent="true"
+                android:textColor="#65b488"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@+id/relMenuManage"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/relImageProductMAnge">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwProductNam"
+                android:text="Smith Man"
+                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:gravity="top"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwProductDescrption"
+                android:text="@string/product_detail_wishlist"
+                android:textSize="14sp"
+                android:textColor="#65b488"
+                android:singleLine="true"
+                android:fontFamily="@font/montserrat_regular"
+                android:maxLines="2"
+                android:layout_marginTop="5sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgVFirstRefferee"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/default_profile_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10sp"
+                    android:padding="3sp"
+                    app:civ_border_color="#FF000000"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgVSecondRefferee"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="3sp"
+                    android:src="@drawable/default_profile_icon"
+                    android:layout_centerVertical="true"
+                    app:civ_border_color="#FF000000"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgVwThirdRefferee"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="3sp"
+                    android:src="@drawable/default_profile_icon"
+                    android:layout_centerVertical="true"
+                    app:civ_border_color="#FF000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVwUserCount"
+                    android:gravity="center_vertical"
+                    android:text="@string/product_price_mange"
+                    android:textSize="14sp"
+                    android:textColor="#999999"
+                    android:singleLine="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingLeft="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

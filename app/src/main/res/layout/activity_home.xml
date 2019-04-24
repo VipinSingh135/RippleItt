@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_activity_home"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar_container"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relGuide">
+        <!---->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/filter"
+            android:padding="5sp"
+            android:id="@+id/imgFilter"
+            android:visibility="invisible"
+            android:layout_marginTop="12.5dp"
+            android:layout_marginRight="20sp"
+            android:layout_alignParentRight="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search"
+            android:visibility="invisible"
+            android:layout_marginTop="12.5dp"
+            android:padding="5sp"
+            android:id="@+id/imgSearch"
+            android:layout_marginRight="10sp"
+            android:layout_toLeftOf="@+id/imgFilter"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle_outline_black_24dp"
+            android:tint="@color/white"
+            android:padding="5sp"
+            android:visibility="invisible"
+            android:layout_marginTop="12.5dp"
+            android:id="@+id/imgListing"
+            android:layout_marginRight="10sp"
+            android:layout_toLeftOf="@+id/imgSearch"/>
+        <!---->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="54dp"
+            android:background="@color/subtitle"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgFilter"
+            android:src="@drawable/clicker"
+            android:id="@+id/imgClicker"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/imgSearch"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Listings"
+            android:layout_below="@+id/imgClicker"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="-4dp"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:id="@+id/title"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add products or service you want to sell on RippleItt"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerHorizontal="true"
+            />
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="160dp"-->
+        <!--android:layout_height="140dp"-->
+        <!--android:layout_marginTop="54dp"-->
+        <!--android:layout_marginRight="14dp"-->
+        <!--android:layout_alignRight="@+id/imgSearch">-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="36dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:layout_marginBottom="12dp"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:text="Add products or services you want to sell on rippleitt"/>-->
+        <!--</RelativeLayout>-->
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/slider_black"
+        android:fitsSystemWindows="true" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/nav_header_activity_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lytHeader"
+                android:layout_alignParentTop="true" />
+
+            <ListView
+                android:id="@+id/lst_menu_items"
+                android:layout_below="@+id/lytHeader"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/lytFooterLogout"
+                android:divider="@android:color/transparent"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:layout_toLeftOf="@id/tvFaq"
+                android:id="@+id/lytFooterLogout"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:src="@drawable/logout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/logout"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_alignTop="@+id/lytFooterLogout"
+                android:gravity="bottom"
+                android:id="@+id/tvFaq"
+                android:textSize="13sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/grey_darker"
+                android:text="@string/strFAQ"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.NavigationView>
+
+
+</android.support.v4.widget.DrawerLayout>

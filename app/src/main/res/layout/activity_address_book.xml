@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.AddressBookActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relBackAddrBook">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackAddrBook"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerHorizontal="true"
+            android:text="Address Book"
+            android:id="@+id/txtvwSignup"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:text="Add "
+            android:id="@+id/txtvwAdd"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoaderHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            app:indicatorName="BallSpinFadeLoaderIndicator"
+            app:indicatorColor="#71b9af" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="12sp"
+            android:layout_marginTop="20sp"
+            android:id="@+id/txtvwNoConacts"
+            android:visibility="gone"
+            android:fontFamily="@font/montserrat_light"
+            android:text="You do not have any contacts yet."
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btnShareAction"
+            android:id="@+id/listVwAddressBook"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnShareAction"
+            android:padding="20sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20sp"
+            android:layout_margin="10dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Share"
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_left_gradient"
+            android:textAllCaps="false"/>
+
+
+    </RelativeLayout>
+
+
+    
+    
+</LinearLayout>

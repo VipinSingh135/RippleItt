@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10sp"
+        android:id="@+id/listVouchers"/>
+
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:padding="15sp"-->
+        <!--android:id="@+id/btnAddVouchers"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:text="Add New Listing"-->
+        <!--android:fontFamily="@font/montserrat_bold"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@drawable/button_left_gradient"-->
+        <!--android:textAllCaps="false"/>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:orientation="vertical"
+        android:id="@+id/linlytCenter"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_light"
+            android:text="You have not added any voucher yet."/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddVouchersCenter"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:padding="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Add New Voucher"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_left_gradient"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/aviLoaderHomeCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="#71b9af" />
+
+</RelativeLayout>

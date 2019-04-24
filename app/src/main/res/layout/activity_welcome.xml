@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context="com.rippleitt.activities.WelcomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        android:tint="@color/text_dark"
+        android:src="@drawable/welcome_tick"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="45dp"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/txtVwWelcomeTo"
+        android:textSize="15sp"
+        android:textColor="@color/text_dark"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/welcomeTo"/>
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/imgVwLogo"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/logo"/>
+    </LinearLayout>
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnContinue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:text="Continue"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_left_gradient"
+        android:textAllCaps="false"/>
+
+</RelativeLayout>

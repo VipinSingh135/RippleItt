@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.AddPaymentMethod">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="40dp"
+
+            android:layout_height="40dp"
+            android:layout_marginLeft="10sp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relImageBackPayment">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:tint="@color/colorHeaderBackground"
+                android:src="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackAddPayment"/>
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/text_dark"
+            android:layout_marginRight="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:text="@string/skip"
+            android:fontFamily="@font/montserrat_regular"
+            android:id="@+id/txtSkipAddPayment"/>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/imgVwCardIcon"
+        android:tint="@color/colorHeaderBackground"
+        android:src="@drawable/add_payment"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/txtvwAddPayment"
+        android:text="Update Payment Method"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorHeaderBackground"
+        android:gravity="center"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10sp"
+        android:id="@+id/relCardNumber">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:padding="5sp"
+            android:textSize="15sp"
+            android:maxLength="19"
+            android:inputType="number"
+            android:hint="@string/cardNo"
+            android:paddingRight="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:id="@+id/edittxtCardNumber"
+            />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:weightSum="1.0"
+        android:id="@+id/linrExpireDate">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_height="50sp"
+            android:popupBackground="@color/header_dark"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:textSize="15sp"
+
+            android:layout_weight="0.5"
+            android:background="@drawable/edittxt_bg_login"
+            android:hint="MM"
+            android:inputType="number"
+            android:maxLength="2"
+            android:entries="@array/calendar_months"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:id="@+id/edittxtExpireMonth"
+            />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:popupBackground="@color/header_dark"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:layout_toRightOf="@+id/edittxtExpireMonth"
+            android:textSize="15sp"
+            android:layout_weight="0.5"
+            android:background="@drawable/edittxt_bg_login"
+            android:hint="YYYY"
+            android:inputType="number"
+            android:maxLength="4"
+            android:entries="@array/calendar_year"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:id="@+id/edittxtExpireYear"
+            />
+
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/relCardCVV">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
+            android:background="@drawable/edittxt_bg_login"
+            android:layout_weight="2"
+            android:hint="@string/cvv"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="15sp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:paddingRight="8dp"
+            android:id="@+id/edittxtCvv"/>
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10sp"
+        android:id="@+id/relCardHolderName">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:padding="5dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:textSize="15sp"
+            android:hint="@string/cardholderName"
+            android:imeOptions="actionDone"
+            android:paddingRight="8dp"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:id="@+id/edittxtCardHolderName"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNextAddPayment"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:text="Save"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="10sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_left_gradient"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

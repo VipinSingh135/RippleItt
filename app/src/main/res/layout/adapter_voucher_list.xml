@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10sp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/relLayoutMangeList"
+        android:layout_marginBottom="5dp">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:id="@+id/relImageProductMAnge">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:minWidth="72dp"
+                android:paddingTop="20dp"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:id="@+id/tvVoucherAmount"
+                android:background="@drawable/answet_box_bg"
+                android:text="$10"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@+id/relMenuManage"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/relImageProductMAnge">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwName"
+                android:text="Smith Man"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:gravity="top"
+                android:paddingLeft="10dp"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="4sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expiry date:  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtVwExpiryDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="2sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available Quantity:  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtVwQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="2sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status:  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtVwStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:id="@+id/relMenuManage"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgSelected"
+                android:background="@drawable/done_icon"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

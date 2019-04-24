@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_margin="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relProfileDetails"
+        android:layout_below="@+id/relTopBarProfile">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgVwprofileImage"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:src="@drawable/profile_pic"
+            android:layout_marginLeft="15dp"
+            app:civ_border_color="#FF000000"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imgVwprofileImage">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwUserNameProfile"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:text="John Smith"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:id="@+id/txtVwUserEmailProfile"
+                android:textSize="16sp"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:singleLine="true"
+                android:textColor="@color/grey"
+                android:gravity="center_vertical"
+                android:text=""/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2sp"
+                    android:src="@drawable/full_rating"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2sp"
+                    android:src="@drawable/full_rating"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2sp"
+                    android:src="@drawable/full_rating"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2sp"
+                    android:src="@drawable/full_rating"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2sp"
+                    android:src="@drawable/blank_rating"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewProfile"
+        android:layout_below="@+id/relProfileDetails"
+        android:background="#c4c3c3"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/relReviewsProfile"
+        android:layout_below="@+id/viewProfile"
+        android:layout_marginTop="5dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/txtVwReviewProfile"
+            android:textSize="18sp"
+            android:paddingLeft="5dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:singleLine="true"
+            android:textColor="#65b488"
+            android:layout_toLeftOf="@+id/relDownArrowProfile"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:text="Reviews(0)"/>
+
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relDownArrowProfile"
+            android:background="@drawable/arrow_down"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listVwReviewsProfile"
+        android:layout_below="@+id/relReviewsProfile"
+        android:layout_above="@+id/relChatIcon"
+        />
+
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/relChatIcon"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imgVwChatIcon"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/chat_icon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="Chats"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="15sp"
+            android:textColor="#65b488"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/imgVwChatIcon"/>
+
+    </RelativeLayout>
+</RelativeLayout>

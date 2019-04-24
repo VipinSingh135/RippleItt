@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.SetYourPriceActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/header">
+
+        <RelativeLayout
+            android:id="@+id/relSetPriceBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/imgBackSetPrice"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/back_arrow" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtvwSetPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Set Your Price"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="120dp"
+        android:layout_height="170dp"
+        android:layout_below="@id/relTopBar"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relTopBar"
+        android:layout_marginLeft="12dp"
+        android:textColor="@color/black"
+        android:text="@string/strPostalCode"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/imgProduct" />
+
+    <EditText
+        android:id="@+id/edittxtAddQty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvName"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@+id/imgProduct"
+        android:background="@drawable/tab_green_centre"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Quantity*"
+        android:inputType="number"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/grey2"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/edittxtAddPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittxtAddQty"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_toRightOf="@id/imgProduct"
+        android:background="@drawable/tab_green_centre"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Add Price*"
+        android:inputType="numberDecimal"
+
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"        android:textColor="#000000"
+        android:textColorHint="@color/grey2"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        android:layout_below="@id/imgProduct"
+        android:layout_marginTop="20dp"
+        android:id="@+id/view1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:paddingBottom="12dp"
+        android:layout_margin="20dp"
+        android:id="@+id/linPriceDetails"
+        android:background="@color/light_grey"
+        android:layout_below="@id/view1">
+
+        <TextView
+            android:id="@+id/tvProductAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:text="Product Amount:-"
+            android:textColor="@color/grey_darker2"
+            android:textSize="12sp"
+            />
+        <View
+            android:layout_width="150dp"
+            android:layout_height="0.7dp"
+            android:background="@color/grey_darker2"
+            android:layout_below="@id/imgProduct"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/view2"/>
+        <TextView
+            android:id="@+id/tvTotalProductAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:text="Product Amount:-"
+            android:textColor="@color/grey_darker2"
+            android:textSize="12sp" />
+        <View
+            android:layout_width="150dp"
+            android:layout_height="0.7dp"
+            android:background="@color/grey_darker2"
+            android:layout_below="@id/imgProduct"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/view3"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvAdditionalFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:text="Additional Fee:-"
+            android:textColor="@color/grey_darker2"
+            android:textSize="12sp" />
+        <View
+            android:layout_width="150dp"
+            android:layout_height="0.7dp"
+            android:background="@color/grey_darker2"
+            android:layout_below="@id/imgProduct"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="12dp"
+            android:id="@+id/view4"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:text="Grand total:-"
+            android:textColor="@color/grey_darker2"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp">
+            <TextView
+                android:id="@+id/tvVoucherText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/strVoucherText"
+                android:textColor="@color/colorHeaderBackground"
+                android:textSize="12sp"
+                android:layout_toLeftOf="@+id/tvVoucherAmount"/>
+
+            <TextView
+                android:id="@+id/tvVoucherAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/grey_darker2"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linTerms"
+        android:layout_below="@id/linPriceDetails"
+        android:layout_marginTop="12sp"
+        android:layout_marginBottom="8sp"
+        android:orientation="horizontal"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp">
+
+        <CheckBox
+            android:id="@+id/chkbxTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:checked="false"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="I agree to  "
+            android:textColor="#848484"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txtvwListingPolicyLauncher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Rippleitt Listing Policies."
+            android:textColor="#848484" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="."
+            android:textColor="#848484" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSetPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_left_gradient"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="15sp"
+        android:text="Make Offer"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:layout_below="@id/linTerms"/>
+
+</RelativeLayout>

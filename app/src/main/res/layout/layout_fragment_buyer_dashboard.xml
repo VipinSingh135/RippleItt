@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_marginTop="-80dp"
+        android:src="@drawable/_dashboard_header" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_marginTop="20sp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                card_view:cardBackgroundColor="#CCffffff"
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Wallet Balance"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" "
+                            android:id="@+id/txtvwWalletBalance"
+                            android:layout_centerInParent="true"
+                            android:textColor="#2a9997"
+                            android:textStyle="bold"
+                            android:textSize="28sp"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20sp"
+
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Purchase History"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="1.0"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwOrderCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Purchases"
+
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwOrderWeekCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Purchases this Week"
+
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20sp"
+                android:visibility="gone"
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Referral Analytics"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="1.0"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwReferalCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="90sp"
+                                android:layout_height="wrap_content"
+                                android:text="Total Referrals Made"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwReferralEarned"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Reward Earned"
+
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20sp"
+
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Listing Analytics"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="1.0"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwListingViewCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Listing Views"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwWishlistCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="90sp"
+                                android:layout_height="wrap_content"
+                                android:text="Total Listings added to Wishlists"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20sp"
+
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Order Analytics"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="1.0"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwOrderReceivedCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Orders Received"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwOrderReceivedWeekly"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="90sp"
+                                android:layout_height="wrap_content"
+                                android:text="Orders Received this Week"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                card_view:cardCornerRadius="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="Financial Analytics"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="1.0"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwPaymentReceivedCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Payment Received"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="20sp"
+                            android:layout_weight="0.5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" "
+                                android:id="@+id/txtvwBuyerCount"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total Buyers"
+                                android:textAlignment="center"
+                                android:layout_centerInParent="true"
+                                android:textColor="#aaaaaa"
+                                android:layout_gravity="center_horizontal"
+                                android:textStyle="bold"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/aviLoaderDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="#71b9af" />
+
+
+
+
+
+</RelativeLayout>

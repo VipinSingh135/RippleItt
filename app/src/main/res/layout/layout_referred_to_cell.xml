@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="0.5">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/imgVwBidBuyerPic"
+                android:background="@drawable/default_profile_icon"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imgVwBidBuyerPic"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="Jhon Smith"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingRight="5dp"
+                    android:textSize="14sp"
+                    android:textColor="#000000"
+                    android:id="@+id/txtVwBidBuyerName"
+                    />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15sp"
+            android:layout_weight="0.5">
+            <View
+                android:layout_width="2sp"
+                android:layout_height="50sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="$000"
+                    android:layout_below="@+id/txtvwListingTitle"
+                    android:textColor="#65b488"
+                    android:textSize="14sp"
+                    android:gravity="right"
+                    android:fontFamily="@font/montserrat_regular"
+
+                    android:id="@+id/txtVwInvited"/>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:background="#f0f0f0"/>
+
+</LinearLayout>
+

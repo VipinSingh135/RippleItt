@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.rippleitt.activities.ActivityFilter">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBarFilter"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relFilter_back">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBack"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/strSelectListings"
+            android:fontFamily="@font/montserrat_regular"
+            android:id="@+id/tvTitle"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_marginTop="6dp"
+        android:layout_below="@+id/relTopBarFilter"
+        android:layout_above="@+id/linrBtnAdd">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@android:color/white">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/round_bg_grey"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/rellytSearchBox"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imgVwSearchIcon"
+                        android:layout_marginLeft="10sp"
+                        android:src="@drawable/search_black_icon"/>
+
+                    <EditText
+                        android:id="@+id/edtxtQuickSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5sp"
+                        android:layout_marginRight="10sp"
+                        android:layout_toLeftOf="@+id/imgVwClearSearch"
+                        android:layout_toRightOf="@+id/imgVwSearchIcon"
+                        android:background="@null"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center_vertical"
+                        android:hint="Search via Keyword"
+                        android:imeOptions="actionSearch"
+                        android:singleLine="true"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/imgVwClearSearch"
+                        android:layout_marginRight="10sp"
+                        android:src="@drawable/search_cross"/>
+
+                </RelativeLayout>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/strAll"
+                    android:textSize="16sp"
+                    android:id="@+id/chkSelectAll"
+                    android:layout_marginRight="8dp"/>
+            </LinearLayout>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/listManageProducts"
+                android:layout_marginTop="8dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linrBtnAdd"
+        android:background="@android:color/white"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/strAdd"
+            android:textAllCaps="false"
+            android:padding="15sp"
+            android:textSize="15sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_left_gradient"
+            android:id="@+id/btnAdd"/>
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/aviLoaderHomeCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="#71b9af" />
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.quiin:unifiedContactPicker:1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/unifiedContactPicker-1.0.aar/8681e67531a93e123f5bb5f53d4afe74/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/unifiedContactPicker-1.0.aar/8681e67531a93e123f5bb5f53d4afe74/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.quiin/unifiedContactPicker/1.0/9924ae48d63b5f109f1076c39bb515dfa7d63b14/unifiedContactPicker-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

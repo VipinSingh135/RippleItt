@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.hootsuite.android:nachos:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/nachos-1.0.0.aar/71aa20e6d7556508c26c6713f01fe075/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/nachos-1.0.0.aar/71aa20e6d7556508c26c6713f01fe075/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.hootsuite.android/nachos/1.0.0/32cbbeec0e1c7f6566ec50eb29a8ea29f6a27387/nachos-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

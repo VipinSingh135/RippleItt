@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.ActivityAddContacts">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBarAddContact"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relAddContact_back">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackAddContacts"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="22sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerHorizontal="true"
+            android:text="Add New Contacts"
+            android:id="@+id/txtvwAddContact"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/round_bg_grey"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/imgVwAddContact"
+            android:layout_marginLeft="10sp"
+            android:src="@drawable/search_black_icon"/>
+
+        <EditText
+            android:id="@+id/edtxtAddContact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="10sp"
+            android:layout_toLeftOf="@+id/imgVwClearSearch"
+            android:layout_toRightOf="@+id/imgVwAddContact"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="Search by Email or Phone Number"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/imgVwClearSearch"
+            android:layout_marginRight="10sp"
+            android:src="@drawable/search_cross"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listVwContacts"
+        android:layout_marginTop="10dp"/>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoaderContactSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            app:indicatorName="BallSpinFadeLoaderIndicator"
+            app:indicatorColor="#71b9af" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/txtvwNoResults"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_light"
+            android:text="No matching contacts found."/>
+
+    </RelativeLayout>
+
+</LinearLayout>

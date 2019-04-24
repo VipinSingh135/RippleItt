@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Filters"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgVwClr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_clear_black_34dp" />
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hrscrlvwChipsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:fadeScrollbars="false"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarSize="1dp">
+
+        <LinearLayout
+            android:id="@+id/linlytChipsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linlytFilterFooter"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/colorHeaderBackground"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linlytTypeToggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/header_dark">
+
+                    <TextView
+                        android:id="@+id/txtvwType"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginBottom="20sp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="By Type"
+                        android:textColor="@color/white"
+                        android:textSize="16sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linlytTogglePrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorHeaderBackground">
+
+                    <TextView
+                        android:id="@+id/txtvwRenderPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginBottom="20sp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="By Price Range"
+                        android:textColor="@color/white"
+                        android:textSize="16sp">
+
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linlytToggleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorHeaderBackground">
+
+                    <TextView
+                        android:id="@+id/txtvwRenderCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20sp"
+                        android:layout_marginBottom="20sp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="By Category"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linlytToggleSubCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="75sp"
+                    android:background="@color/colorHeaderBackground">
+
+                    <TextView
+                        android:id="@+id/txtvwRenderSubCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:text="By Sub Category"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linlytTypeOptions"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rdBtnProduct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="Product   "
+                            android:textSize="16dp" />
+
+                        <RadioButton
+                            android:id="@+id/rdBtnService"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="Service"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <ListView
+                        android:id="@+id/lstVwPriceRanges"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></ListView>
+
+                    <ListView
+                        android:id="@+id/lstVwCategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></ListView>
+
+                    <ListView
+                        android:id="@+id/lstVwSubCategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></ListView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linlytFilterFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="1.0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@color/slider_black">
+
+                <TextView
+                    android:id="@+id/txtvwClear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginBottom="20sp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:text="Clear"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@color/clear_light">
+
+                <TextView
+                    android:id="@+id/txtvwFilterCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginBottom="20sp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center"
+                    android:text="Apply Filters"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoaderFilterCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            app:indicatorColor="#71b9af"
+            app:indicatorName="BallSpinFadeLoaderIndicator" />
+
+    </RelativeLayout>
+</LinearLayout>

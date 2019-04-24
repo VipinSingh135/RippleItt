@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.broakenmedia:MultiContactPicker:1.7@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/MultiContactPicker-1.7.aar/803dd4f226bf8af2cb31cde3f0869cfd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/MultiContactPicker-1.7.aar/803dd4f226bf8af2cb31cde3f0869cfd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.broakenmedia/MultiContactPicker/1.7/8400baef761afb22907e91af47d0c8abc5bfe79d/MultiContactPicker-1.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#289b98</color>
+    <color name="colorPrimaryDark">#289b98</color>
+    <color name="colorAccent">#289b98</color>
+    <color name="colorHeaderBackground">#289b98</color>
+    <color name="slider_black">#313131</color>
+    <color name="white">#ffffff</color>
+    <color name="light_grey">#f0f0f0</color>
+    <color name="light_grey2">#ededed</color>
+    <color name="grey">#dedcdc</color>
+    <color name="grey2">#B9B9B9</color>
+    <color name="grey_darker">#707070</color>
+    <color name="grey_darker2">#505050</color>
+    <color name="clear_light">#93c49c</color>
+    <color name="green_light">#45bb8f</color>
+    <color name="green_dark">#8FEEA0</color>
+
+    <color name="black">#000000</color>
+    <color name="yellow">#79fcf356</color>
+    <color name="yellowDark">#f18e5e31</color>
+    <color name="header_dark">#055452</color>
+    <color name="bg">#ffffff</color>
+    <color name="fb_blue">#36568d</color>
+    <color name="text_dark">#007560</color>
+    <color name="color_orange">#03B1DD</color>
+
+    <!--<color name="text_dark">#e17100</color>-->
+    <!--<color name="text_dark">#007560</color>-->
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="12dp">
+
+    <RelativeLayout
+        android:id="@+id/relTopBarProductDetail"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/header">
+
+        <RelativeLayout
+            android:id="@+id/relViewBidsback"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/imgBackProductDetail"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/back_arrow" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtvwTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Terms &amp; Conditions"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relTopBarProductDetail">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/strTermsCondition"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12dp"
+            app:layout_constraintVertical_bias="0.01999998" />
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
+

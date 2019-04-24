@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/round_bg_grey"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/rellytSearchBox"
+        android:visibility="gone"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/imgVwSearchIcon"
+            android:layout_marginLeft="10sp"
+            android:src="@drawable/search_black_icon"/>
+
+        <EditText
+            android:id="@+id/edtxtQuickSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="10sp"
+            android:layout_toLeftOf="@+id/imgVwClearSearch"
+            android:layout_toRightOf="@+id/imgVwSearchIcon"
+            android:background="@null"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center_vertical"
+            android:hint="Search via Keyword"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/imgVwClearSearch"
+            android:layout_marginRight="10sp"
+            android:src="@drawable/search_cross"/>
+
+    </RelativeLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_marginLeft="5sp"
+       android:id="@+id/linlytTabContainer"
+       android:layout_marginRight="5sp"
+       android:layout_marginTop="10sp"
+       android:layout_marginBottom="10sp"
+       android:weightSum="1.0">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5sp"
+           android:layout_marginRight="2sp"
+           android:padding="10sp"
+           android:orientation="horizontal"
+           android:id="@+id/linlytProducts"
+           android:background="#349b99"
+           android:gravity="center"
+           android:layout_weight="0.5">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/white"
+               android:fontFamily="@font/montserrat_regular"
+              android:layout_gravity="center"
+               android:text="Products"/>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="2sp"
+           android:layout_marginRight="5sp"
+           android:background="#aaaaaa"
+           android:padding="10sp"
+           android:id="@+id/linlytServices"
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_weight="0.5">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/white"
+               android:fontFamily="@font/montserrat_regular"
+               android:text="Services"/>
+
+       </LinearLayout>
+   </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewHomeProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.google.android.gms.maps.MapView
+            android:id="@+id/mpvwGoogleMapInstance"
+            android:layout_width="match_parent"
+        android:visibility="gone"
+            android:layout_height="match_parent">
+        </com.google.android.gms.maps.MapView>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+            android:id="@+id/linlytInfoWindow"
+            android:background="@drawable/stagger_background"
+            android:weightSum="1.0"
+            android:layout_margin="3dp">
+            
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="match_parent"
+                android:layout_weight="0.6"
+                android:layout_margin="5sp"
+                android:id="@+id/infoWindowProducPic"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linlytInfoWindowClickHandler"
+                    android:layout_margin="5sp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtVwProductWishlistTitle"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="10dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="10dp"
+                        android:text="Drone"
+                        android:textColor="#000000"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtVwProductWishlistDetail"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="@string/product_detail_wishlist"
+                        android:textSize="10sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtVwProductWishlistPrice"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="$1200"
+                        android:singleLine="true"
+                        android:textColor="#65b488"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtVwProductReferAmount"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="$1200"
+                        android:visibility="gone"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="#65b488"
+                        android:textSize="13sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="3dp"
+                        android:background="#dedcdc"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imgVwprofileImageHome"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/profile_pic"
+
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            app:civ_border_color="#FF000000"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Jhon Smith"
+                            android:textColor="#4e4d4d"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@+id/relViewProfileDetails"
+                            android:layout_toRightOf="@+id/imgVwprofileImageHome"
+                            android:id="@+id/txtVwUserNameHome"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imgvwHideInfo"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_clear_black_34dp"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoaderHomeCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+
+            android:layout_centerInParent="true"
+            app:indicatorName="BallSpinFadeLoaderIndicator"
+            app:indicatorColor="#71b9af" />
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/aviLoaderHomeBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20sp"
+
+            android:layout_centerHorizontal="true"
+            app:indicatorName="BallSpinFadeLoaderIndicator"
+            app:indicatorColor="#71b9af" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/txtvwNoResults"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_light"
+            android:text="No matching results found."/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

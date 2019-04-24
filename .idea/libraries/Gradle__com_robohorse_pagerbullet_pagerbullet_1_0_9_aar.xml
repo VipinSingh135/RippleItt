@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.robohorse.pagerbullet:pagerbullet:1.0.9@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/pagerbullet-1.0.9.aar/1a583f239f97f7da69b6cffd002fc394/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/pagerbullet-1.0.9.aar/1a583f239f97f7da69b6cffd002fc394/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.robohorse.pagerbullet/pagerbullet/1.0.9/975a187e00eac77d0d95f31d91659a03c4bd79b2/pagerbullet-1.0.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

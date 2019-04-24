@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.AddNewProduct">
+
+
+    <RelativeLayout
+        android:id="@+id/relTopBarAddProduct"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/header">
+
+        <RelativeLayout
+            android:id="@+id/relAddProduct_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/imgBackAddProduct"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/back_arrow" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtvwAddPRoduct"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Add Listing"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrlvwWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/relUploadProductImages"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle_view_grey_border">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/upload_product_img_icon" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/txtvwUploadProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center"
+                android:text="@string/upload_product_img"
+                android:textColor="@color/colorHeaderBackground"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtvwExistingPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Existing Photos"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/linlyExistingImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/drawable_long_oval">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerProductExistingMultiImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtvwAddedPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Added Images"
+                android:textColor="#000"
+                android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:id="@+id/linlyImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+
+                android:background="@drawable/drawable_long_oval">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerProductMultiImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearListingType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="6dp"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingTop="6sp"
+                android:paddingBottom="8sp">
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Listing Type"-->
+                <!--android:visibility="gone"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16dp" />-->
+
+                <!--<RadioGroup-->
+                <!--android:id="@+id/radioGroupListingType"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginLeft="20sp"-->
+                <!--android:layout_marginRight="20sp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:visibility="gone"-->
+                <!--android:weightSum="address">-->
+
+                <!--<RadioButton-->
+                <!--android:id="@+id/rdBtnProduct"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="0.user"-->
+                <!--android:checked="true"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Product   "-->
+                <!--android:textSize="16dp" />-->
+
+                <!--<RadioButton-->
+                <!--android:id="@+id/rdBtnService"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="0.user"-->
+                <!--android:checked="false"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Service"-->
+                <!--android:textSize="16dp" />-->
+                <!--</RadioGroup>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_wallet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Type*"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/green_gradient_line" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linlytTabContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="15sp"
+                    android:layout_marginBottom="8sp"
+                    android:orientation="horizontal"
+                    android:weightSum="1.0">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                        <LinearLayout
+                            android:id="@+id/linlytProducts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/tab_green_centre"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="10sp">
+
+                            <ImageView
+                                android:id="@+id/imgProducts"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/white_cicle" />
+
+                            <TextView
+                                android:id="@+id/tvProducts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="Products"
+                                android:textColor="@color/colorHeaderBackground" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                        <LinearLayout
+                            android:id="@+id/linlytServices"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:background="@drawable/tab_green_centre_outline"
+                            android:orientation="horizontal"
+                            android:padding="10sp">
+
+
+                            <ImageView
+                                android:id="@+id/imgServices"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/light_blue_circle" />
+
+                            <TextView
+                                android:id="@+id/tvServices"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="Services"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginRight="12dp"
+                                android:textColor="@color/grey2" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearProductType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15sp"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp">
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Product Type"-->
+                <!--android:visibility="gone"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16dp" />-->
+
+                <!--<RadioGroup-->
+                <!--android:id="@+id/radioGroupProductType"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:visibility="gone"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginLeft="20sp"-->
+                <!--android:layout_marginRight="20sp"-->
+                <!--android:layout_marginTop="12dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="address">-->
+
+                <!--<RadioButton-->
+                <!--android:id="@+id/rdBtnNewProduct"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="0.user"-->
+                <!--android:checked="true"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="New "-->
+                <!--android:textSize="16dp" />-->
+
+                <!--<RadioButton-->
+                <!--android:id="@+id/rdBtnUsedProduct"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="0.user"-->
+                <!--android:checked="false"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Used "-->
+                <!--android:textSize="16dp" />-->
+                <!--</RadioGroup>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/ic_wallet" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Condition*"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:background="@drawable/green_gradient_line" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linlytTabContain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginRight="5sp"
+                    android:layout_marginBottom="8sp"
+                    android:orientation="horizontal"
+                    android:weightSum="1.0">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                    <LinearLayout
+                        android:id="@+id/linlytNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5sp"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/tab_green_centre"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="10sp">
+
+                        <ImageView
+                            android:id="@+id/imgNew"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/white_cicle" />
+
+                        <TextView
+                            android:id="@+id/tvNew"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="24dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="New"
+                            android:textColor="@color/colorHeaderBackground" />
+                    </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5">
+
+                    <LinearLayout
+                        android:id="@+id/linlytUsed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/tab_green_centre_outline"
+                        android:orientation="horizontal"
+                        android:padding="10sp">
+
+
+                        <ImageView
+                            android:id="@+id/imgUsed"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/light_blue_circle" />
+
+
+                        <TextView
+                            android:id="@+id/tvUsed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:text="Used"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="24dp"
+                            android:textColor="@color/grey2" />
+
+                    </LinearLayout>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/edittxtAddProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginTop="32dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/drawable_long_oval"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Title*"
+                android:paddingLeft="15dp"
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"
+                android:singleLine="true"
+                android:textColor="#666666"
+                android:textColorHint="@color/black"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:id="@+id/relProductCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/drawable_long_oval"
+                android:padding="5sp">
+
+                <Spinner
+                    android:id="@+id/spinnerCategoryAddProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Category*"
+                    android:overlapAnchor="false"
+                    android:singleLine="true"
+                    android:textColor="#666666"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:tint="#a6a6a6" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relProductSubCategory"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/drawable_long_oval"
+                android:padding="5sp">
+
+                <Spinner
+                    android:id="@+id/spnrSubCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:entries="@array/subcat_arr"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="Sub Category*"
+                    android:overlapAnchor="false"
+                    android:singleLine="true"
+                    android:textColor="#666666"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imgVwSpinnerArrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:tint="#a6a6a6" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relEmailSignup"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp">
+
+                <EditText
+                    android:id="@+id/edittxtDescAddProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/drawable_long_oval"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="top"
+                    android:hint="@string/description_product"
+                    android:minLines="6"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="15dp"
+                    android:textColor="#666666"
+                    android:textColorHint="#000000"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/btnAddProdSaveDraft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_right_gradient"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:padding="15sp"
+                    android:text="@string/save_Draft"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/btnAddPRoductPublish"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_left_gradient"
+                    android:drawableRight="@drawable/arrow_right_white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:padding="15sp"
+                    android:text="@string/next"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

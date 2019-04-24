@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10sp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/relLayoutMangeList"
+        android:layout_marginBottom="5dp">
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/relImageProductMAnge">
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/bg_border_square_black"
+            android:scaleType="centerCrop"
+            android:id="@+id/imgVwProductManageList"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NEW"
+                android:fontFamily="@font/montserrat_regular"
+                android:id="@+id/txtvwDraftStatus"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/imgVwProductManageList"
+                android:layout_centerInParent="true"
+                android:textColor="#65b488"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_toLeftOf="@+id/relMenuManage"
+            android:layout_marginLeft="10sp"
+            android:layout_toRightOf="@+id/relImageProductMAnge">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwProductNameMAnage"
+                android:text="Smith Man"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:singleLine="true"
+                android:gravity="top"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwProductDescrptionMAnage"
+                android:text="@string/product_detail_wishlist"
+                android:textSize="14sp"
+                android:textColor="#65b488"
+                android:singleLine="true"
+                android:maxLines="2"
+                android:layout_marginTop="5sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwProductPriceMAnage"
+                android:text="@string/product_price_mange"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="#999999"
+                android:singleLine="true"
+                android:layout_marginTop="5sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"/>
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:id="@+id/relMenuManage"
+
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:layout_width="7dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/menu_manage_list"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frmlytOrderFlagColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="#65b488"
+            android:padding="2sp">
+
+            <TextView
+                android:id="@+id/txtvwLabelOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="New "
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

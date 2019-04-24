@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5sp"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5sp"
+        android:id="@+id/imgVwBidBuyerPic"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/default_profile_icon"/>
+    <TextView
+        android:id="@+id/txtvwListingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgVwBidBuyerPic"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingRight="5dp"
+        android:layout_marginLeft="10sp"
+        android:singleLine="true"
+        android:text="Jhon Smith"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:layout_marginLeft="10sp"
+        android:layout_toRightOf="@+id/imgVwBidBuyerPic"
+        android:textColor="#65b488"
+        android:textSize="14sp"
+        android:layout_alignBottom="@+id/imgVwBidBuyerPic"
+        android:fontFamily="@font/montserrat_regular"
+        android:id="@+id/txtVwDetails"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$000"
+        android:textColor="#65b488"
+        android:textSize="14sp"
+        android:gravity="right"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_alignBottom="@+id/txtVwDetails"
+        android:layout_alignParentRight="true"
+        android:id="@+id/txtVwPrice"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="5sp"
+        android:layout_below="@+id/txtVwPrice"
+        android:background="#f0f0f0"/>
+</RelativeLayout>
+

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relLayoutMangeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10sp"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:id="@+id/relImageProductMAnge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10sp"
+            android:layout_marginTop="10sp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imgVwProductThumb"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10sp"
+                android:layout_marginLeft="20sp"
+                android:layout_marginBottom="5sp"
+                android:background="@drawable/bg_border_square_black"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_toLeftOf="@+id/relMenuManage"
+            android:layout_toRightOf="@+id/relImageProductMAnge"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtVwProductNam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="top"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:text="Smith Man"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtvwItemAskPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingLeft="10dp"
+                android:text="$000"
+                android:textColor="#65b488"
+                android:textSize="14sp" />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtVwUserBid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="#999999"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/imgvwAcceptTick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10sp"
+
+                    android:src="@drawable/ic_check_circle_black_24dp"
+                    android:tint="#65b488"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtvwItemDiscPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingLeft="10dp"
+                android:text="$000"
+                android:textColor="@color/color_9"
+                android:textSize="13sp" />
+
+            <!--  add the  oder ID here...-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="2sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="Order ID:  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtvwrderNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="2sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="Status:  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtvwrderStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frmlytOrderFlagColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="#65b488"
+            android:padding="3sp">
+
+            <TextView
+                android:id="@+id/txtvwLabelOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Buying "
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

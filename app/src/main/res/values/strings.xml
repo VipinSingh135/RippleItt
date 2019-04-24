@@ -1,0 +1,392 @@
+<resources>
+    <string name="app_name">Rippleitt</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="change_pass">Change Password</string>
+    <string name="update_payment_method">Update Payment Method</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="submit">Submit</string>
+    <string name="signup">Sign Up</string>
+    <string name="resend_otp">Didn\'t receive code? Resend Code</string>
+    <string name="edit_profile_pic">Edit Profile Photo</string>
+
+    <string name="phone_number">Phone Number</string>
+    <string name="forgotPass">Forgot Password?</string>
+    <string name="or">or</string>
+    <string name="fbLogin">Login With Facebook</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="skip">SKIP</string>
+    <string name="addpayment">Add Payment Method</string>
+    <string name="addcardDetails">Please add your card details</string>
+    <string name="cardNo">Card Number*</string>
+    <string name="cardholderName">Card Holder Name*</string>
+    <string name="cvv">CVV*</string>
+    <string name="next">Next</string>
+    <string name="welcomeTo">Welcome to</string>
+    <string name="firstname">First Name*</string>
+    <string name="lastname">Last Name*</string>
+    <string name="contact">Contact Number</string>
+    <string name="confirm_pass">Confirm Password*</string>
+    <string name="addr1">Address 1*</string>
+    <string name="addr2">Address 2</string>
+    <string name="refer_code">Referral Code</string>
+    <string name="upload_profile">Upload Your Photo</string>
+    <string name="addContact"><u>+ ADD NEW ADDRESS</u></string>
+    <string name="product_price_mange">$300  Weight:1kg  Unit:1</string>
+    <string name="product_detail_wishlist">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="productdetail"><u>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </u>.</string>
+    <string name="notification_data">Jhon Smith has been accepted your offer, he been opened to chat with you.</string>
+    <string name="upload_product_img">Upload Listing Photo*</string>
+    <string name="description_product">Description or Keywords*</string>
+    <string name="product_qty">Quantity*</string>
+    <string name="list_add_next"><![CDATA[List & Add Next]]></string>
+    <string name="finish">Finish</string>
+    <string name="save_Draft">Save as Draft</string>
+    <string name="publish">Publish</string>
+    <string name="done">Done</string>
+    <string name="edit_product_img">Edit Product Image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="latitude_label">Latitude</string>
+    <string name="longitude_label">Longitude</string>
+    <string name="last_update_time_label">Last location update time</string>
+
+    <string name="start_updates">Start updates</string>
+    <string name="stop_updates">Stop updates</string>
+
+    <string name="location_settings_inadequate_warning">The location settings on the device are not
+        adequate to run this sample. Fix in Settings.</string>
+
+
+    <string name="no_geocoder_available">No geocoder available</string>
+
+    <string name="fetch_address">Fetch address</string>
+
+    <string name="address_found">Address found</string>
+
+    <string name="no_address_found">Sorry, no address found</string>
+    <string name="no_location_data_provided">No location data provided</string>
+    <string name="service_not_available">Sorry, the service is not available</string>
+    <string name="invalid_lat_long_used">Invalid latitude or longitude used</string>
+
+
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+    <string name="settings">Settings</string>
+    <string name="google_maps_key">AIzaSyDqHFU_1UkrpP-cfnCuq4tslIX893x6QwI</string>
+    <string name="facebook_app_id">167627797256381</string>
+    <string name="fb_login_protocol_scheme">fb167627797256381</string>
+    <string name="strBuyNow">Buy Now</string>
+    <string name="strNeedHelp">Raise Dispute</string>
+    <string name="strAddComment">Add Comment</string>
+    <string name="bsb">BSB*</string>
+    <string name="accountName">Account Holder Name*</string>
+    <string name="accountNumber">Account Number*</string>
+    <string name="update_account">Update Bank Account Details</string>
+    <string name="strOrderSummary">Order Summary</string>
+    <string name="strDummy">Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .Lorem Ipsum dummy text .</string>
+    <string name="order_hint">Hint :- Make payment will add the payment to RippleItt</string>
+
+    <string-array name="subcat_arr">
+        <item>Sub Category*</item>
+    </string-array>
+    <string-array name="listing_units">
+        <item>Boxes</item>
+        <item>Packets</item>
+        <item>Pcs.</item>
+    </string-array>
+    <string-array name="calendar_months">
+        <item>Expiration Month*</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="calendar_year">
+        <item>Expiration Year*</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+        <item>2028</item>
+        <item>2029</item>
+        <item>2030</item>
+        <item>2031</item>
+        <item>2032</item>
+        <item>2033</item>
+        <item>2034</item>
+        <item>2035</item>
+        <item>2036</item>
+        <item>2037</item>
+        <item>2038</item>
+        <item>2039</item>
+        <item>2040</item>
+
+    </string-array>
+    <string-array name="sub_cat_df">
+        <item>Sub Category*</item>
+    </string-array>
+    <string-array name="Type">
+        <item>%</item>
+        <item>$</item>
+    </string-array>
+
+    <string name="strTermsCondition">
+        Rippleitt Terms &amp; Conditions of Use
+\n\nRippleitt\’s mission statement is to provide the best possible service to its users and maintain the integrity of its marketplace for the benefit of all users.  It has therefore developed this code of conduct to regulate how its services may be used.  This is a contract between you as a user and Rippleitt. A breach of the code of conduct can result in a warning or immediate termination, subject to these Terms.
+\n\n\n1 General
+\n\n1.1 These Terms and Conditions of Use (the Terms) govern your use of the Website and a Mobile Phone Application Platform located at www.Rippleitt.com.au(the App) and form a binding contractual agreement between you, the user of the App and us, Rippleitt Pty Ltd ABN 39 625 654 935, the owner and operator of the App (Rippleitt).
+\n\n1.2 These Terms are important and you should ensure that you read them carefully.  If you have any questions regarding this App, please contact us at. By completing the user registration process on the App or using the App you acknowledge and agree that you understand these Terms and you agree to be bound by them . If you do not agree to the Terms, do not use the App.
+\n\n1.3 Rippleitt is a peer to peer marketplace where users can list new or used products/items for sale, market services and reward members who use the App.  You acknowledge and agree that Rippleitt is in no way directly involved in any transaction between users and its role is limited to providing a platform that allows users to refer goods and services to other users of the App.  Rippleitt in no way guarantees the description, photographs, performance or delivery of goods or services provided by any user nor does it provide any guarantee as to the authenticity of bona fides of any user in any respect or manner whatsoever. Rippleitt cannot and does not confirm the purported identity of each user.
+\n\n1.4 Information on the App is general information only. As a user of the App, you should make your own inquiries and obtain independent advice based on your specific circumstances prior to making any decisions. Rippleitt and its directors, agents or employees do not accept and are by these Terms released by you of any liability to you arising (whether directly or indirectly) out of the information provided on the App or anyone else through the App or any errors in, or omissions from information on the App.
+\n\n1.5 You agree to accept the sole responsibility for the legality of your actions used the laws which apply to you . You agree that Rippleitt have no responsibility for the legality of the actions of users of the App or Rippleitt services.
+\n\n1.6 You and Rippleitt are independent contractors and no agency, partnership, joint venture, employee-employer or franchisee-franchisor relationship is created or intended by this Terms and Conditions agreement or your use of the App or Rippleitt services.
+\n\n1.7 As a user of the App you must provide Rippleitt with complete, up to date and accurate information as requested and it is your responsibility to inform Rippleitt of any changes to that information as soon as reasonably practicable .
+\n\n1.8 Users must be over the age of 18 and must be a natural person whom represent a business entity .
+\n\n1.9 Rippleitt may, at its absolute discretion, refuse to allow any person to register or create an account with Rippleitt or cancel or suspend any existing account without notice or without giving any explanation.
+\n\n1.10 Any commercial  use of the App by you requires the prior written approval of Rippleitt.
+\n\n1.11 Rippleitt reserves the right to change these Terms, the App or content contained within the App at any time with or without any notice to you nor giving any explanation for such change.
+\n\n1.12 All personal information you provide to Rippleitt as a user will be treated in accordance with Rippleitt\’s Privacy Policy  .
+\n\n1.13 Rippleitt reserves the right to record phone calls between you and Rippleitt employees or Rippleitt agents for training purposes.
+\n\n\n2 Users
+\n\n2.1 You acknowledge that the App isa platform that allows users to list new and used goods and services for sale, and for users to refer listed goods and services to other users of the App.
+\n\n2.2 As a condition of your use of the App or any service provided by Rippleitt, you warrant to Rippleitt that you will not use the App of any Rippleitt service for any purpose that is prohibited by the Terms or that is illegal or unlawful.  You agree to abide by all applicable laws and regulations.
+\n\n2.3 You agree not to post illegitimate  reviews on the App as this is against the law.
+\n\n2.4 As a condition of your use of this App, you agree to not engage in conduct which is determined as unacceptable by Rippleitt (Unacceptable Conduct). Unacceptable Conduct is determined by Rippleitt, at its absolute discretion, and includes, but is not limited to, the following conduct:
+\n2.4.1 use the App to offend, bully, intimidate or be discourteous to Rippleitt or others;
+\n2.4.2 impersonate any other individual or business;
+\n2.4.3 publish, or in any way distribute or disseminate any information which is unlawful, obscene, defamatory, offensive or inappropriate;
+\n2.4.4 engage in, encourage participation, advertise or promote any contests, pyramid schemes, surveys, chain letters, spamming or unsolicited emailing through the App;
+\n2.4.5 use automated scripting tools or software;
+\n2.4.6 make available any material you do not have a right to make available including any law or which  contains viruses, or other computer codes, files or programs designed to interfere with the functioning of other software or hardware; or breach any laws or regulations applicable to your use of the App;
+\n2.4.7 use the App to supply another service, or to obtain information which you either incorporate into your service or goods to enhance your service or goods or your business in any way such as creating potential customer lists.
+\n\n2.5 Users that accept any offer to purchase a good or service listed on the  App will enter into a contract with the user who has listed the good or service for sale.  Users who purchase a goods or services on the App must solely determine whether that contract is suitable for their needs by making their own reasonable enquiries as to the credibility and suitability of the user that is offering the good or services for sale. Rippleitt accepts no liability for the quality of any good offered for sale on the App or the performance of any service that is listed on the App provided or any other liability whatsoever in the provision and payment of goods and services between users of the App.  Rippleitt has not contract or agreement with you as a user and only acts as agent for users to facilitate relationships with other users of the App.
+\n\n2.6 Any disputes between users of the App must be resolved between those parties.  Rippleitt is not a party to any contract or agreement between any users of the App and cannot and will not resolve any disputes between users. Rippleitt in no way whatsoever provides any endorsement or recommendation  of any user listed on the App and is not liable in any manner whatsoever for any claim, disagreement or dispute arising between any users of the App.
+\n\n2.7 By operating the App Rippleitt does not assume a duty of care to users.  Rippleitt does not provide any professional advice and gives no warranty, guarantee or representation about the accuracy, reliability or timeliness or otherwise, of the information contained on the App and/or linked to any user of the App.
+\n\n2.8 You represent and warrant to Rippleitt in relation to any good or service or any material or information you provide on the App that:
+\n2.8.1 you are authorised to provide the good or service that you represent;
+\n2.8.2 the good or service or any material or information is not defamatory or a malicious falsehood  in relation to any product, service, person or corporation;
+\n2.8.3 the good or service or any material or information is not the \“passing off\” of any product or service and does not constitute unfair  competition;
+\n2.8.4 the good or service or any material or information does not infringe any intellectual property right including, but not limited to, trademarks, service marks or business names (whether registered or unregistered), confidential information and copyright; and
+\n2.8.5 the good or service or any material or information does not infringe any legislation or regulations of the Commonwealth of Australia and the State of Victoria  including, but not limited to, the Australian Consumer Law, the Competition and Consumer Act 2010 (Cth) and the Fair Trading Act 1999 (Vic) and equivalent state and territory legislation and any other parliament competent to legislate in relation to the App or any law in any country where the material and/or information is or will be available electronically to users of the App.
+\n\n2.9 By uploading any material which is intellectual property including, but not limited to, copyrighted works, trademarks and service marks (intellectual property) on to the App, you are granting Rippleitt a perpetual, non-exclusive and payment-free licence throughout the world to reproduce, use and exploit the intellectual property, as part of the App, to the full extent  permitted by intellectual property law in any jurisdiction in which the App is available to users.
+\n\n2.10 To the full extent permitted by law Rippleitt disclaims any and all warranties, express or implied, regarding the accuracy, reliability, timeliness or otherwise of any information contained or referred to on the App and/or of any linked business and merchantability or fitness for any particular purpose for any good, service or product contained or referred to on the App and/or on any linked user.
+\n\n2.11 Rippleitt does not conduct any of its own searches and does not provide any assurances or warranties concerning the legality or validity of any information provided by any user of the App.
+\n\n2.12 Rippleitt and its respective officers, employees and agents  have no liability for any costs, losses or damages of any kind, which you may incur, arising whether directly or indirectly. This applies in relation to or in connection with any material and/or information supplied in respect of advertising goods and services on this App ; and as a consequence of removing any material and/or information from this App.
+\n\n2.13 You will at all times indemnify and keep indemnified Rippleitt and its respective officers, employees and agents (referred to as those indemnified) from and against any loss (including reasonable legal costs and expenses) or liability incurred by any of those indemnified arising from any claim, demand, suit, action or proceeding by any person against any of those indemnified where such loss or liability arose out of, in connection with or in respect of any breach of these Terms by you; and publication of or distribution of the material and/or information supplied by you.
+\n\n2.14 Rippleitt is not and will not be liable under any circumstances for any loss of profits or any damages of any kind recognised by law which are the consequence of any user acting, or failing to act, on any information contained on or referred to on the App and/or any of the users linked on the App or the use or acquisition, or your inability to use or acquire, any service or product contained or referred to on the App and/or any linked user.
+\n\n2.15 Excluding liability for negligence the maximum liability of Rippleitt  is equivalent to the total of any amounts you have paid to Rippleitt in respect of goods or services supplied to you by Rippleitt or $1,000, whichever is less.
+\n\n2.16 Rippleitt and its authorized representatives may gather and process any information which you provide when accessing the App which may include personal information.  Please see our Privacy Policy for further details on how we manage your personal information.
+\n\n2.17 Rippleitt may use any information provided by you on the App to engage in direct marketing to you in any medium.
+\n\n2.18 Rippleitt may share your contact  details and information about your usage with a business you have been introduced to  on the App.
+\n\n2.19 In relation to any material and/or information included on the App, Rippleitt may remove any material and/or information, including but not limited to links to you, at any time without giving any explanation or justification for removing the material and/or information.
+\n\n2.20 Rippleitt may terminate  access to the App at any time without giving any explanation or justification for the termination of access, and Rippleitt has no liability for any costs, losses or damages of any kind arising as a consequence of terminating access to the App.
+\n\n2.21 Rippleitt reserves the right to change these Terms with or without further notice to you and without giving you any explanation or justification for such change.
+\n\n\n3 Fees
+\n\n\n3.1 Users of the App to list goods or services for sale will pay a reward fee that will be payable to other users that recommend or refer such goods and services and where such recommendation or referral results in a sale (Referral Fee).  The Reward Fee is determined by the user that lists the good or services for sale on the App.  Ripplitt will also take a portion of the Referral Fee as an App administration fee.
+\n\n3.2 Payment  of the Referral Fee is made to Rippleitt by credit card, EFT, PayPal or other method specified by Rippleitt.  The Referral Fee will be held by Rippleitt in escrow until the relevant good or service is sold through the App .
+\n\n3.3 Users who sign up to the App will be allocated a digital wallet by Rippleitt.  Any Referral Fee payable to a user will be placed in their digital wallet and may be withdrawn at any time by the user.  A minimum withdrawal is AUD$10.00. The Referral  Fee will be paid to the user\’s bank account by Rippleitt by EFT.
+\n\n3.4 You acknowledge and agree that as a term and condition of using the App, any fees incurred or paid by you are non-refundable.  Any refund of any fees or credit for fees provided to you are at the absolute discretion of Rippleitt.
+\n\n\n4 Promotions &amp; Competitions
+\n\n4.1 Rippleitt may run promotions or competitions involving the awarding of prizes or other gifts, Rippleitt may modify these Terms and implement additional terms and conditions, which will  be communicated to you by posting them on the App at the time of such promotions and competitions.
+\n\n\n5 App Generally
+\n\n5.1 Rippleitt may display advertisements, which may or may not contain hyperlinks or buttons which take you to Apps operated by third parties. Rippleitt does not endorse or recommend its advertisers, their products or services, or the information, products or services of any App linked to the App.
+\n\n5.2 Rippleitt allows users of the App to recommend, rate  and comment on the sale or goods and services listed on the App. Rippleitt reserves the right to publish or not to publish those recommendations, ratings and comments on the App at its absolute discretion.Rippleitt reserves the right to delete or modify recommendations, ratings and comments submitted on the App at any time for any reason .
+\n\n5.3 Rippleitt reserves the right to aggregate user recommendations, ratings, comments and feedback into a percentage score and publish that score on the App .
+\n\n5.4 In Australia and other countries, recommendations, ratings comments and feedback may be considered defamatory of the reputation and standing of individuals and businesses. You acknowledge and agree that Rippleitt accepts no responsibility for liability, damage, injury or loss that may arise from feedback submitted to or published on the App, and you, by these Terms, release forever and indemnify Rippleitt from any liability it may incur arising out of (whether directly or indirectly) any feedback you post on the App. You further agree that, if you or anyone else commences or threatens any action or proceeding against Rippleitt or makes any claim or demand against Rippleittas a result of any recommendations, ratings comments or feedback you submitted  to the App, Rippleitt may, in it’s absolute discretion, without any notice to you immediately cancel or suspend your membership of the App.
+\n\n5.5 If you contact a third party through the App, including via email, Rippleitt accepts no responsibility for any actions taken by that third party in connection with you as the user.
+\n\n5.6 Rippleitt may from time to time and at any time change or discontinue any feature of the App including content, hours or availability and equipment required for access.
+\n\n5.7 Rippleitt does not warrant, guarantee or make any representation that:
+\n5.7.1 the App, or the server that makes the App available are free of software viruses;
+\n5.7.2 the functions contained in any software contained on the App will operate uninterrupted or are error-free; and
+\n5.7.3 errors and defects in the App will be corrected.
+\n\n5.8 Rippleitt is not liable to you for:
+\n5.8.1 errors or omissions in the App, or linked users;
+\n5.8.2 delays to, interruptions of or cessation of the services provided in the App, or linked users; and
+\n5.8.3 defamatory, offensive or illegal conduct of any user of the App, whether caused through negligence of Rippleitt, its employees or independent contractors, or through any other cause.
+\n\n5.9 You agree to accept the full cost of any necessary repair, correction and maintenance of any of your computer software or hardware, which may be necessary as a consequence of you accessing the App.
+\n\n\n6 Termination of User Account
+\n\n6.1 In accordance with these Terms Rippleitt may terminate your use or, or access to, the App at any time. If this happens Rippleitt may notify you by email.
+\n\n6.2 If your use of the App is terminated:
+\n6.2.1 you are no longer authorised to access the App or use any other Rippleitt services with the email address you used to register with the App or any other email address you possess;
+\n6.2.2 you will continue to be subject to and bound by all restrictions imposed on you by the Terms; and
+\n6.3 all licences granted by you and all disclaimers by Rippleitt and limitations of Rippleitt\’s liability set out in the Terms or elsewhere on the App will survive such termination.
+\n\n\n7 Customer Support &amp; Complaints Policy
+\n\n7.1 Rippleitt will attempt to resolve any customer complaints and answer any questions within 2 business days of the first contact made by a customer by email to xxxx@Rippleitt.com.au
+\n\n7.2 All other complaints are reviewed by Rippleitt customer support representatives and may be escalated to a manager for resolution if required.
+\n\n7.3 Rippleitt reserves the right not to respond to customer support questions or complaints that offend Rippleitt employees or agents.
+\n\n7.4 Rippleitt reserves the right not to respond to questions or complaints made by individuals who, in the opinion of Rippleitt, are not current users of the App, or have been suspended from using the App.
+\n\n\n8 Governing Terms
+\n\n8.1 If any part of this Agreement is found to be void, unlawful, or unenforceable then that part will be deemed to be severable from the balance of this Agreement and the severed part will not affect the validity and enforceability of any remaining provisions.
+\n\n8.2 This Agreement will be governed by and interpreted in accordance with the law of New South Wales, Australia, without giving effect to any principles of conflicts of laws.
+\n\n8.3 You agree to the jurisdiction of the courts of New South Wales to determine any dispute arising out of this Agreement.
+\n\n\n9 Contacting Us
+\n\n\n9.1 Rippleitt\’s Head Office is located at 10/21 Hezlett RdKellyville NSW 2155. If you require further information regarding these Terms, please email admin@Rippleitt.com
+
+    </string>
+
+
+    <string name="strPrivacyPolicy">
+        Privacy Policy
+\n\nRippleitt Pty Ltd ABN 39 625 654 935 of 10/21 HezlettRdKellyville NSW 2155 (we, us and our) owns and operates this Mobile Phone Application Platform and website www.rippleitt.com.au (App).  This Privacy Policy relates to us and our subsidiaries and related entities.
+\n\nWe are an Australian corporation and conduct our Australian operations in accordance with the Australian Privacy Act 1988 (Cth) (thePrivacy Act) and the Australian Privacy Principles (the APPs) which form part of that Privacy Act.
+\n\nBy accessing and using the App you accept and agree to the terms and conditions of Rippleitt\’s Terms and Conditions which includes your consent to, and authorisation of, the collection, use and disclosure of your personal information in accordance with this Privacy Policy.
+\n\nGeneral
+\n\nThis Privacy Policy sets out how we collect, use and disclose personal information entrusted to us by our customers or otherwise collected and used by us.
+Unless you notify us otherwise, when you click \‘I AGREE\’ to this Privacy Policy, you consent (and we assume you consent) to the collection of all information which is provided to us for use in accordance with this Privacy Policy.
+We may modify or amend this Privacy Policy from time to time.
+\n\nWhat is Personal Information?
+\nPersonal information is information or an opinion about an individual, or an individual who is reasonably identifiable, whether true or not and whether recorded in material form or not. Sensitive information is subset of personal information and has the meaning given to it in the Privacy Act.
+\n\nSensitive information is subset of personal information and has the meaning given to it in the Privacy Act. Sensitive information means information or an opinion about an individual\’s racial or ethnic origin, political opinions, membership of a political association, religious beliefs or affiliations, philosophical beliefs, membership of a professional or trade association, membership of a trade union, sexual orientation or practices, criminal record, health, genetic or biometric information. We do not knowingly collect, hold or use such information. If we become aware that such information has inadvertently been inadvertently collected or is inadvertently held by us, we will destroy it.
+
+\n\nWhat personal information do we collect?
+\nWe may collect personal information from you when you register on the App and through your dealings with us including by telephone, email, SMS and other methods.
+\n\nInformation we collect may include, but is not limited to, the following:
+\n1. name, age, date of birth and place of birth;
+\n2. residential address, business address, email address and contact telephone numbers;
+\n3. business particulars;
+\n4. information that is required or authorised by law;
+\n5. opinions about our products, services and/or staff;
+\n6. occupation and interests;
+\n7. photos, videos or Rippleitt App identifiers;
+\n8. bank account details and credit/debit card details; and
+\n9. details about you through the use of cookies.
+\n\nIf your personal details change, it is your responsibility to update your Rippleitt account with those changes, so that we can keep our records complete, accurate and up to date.
+\n\nIn addition to data collected from your submissions, we may also collect data on your internet behavior from Facebook, other social media sites, and other services. If you use a location- enabled Rippleitt service, we may collect and process information about your actual location (for example, GPS signals sent by your mobile device). We may also use a range of different technologies to confirm your location.
+\n\nWhen you access and use our App we may record and log for statistical purposes certain information about such access and use, including your IP address, the date and time of your visit, the parts of our App you access during your visit, your actions on our App.
+\n\nIn situations where we are required to combine personal information about identified or identifiable individuals as provided to us about one customer with personal information about that individual as provided to us by another customer or from publicly available sources, wherever reasonably practicable we will use using reliable and verifiable anonymisation and de-identification techniques which ensure that the risk of any individual being reasonably identifiable in relation to the combined personal information is remote.
+\n\nWhere we collect and use personal information about any identifiable individual from a publically available source, we assess whether the collection and use is made a manner both reasonably contemplated and permitted by the provider of that publicly available source.  Where the collection and use is made a manner both reasonably contemplated and permitted by the provider of that publicly available source, we rely upon that provider to:
+\n
+1. comply with relevant national privacy laws applying to the provider\’s activities; and
+\n2. to provide the necessary notices as required by relevant national privacy laws to that identifiable individual and to obtain the necessary consents from that individual to permit collection and disclosure by the provider of that publicly available source of that personal information, including disclosure in a manner reasonably contemplated and permitted by the provider of that publicly available source.
+\n\nAs well as collecting information directly from you, there may be occasions when we collect information about you from a third party.  In such instances, we will determine whether we would have been entitled to collect such information from you and where we consider that we would not have been entitled to do so, we will destroy or de-identify such information as soon as reasonably practical.
+\n\nAnonymity
+\n\nYou are not anonymous when you use the App.  For example, if you are a business your business will be identifiable as will your business reviews and feedback ratings or comments of your work.  Your referrals on the App will be visible to others as may any comments you post; chats you conduct or transactions you enter into.
+\n\nWe strongly encourage you to use caution and discretion when using the App.  Rippleitt does not in any way control, and does not accept any responsibility or liability whatsoever for, the disclosure or use of personal information which is voluntarily posted by you in any publicly accessible area of the App.
+\n\nYou do not have to provide us with any personal information if you choose not to, however if you do not provide us with your personal information, we may not be able to provide you with our services. If you wish to remain anonymous, do not use the App.
+\n\nCookies  \nIf you use our App, your personal information may be collected through the use of cookies.  Most browsers are set by default to accept cookies. However, if you do not wish to receive any cookies you may set your browser to either prompt you whether you wish to accept cookies on a particular App, or by default reject cookies.
+\n\nRippleitt may use cookies and anonymous identifiers for a number of purposes including to access your information when you sign in, keep track of your preferences, direct specific content to you, report on Rippleitt\’s user base, and to improve Rippleitt\’s services. We may also use cookies or anonymous identifiers when you interact with our affiliate service providers - for example, when you integrate your Rippleitt account with your Facebook profile.
+\n\nPlease note that rejecting cookies or changing your cookies setting may mean that some or all of the functions on our App will not be available to you.
+\n\nHow is your personal information used?
+\n\nThe personal information that we collect is generally used to provide our services to you, and, if you use our App, to track your usage and to evaluate the performance of our App.
+\n\nMore specifically, your personal information may be used by Rippleitt for:
+\n1. identification and authentication;
+\n2. accounting, invoicing and billing purposes;
+\n3. marketing purposes;
+\n4. to protect Rippleitt and the users of the App;
+\n5. to customise the content and any advertising displayed on the App;
+\n6. to provide, maintain, protect and improve our services;
+\n7. providing your information to a user with whom you have or had a contract facilitated by Rippleitt;
+\n8. as required by law, order of a court, tribunal or regulator or if Rippleitt reasonably believes that the use or disclosure of the information is reasonably necessary for enforcement related activities;
+\n9. to develop new service features;
+\n10. to ensure that Rippleitt receives payment of the fees due to it;
+\n11. to contact you;
+\n12. to conduct research;
+\n13. to permit content on the App (such as postings or third party advertisements) to be targeted, on an aggregate basis, to the users for whom it is most likely to be relevant;
+\n14. to expand our user base;
+\n15. to develop our relationships with affiliate service providers;
+\n16. to provide or arrange internal or external verification services obtained by you via the App;
+\n17. to generate data reports on an aggregated, non-personally identifiable basis, for both internal and third party use, but subject to any applicable laws; and
+\n18. as otherwise permitted under the Privacy Act.
+\n\nWhen you contact Rippleitt, we may keep a record of the communications between you and Rippleitt to help resolve any issues you might have.
+\n\nIf we collect, use or disclose any information from you that is not personal information, but is sensitive information such as information relating to police checks conducted on users of the App, then we will seek consent directly from you each time we collect, use or disclose your sensitive information, including for direct marketing purposes. We will not use or disclose your sensitive information for any other purpose unless the purpose is directly related to the primary purpose for which your sensitive information was collected.  You may opt out of receiving any marketing information by notifying us accordingly, or using any unsubscribe facility we provide for that purpose.
+
+
+\n\nDisclosure of your personal information
+
+\n\nWe do not sell, rent or trade personal information to or with any other third parties.
+\n\nWe will not otherwise disclose your personal information to any third party unless:
+\n1. that third party is a group or related company of ours, in which case that company will only use and disclose your personal information in accordance with this privacy policy as if a reference in this privacy policy to us included a reference to that company;
+\n2. that third party is a contractor engaged to provide goods or services to us (including goods or services that assist us in providing our App). This may include disclosure to contractors outside of Australia. Our agreements with such contractors require that they keep your personal information confidential, and that they only use or disclose your personal information for the purposes of providing those goods or services to us.
+\n3. such disclosure is in connection with the sale of some or all of our business or assets; or
+\n4. you have consented for us to share the information for this purpose, or the disclosure is authorised by the Privacy Act including:
+\n   i) to lessen or prevent a serious threat to life or health;
+\n   ii) to protect the personal safety of users of our App or the public;
+\n   iii) if authorised or required by law;
+\n   iv) if we have reason to suspect that unlawful activity has been, is being or may be engaged in;
+\n   v) to enforce the law or where necessary to investigate a suspected unlawful activity; or where
+\n   vi) you would reasonably expect or we have told you that your personal information is usually used or disclosed to third parties in this way.
+\n\nAccess and correction of your personal information
+\n\nWe will, on request, provide you with access to the information we hold about you, including for the purpose of correcting or updating that information, unless there is an exception to such disclosure which applies under the APPs.
+\n\nIf you require access to your personal information, please email feedback@Rippleitt.com Before we provide you with access to your personal information we will require some proof of identity. For most requests, your information will be provided free of charge, however, we may charge a reasonable fee if your request requires a substantial effort on our part.
+\n\nIf we refuse to provide you with access to the information, we will provide you with reasons for the refusal and inform you of any exceptions relied upon under the APPs (unless it would be unreasonable to do so).
+\n\nWe take reasonable steps to ensure that your personal information is accurate, complete, and up-to-date whenever we collect or use it. If the personal information we hold about you is inaccurate, incomplete, irrelevant or out-of-date, please contact us and we will take reasonable steps to either correct this information, or if necessary, discuss alternative action with you.
+\n\nHow we hold and secure your personal information
+\n\nThe security of your personal information is important to Rippleitt. We take reasonable steps to prevent the personal information we hold about you from misuse, interference or loss, and from unauthorised access, modification or disclosure. This includes the use of technologies and processes such as access control procedures, network firewalls, encryption and physical security to protect the privacy of your personal information. However, we exclude and limit our liability in respect of the same under our \“Terms and Conditions\” with you, which are accessible at Terms and Conditions . We also delete any credit card details you provide to us from our servers once an order is processed.
+\n\nYour Rippleitt App account is protected by a password for your privacy and security. We will take all reasonable steps to protect the information we hold about you from unauthorised access, use and disclosure, however we cannot guarantee the absolute security of that information, or that our systems will be completely free from third party interception or are incorruptible from viruses. We cannot and do not guarantee that information you send from your computer to us over the Internet will be protected by any form of encryption. We therefore cannot and do not ensure or warrant the security or privacy of your personal information, including payment and account details. You transmit your personal information to us at your own risk.
+\n\nYou are entirely responsible for maintaining the security of your passwords and/or Rippleitt App account information.
+\n\nLinks to other Websites
+\n\nThe App may contain links to third party websites including affiliated service providers, advertisers, and PayPal, or make available services obtained from third parties, including verification services by third party verification providers. If you follow a link to any of these websites, or use any services obtained from third party service providers via the App that requires you to provide personal information (including sensitive information if relevant) directly to such third parties, note that they have their own privacy policies. If you use our App to link to another site, or use a service obtained from a third party service provider via the App, you will be subject to that website\’s or third party\'s terms and conditions of use and privacy policy.  We strongly encourage you to view these before disclosing any of your personal information on such websites.
+\n\nRippleitt does not control, and does not accept any responsibility or liability for, the privacy policy of, and use of personal information by, any party other than Rippleitt.
+\n\nThird-party vendors, including Google, may show ads on sites across the Internet.  The Rippleitt App makes use of the Google Maps API to assist with location based information. More information about the Google Maps API and the related privacy policy can be found here http://www.google.com/privacy.html
+\n\nHow to contact us
+\n\nIf you have any queries or complaints with regard our collection, use or management of your personal information, please contact: Address: 10/21 Hezlett Rd Kellyville NSW 2155Rippleitt Pty Ltd, email admin@rippleitt.com.
+If you wish to make a complaint about an alleged breach of the Privacy Act, we ask that you send us your complaint in writing to the email address listed above. We endeavour to respond to complaints within a reasonable period (usually 30 days). If you are not satisfied with our response, you may make a complaint to the Office of the Australian Information Commissioner by phoning 1300 363 992 or by email at enquiries@oaic.gov.au.
+This Privacy Policy was last updated on 31/01/2019.
+
+
+    </string>
+    <string name="strDone">Done</string>
+    <string name="strSelectListings">Select Listings</string>
+    <string name="strSearchListing">Search listing</string>
+    <string name="strAdd">Add</string>
+    <string name="selectAll">Select All</string>
+    <string name="strAll">All</string>
+    <string name="strVoucherText">Congratulations !. You have unlocked a Voucher</string>
+    <string name="strIndividual">Individual</string>
+    <string name="strIndividualText">List, Shop , Refer and Earn</string>
+    <string name="strBusiness">Business</string>
+    <string name="strBusinessText">Offer promotions &amp; Vouchers, list, refer and earn</string>
+    <string name="strPostalCode">Postal Code</string>
+    <string name="strVerifyPhoneTxt">We take your security seriously and request that all users verify their phone number</string>
+    <string name="strEnterPhoneOtp">Input the verification code sent to your phone number.</string>
+    <string name="strEnterEmailOtp">Input the verification code sent to the registered email.</string>
+    <string name="Code">Code</string>
+    <string name="ContryCode">+XX</string>
+    <string name="strAddVoucher">Add Discount Voucher</string>
+    <string name="strChooseOption">Your preferred account type</string>
+    <string name="Name">Name*</string>
+    <string name="strNotificationRecieve"><![CDATA[I would like to receive promotions via email & sms.]]></string>
+    <string name="strMakeOffer">Make Offer</string>
+    <string name="strAccountType">Account Type *</string>
+    <string name="bankName">Bank Name*</string>
+    <string name="strFAQ"><u>FAQs</u></string>
+
+    <string-array name="strArrayAccType">
+        <item>Account Type*</item>
+        <item>Savings</item>
+        <item>Checking</item>
+    </string-array>
+
+    <string-array name="strArrayHolderType">
+        <item>Holder type*</item>
+        <item>Personal</item>
+        <item>Business</item>
+    </string-array>
+
+</resources>

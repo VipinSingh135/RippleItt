@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="5sp"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linlytSelfView"
+        android:layout_alignParentRight="true"
+        android:padding="10sp"
+        android:background="@drawable/self_message_chat"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="hellodsdsdsdsdsdsdsd"
+            android:id="@+id/txtvwSelfMessage"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="112"
+            android:layout_gravity="right"
+            android:id="@+id/txtvwSelfTimestamp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linlytOtherView"
+        android:padding="10sp"
+        android:background="@drawable/sender_mesage_chat"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="hellodsdsdsdsdsdsdsd"
+            android:id="@+id/txtvwOtherMessage"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="112"
+            android:layout_gravity="right"
+            android:id="@+id/txtvwOtherTimestamp"/>
+
+    </LinearLayout>
+</RelativeLayout>

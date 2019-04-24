@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.SellerReview">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:text="Seller Review"
+            android:id="@+id/txtvwSellerReview"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgVwSellerProfile"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:src="@drawable/profile_pic"
+        app:civ_border_width="2dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/txtvwSellerName"
+        android:text="Jhon Smith"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#393838"
+        android:gravity="center"/>
+
+
+        <RatingBar
+            android:theme="@style/RatingBar"
+            android:rating="3"
+            android:stepSize="0.5"
+            android:layout_marginTop="10dp"
+            android:numStars="5"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/txtvwRating"
+            android:text="Very Good"
+            android:textSize="15sp"
+            android:textColor="#65b488"
+            android:gravity="center"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/relReviews"
+            android:layout_margin="30dp"
+            android:background="@drawable/button_grey_outline">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTxtVwReview"
+            android:background="@null"
+            android:textSize="15sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_margin="2dp"
+            android:paddingTop="2dp"
+            android:hint="Write Your Review Here"/>
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/btnSubmitReview"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:text="Submit"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_bg_green"
+            android:textAllCaps="false"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/btnNoThanks"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:text="No Thanks"
+            android:textColor="#52d2b7"
+            android:background="@drawable/login_btn_bg"
+            android:textAllCaps="false"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

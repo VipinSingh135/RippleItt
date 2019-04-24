@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/relTopBarProductDetail">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relProductDetailsback">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackFAQ"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerHorizontal="true"
+            android:text="Comments"
+            android:id="@+id/tvTitle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:id="@+id/txtvwAskQuestion"
+            android:text="Add Comment"
+            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/question_box_bg"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/relTopBarProductDetail"
+        android:layout_margin="10dp"
+        android:padding="10sp"
+        android:layout_weight="1.0">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDisputeTitle"
+            android:textColor="@color/colorAccent"
+            android:text="DISPUTE TITLE"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textAllCaps="true"
+            android:gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_above="@+id/rellytFooter"
+        android:id="@+id/lstvwFaQList">
+    </ListView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:id="@+id/txtvwNoFaQ"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/montserrat_light"
+        android:text="No one has posted any comments yet."/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rellytFooter"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_right_gradient"
+            android:id="@+id/btnAddComment"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/strAddComment"
+            android:textColor="@android:color/white"
+            />
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/edtxtMessage"-->
+            <!--android:paddingLeft="10sp"-->
+            <!--android:hint="Write your comment"-->
+            <!--android:background="@drawable/drawable_chat_box"-->
+            <!--android:fontFamily="@font/montserrat_regular"-->
+            <!--android:layout_toLeftOf="@+id/imgvwSendBtn"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/imgvwSendBtn"-->
+            <!--android:src="@drawable/send"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+    </RelativeLayout>
+
+</RelativeLayout>

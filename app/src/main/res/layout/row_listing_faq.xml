@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1.0"
+
+        android:layout_margin="10sp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/question_box_bg"
+            android:orientation="vertical"
+            android:id="@+id/linlytQuestionBox"
+            android:padding="10sp"
+            android:layout_weight="1.0">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwQuestion"
+                android:textColor="@color/black"
+                android:text="QQQ"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwQuestionDate"
+                android:textColor="#454545"
+                android:text="hh:mm:ss"
+                android:gravity="right"
+                android:layout_marginTop="5sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1.0"
+
+        android:layout_margin="10sp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/answet_box_bg"
+            android:orientation="vertical"
+            android:padding="10sp"
+            android:id="@+id/linlytAnswerBox"
+            android:layout_weight="1.0">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwAnswer"
+                android:textColor="@color/white"
+                android:text="AAA"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwAnswerDate"
+                android:textColor="@color/white"
+                android:text="hh:mm:ss"
+                android:gravity="right"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="10sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

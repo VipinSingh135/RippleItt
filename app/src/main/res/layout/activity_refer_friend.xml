@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.ReferFriendActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBarReferFriend"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relReferFriendBack">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackReferFriend"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerHorizontal="true"
+            android:text="Share a Listing"
+            android:id="@+id/txtvwReferFriend"/>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/refer_friendicon"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/txtVwShareWithFriend"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Share listing with your friends"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:id="@+id/txtVwGetBonus"
+            android:textSize="13sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="and get bonus points"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:weightSum="1"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroupShareType">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email   "
+            android:id="@+id/rdBtnEmail"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="center_horizontal"
+            android:checked="true"
+            android:layout_marginLeft="10sp"
+            android:textSize="16dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMS "
+            android:id="@+id/edBtnPhone"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="16dp"
+            android:layout_weight="0.5" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relLinkShare"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:background="@drawable/round_bg_grey"
+            android:layout_height="45sp"
+            android:padding="10sp"
+            android:hint="Email*"
+            android:fontFamily="@font/montserrat_regular"
+            android:id="@+id/edtxtSharePhone"/>
+
+    </RelativeLayout>
+
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnShareReferralCode"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:padding="15sp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Share"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_left_gradient"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

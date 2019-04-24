@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.vinaysshenoy:mugen:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mugen-1.0.2.aar/25e04e8f5a633c9d01f5037c713e2fe9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/mugen-1.0.2.aar/25e04e8f5a633c9d01f5037c713e2fe9/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.vinaysshenoy/mugen/1.0.2/955ca2c9fe325a43dbe23cc63c7351218c646cb6/mugen-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

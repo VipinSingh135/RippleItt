@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.ProductDetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/relTopBarProductDetail">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relProductDetailsback">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackProductDetail"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerHorizontal="true"
+            android:text="View Offers"
+            android:id="@+id/txtvwProductDetails"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:id="@+id/frmlytOrderFlagColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#2f4fb9"
+                    android:padding="4sp">
+
+                    <TextView
+                        android:id="@+id/txtvwLabelOrderStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="New "
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </FrameLayout>
+                <com.robohorse.pagerbullet.PagerBullet
+                    android:id="@+id/vwPagerProductImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp" />
+
+            </RelativeLayout>
+            <!--  <ImageView
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp"
+                  android:background="@drawable/product_pic"
+                  android:id="@+id/imgVwProductImage"/>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1.0"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:id="@+id/relDroneProductDetails"
+                android:layout_below="@+id/viewProfile"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVwProductName"
+                    android:textSize="24sp"
+                    android:layout_weight="0.5"
+                    android:singleLine="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_centerVertical="true"
+                    android:textColor="#313131"
+                    android:layout_toLeftOf="@+id/ratingBarProductDetails"
+
+                    android:gravity="center_vertical"
+                    android:text="Drone"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="right"
+                    android:visibility="invisible"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2sp"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2sp"
+                        android:src="@drawable/blank_rating"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwProductDetail"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:text="@string/productdetail"
+                android:textSize="14sp"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="30dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgVwprofileImageDetails"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/profile_pic"
+                    android:layout_centerVertical="true"
+                    app:civ_border_color="#FF000000"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jhon Smith"
+                    android:textColor="#65b488"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imgVwprofileImageDetails"
+                    android:id="@+id/txtVwUserNameDetails"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarOne"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blank_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarTwo"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blank_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarThree"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blank_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imgvwRatingStarFour"
+                        android:layout_margin="2sp"
+                        android:src="@drawable/blank_rating"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarFive"
+                        android:src="@drawable/blank_rating"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/relProductPriceDetails">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1.0"
+                    android:id="@+id/linearPrice"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="0.5">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imgVmDollarSign"
+                            android:layout_marginLeft="15sp"
+                            android:text="Price"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textSize="14sp"
+                            android:layout_centerVertical="true"/>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/imgVmDollarSign"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#4e4d4d"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center_vertical"
+                            android:layout_centerVertical="true"
+                            android:textSize="16sp"
+
+                            android:text="24,000"
+                            android:paddingRight="8dp"
+                            android:id="@+id/txtVwProductPrice" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="right"
+                        android:visibility="invisible"
+                        android:layout_weight="0.5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imgVmShareSign"
+                            android:layout_marginLeft="15sp"
+                            android:text="Earn:"
+                            android:textColor="#000000"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textSize="14sp"
+                            android:layout_centerVertical="true"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/imgVmShareSign"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="#4e4d4d"
+                            android:gravity="center_vertical"
+                            android:layout_centerVertical="true"
+                            android:textSize="16sp"
+                            android:text="24,000"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:id="@+id/txtVwProductReferAmount" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+
+                    android:id="@+id/relShareProfileDetails__"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share"
+                        android:textColor="#65b488"
+                        android:textSize="14sp"
+                        android:visibility="invisible"
+                        android:gravity="center_vertical"
+                        android:id="@+id/txtVwShareProfileDetails__"/>
+
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/relProductReferDetails">
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp"
+                android:orientation="horizontal"
+                android:weightSum="1.0"
+                android:id="@+id/linProductQtyDetails">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="Available Quantity:"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingRight="8dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:id="@+id/txtvwAvailableQty"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="0 pcs"
+                    android:fontFamily="@font/montserrat_regular"
+
+                    />
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1.0"
+                android:id="@+id/linProductPaymentDetails">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="Payment Mode:"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingRight="8dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:id="@+id/txtvwPaymentMode"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="0 pcs"
+                    android:fontFamily="@font/montserrat_regular"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1.0"
+                android:id="@+id/linProductShippingDetails">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="Delivery Type:"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingRight="8dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgVmShareSign"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#000000"
+                    android:gravity="right"
+                    android:id="@+id/txtvwDeliveryMode"
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="0 pcs"
+                    android:fontFamily="@font/montserrat_regular"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relServiceAreas"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:visibility="gone"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVwServiceAreas"
+                    android:textSize="15sp"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#65b488"
+                    android:layout_toLeftOf="@+id/relServiceAreaIcon"
+                    android:gravity="center_vertical"
+                    android:text="Service Areas"/>
+
+                <RelativeLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/relServiceAreaIcon"
+                    android:background="@drawable/arrow_down"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#000000"
+                android:visibility="gone"
+                android:id="@+id/txtvwServiceCodes"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"
+                android:layout_weight="0.5"
+                android:text="0 pcs"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:background="#dad8d8"
+
+                android:layout_marginTop="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relCommentsBox"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtvwLaunchComments"
+                    android:textSize="18sp"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#65b488"
+
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="Ask Seller"/>
+
+                <RelativeLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/arrow_right"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/viewProductDetails"
+                android:background="#dad8d8"
+
+                android:layout_marginTop="10dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relOtherBuyers"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="5dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:id="@+id/txtVwReviewProfile"
+                    android:textSize="15sp"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#65b488"
+                    android:layout_toLeftOf="@+id/relOtherBuyersIcon"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:text="Other Buyers on Rippleitt"/>
+
+
+                <RelativeLayout
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/relOtherBuyersIcon"
+                    android:background="@drawable/arrow_down"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="20sp"
+                android:id="@+id/linlytBidsContainer">
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnFAQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50sp"
+                android:background="@drawable/button_left_gradient"
+                android:fontFamily="@font/montserrat_regular"
+                android:padding="20sp"
+                android:text="FAQ"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="com.rippleitt.activities.ActivityLogin">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtvwTitle"
+        android:textSize="20sp"
+        android:layout_marginTop="-10sp"
+        android:textColor="@color/colorHeaderBackground"
+        android:fontFamily="@font/montserrat_regular"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:text="VERIFY PHONE"/>
+
+
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/imgVwLogo"
+        android:background="@drawable/logo"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:padding="10sp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/relEmailLogin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVmUserLogo"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/mail"
+            android:layout_centerVertical="true"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgVmUserLogo"
+            android:paddingLeft="8dp"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:padding="5sp"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="Phone*"
+            android:inputType="phone"
+            android:paddingRight="8dp"
+            android:layout_marginRight="5dp"
+            android:textCursorDrawable="@drawable/custom_cursor_drawable"
+            android:background="@null"
+            android:id="@+id/edittxtEmailLogin"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10sp"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/relPassLogin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVmPassLogo"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/contact"
+            android:layout_centerVertical="true"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgVmPassLogo"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:padding="5sp"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:fontFamily="@font/montserrat_regular"
+            android:textCursorDrawable="@drawable/custom_cursor_drawable"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:hint="OTP*"
+            android:background="@null"
+            android:inputType="number"
+            android:layout_marginRight="5dp"
+            android:id="@+id/edittxtPassLogin"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnVerifyOTP"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:padding="5sp"
+        android:text="@string/submit"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/text_dark"
+        android:background="@drawable/login_btn_bg"
+        android:textAllCaps="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/resend_otp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="16sp"
+            android:id="@+id/txtvwResendOTP"
+            android:textColor="#ffffff"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

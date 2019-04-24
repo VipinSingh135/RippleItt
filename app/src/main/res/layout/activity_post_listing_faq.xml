@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/relTopBarProductDetail">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relProductDetailsback">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackFAQ"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_regular"
+
+            android:layout_centerHorizontal="true"
+            android:text="Add Comment"
+            android:id="@+id/txtvwTitle"/>
+
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/edittxtDescReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:background="@drawable/drawable_long_over_gery"
+        android:gravity="top"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Write your comment here..."
+        android:minLines="10"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="8dp"
+        android:layout_marginTop="30sp"
+        android:imeOptions="actionDone"
+        android:textColor="#666666"
+        android:textColorHint="#000000"
+        android:textSize="15sp" />
+
+
+    <Button
+        android:id="@+id/btnSubmitFaq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="50sp"
+        android:background="@drawable/button_left_gradient"
+        android:fontFamily="@font/montserrat_regular"
+        android:padding="20sp"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

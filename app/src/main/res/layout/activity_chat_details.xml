@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBarAddProduct"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relAddProduct_back">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBack"/>
+        </RelativeLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/imgVwChatListUserPic"
+            android:background="@drawable/default_profile_icon"
+            android:layout_toRightOf="@+id/relAddProduct_back"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_toRightOf="@+id/imgVwChatListUserPic"
+            android:text="Person Name"
+            android:id="@+id/txtvwCounterParty"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/viewGr"
+            android:divider="@android:color/transparent"
+            android:transcriptMode="alwaysScroll"
+            android:id="@+id/lstVwChatThread">
+
+        </ListView>
+
+        <FrameLayout
+            android:id="@+id/viewGr"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/rellytFooter"
+            android:background="#999999">
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rellytFooter"
+            android:layout_alignParentBottom="true">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edtxtMessage"
+                android:paddingLeft="10sp"
+                android:hint="Write a Message"
+                android:background="@drawable/drawable_chat_box"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_toLeftOf="@+id/imgvwSendBtn"/>
+            <ImageView
+                android:id="@+id/imgvwSendBtn"
+                android:src="@drawable/send"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.promisepay:promisepay:0.1.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/promisepay-0.1.1.aar/4fe022177c8bc589f64c8e57cde019f9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/promisepay-0.1.1.aar/4fe022177c8bc589f64c8e57cde019f9/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.promisepay/promisepay/0.1.1/64f6dd8aa1ca20dc065d239f51686905f66ec605/promisepay-0.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

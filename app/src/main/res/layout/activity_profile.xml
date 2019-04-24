@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rippleitt.activities.ProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBarProfile"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relProfile_back">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBackProfile"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_centerHorizontal="true"
+            android:text="Profile"
+            android:id="@+id/txtvwProfile"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_margin="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relProfileDetails"
+        android:layout_below="@+id/relTopBarProfile">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgVwprofileImage"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:src="@drawable/profile_pic"
+            android:layout_marginLeft="15dp"
+            app:civ_border_color="#FF000000"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imgVwprofileImage">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwUserNameProfile"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5sp"
+                android:singleLine="true"
+
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_vertical"
+                android:text="John Smith"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtVwUserEmailProfile"
+                android:textSize="16sp"
+                android:paddingLeft="5dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:singleLine="true"
+                android:textColor="@color/grey"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:text=""/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgvwRatingStarOne"
+                        android:layout_width="18sp"
+                        android:layout_height="18dp"
+                        android:layout_margin="2sp"
+                        android:src="@drawable/full_rating" />
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarTwo"
+                        android:layout_height="18dp"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarThree"
+                        android:layout_height="18dp"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:id="@+id/imgvwRatingStarFour"
+                        android:layout_margin="2sp"
+                        android:src="@drawable/full_rating"/>
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_margin="2sp"
+                        android:id="@+id/imgvwRatingStarFive"
+                        android:src="@drawable/blank_rating"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Be the First to Rate"
+                    android:layout_centerHorizontal="true"
+
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#FFB902"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+
+                    android:id="@+id/txtvwNoRating"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewProfile"
+        android:layout_below="@+id/relProfileDetails"
+        android:background="@color/grey"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relReviewsProfile"
+        android:layout_below="@+id/viewProfile"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/txtVwReviewProfile"
+            android:textSize="12sp"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:textColor="#65b488"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_toLeftOf="@+id/relDownArrowProfile"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:text="Reviews"/>
+
+
+        <RelativeLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:id="@+id/relDownArrowProfile"
+            android:background="@drawable/arrow_down"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:textSize="12sp"
+       android:layout_marginTop="20sp"
+       android:id="@+id/txtvwNoReviews"
+       android:fontFamily="@font/montserrat_light"
+       android:text="No reviews yet."
+       />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relReviewsProfile"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginTop="10sp"
+        android:id="@+id/lstVwReviewsList"
+        android:layout_above="@+id/relChatIcon"></ListView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relChatIcon"
+        android:visibility="invisible"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVwChatIcon"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/chat_icon"/>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:layout_marginTop="-80dp"
+        android:src="@drawable/_dashboard_header" />
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_margin="15sp"
+        android:layout_height="150dp"
+        card_view:cardBackgroundColor="#CCffffff"
+        card_view:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Total Amount Disbursed"
+                android:textAlignment="inherit"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/tvTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat_regular"
+                android:text=" "
+                android:textColor="#2a9997"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtvwTitle"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Disbursals List"
+        android:layout_below="@+id/card_view"
+        android:layout_margin="15sp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"/>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/txtvwTitle"
+        android:layout_marginBottom="10sp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/disbursalDataContainer"
+            android:paddingBottom="20sp"
+            android:orientation="vertical">
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_light"
+        android:id="@+id/txtvwNoDisbursal"
+        android:text="No disbursal commited yet."/>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/aviLoaderDisbursal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="#71b9af" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#289b98</item><!-- buttons OK cancel-->
+        <item name="android:textColorPrimary">#289b98</item><!--text in message-->
+        <item name="android:background">#ffffff</item> <!-- all bg-->
+        <!-- items color -->
+        <item name="textColorAlertDialogListItem">#289b98</item>
+    </style>
+    <style name="MyTitleTextStyle">
+        <item name="android:textColor">#289b98</item><!-- title color-->
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+
+</resources>

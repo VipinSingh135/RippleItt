@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        tools:context="com.rippleitt.activities.AddPaymentMethod">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="10dp">
+
+
+            <RelativeLayout
+                android:id="@+id/relImageBackPayment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10sp">
+
+                <ImageView
+                    android:id="@+id/imgBackAddPayment"
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/back_arrow"
+                    android:tint="@color/colorHeaderBackground" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/txtSkipAddPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/skip"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/imgVwCardIcon"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/add_payment"
+            android:tint="@color/colorHeaderBackground" />
+
+        <TextView
+            android:id="@+id/txtvwAddPayment"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="Bank Account Details"
+            android:textColor="@color/colorHeaderBackground"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <RelativeLayout
+            android:id="@+id/relCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittxt_bg_login"
+            android:padding="10sp">
+
+            <EditText
+                android:id="@+id/edittxtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@null"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/accountName"
+                android:inputType="textPersonName"
+                android:maxLength="20"
+                android:padding="5sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/grey_darker"
+                android:textColorHint="#cccccc"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relHolderType"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittxt_bg_login"
+            android:padding="5dp">
+
+            <Spinner
+                android:id="@+id/spnrHolderType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:entries="@array/strArrayHolderType"
+                android:fontFamily="@font/montserrat_regular"
+                android:prompt="@id/spnrAccountType"
+                android:singleLine="true"
+                android:textColor="@color/grey_darker"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/imgVwSpnArrow"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:tint="#a6a6a6" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relBankName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp">
+
+            <EditText
+                android:id="@+id/edittxtBankName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_weight="2"
+                android:background="@drawable/edittxt_bg_login"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/bankName"
+                android:inputType="textPersonName"
+                android:maxLength="45"
+                android:padding="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/grey_darker"
+                android:textColorHint="#cccccc"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relCardCVV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp">
+
+            <EditText
+                android:id="@+id/edittxtBSB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_weight="2"
+                android:background="@drawable/edittxt_bg_login"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/bsb"
+                android:inputType="number"
+                android:maxLength="6"
+                android:padding="15sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/grey_darker"
+                android:textColorHint="#cccccc"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relCardHolderName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittxt_bg_login"
+            android:padding="10sp">
+
+            <EditText
+                android:id="@+id/edittxtAccountNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@null"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="@string/accountNumber"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="8dp"
+                android:textColor="@color/grey_darker"
+                android:textColorHint="#cccccc"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relAccountType"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittxt_bg_login"
+            android:padding="5dp">
+
+            <Spinner
+                android:id="@+id/spnrAccountType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:entries="@array/strArrayAccType"
+                android:fontFamily="@font/montserrat_regular"
+                android:prompt="@id/spnrAccountType"
+                android:singleLine="true"
+                android:textColor="@color/grey_darker"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/imgVwSpinnerArrow"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:tint="#a6a6a6" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btnNextAddPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/button_left_gradient"
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="10sp"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btnRemoveAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/montserrat_regular"
+            android:padding="10sp"
+            android:text="Remove Account"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

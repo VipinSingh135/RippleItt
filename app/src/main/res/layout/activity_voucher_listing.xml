@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relTopBar"
+        android:background="@drawable/header"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/relUpdateProfileBack">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:background="@drawable/back_arrow"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBack"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            android:textColor="#ffffff"
+            android:layout_marginRight="8dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerHorizontal="true"
+            android:text="My Vouchers"
+            android:id="@+id/txtvwUpdateProfile"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_circle_outline_black_24dp"
+            android:tint="@color/white"
+            android:padding="5dp"
+            android:id="@+id/imgvwAddListing"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10sp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/relTopBar"
+        android:layout_above="@+id/btnDone"
+        android:id="@+id/listVouchers"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:orientation="vertical"
+        android:id="@+id/linlytCenter"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_light"
+            android:text="You have not added any voucher yet."/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddVouchersCenter"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:padding="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Add New Voucher"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_left_gradient"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/aviLoaderHomeCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_centerInParent="true"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="#71b9af" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDone"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:padding="15sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Done"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_left_gradient"
+        android:textAllCaps="false"/>
+
+</RelativeLayout>

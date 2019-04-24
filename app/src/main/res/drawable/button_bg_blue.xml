@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle"
+            >
+            <stroke android:color="@color/fb_blue"
+                android:dashGap="3dp"
+                android:width="3dp"
+                android:dashWidth="8dp"
+                />
+            <solid android:color="#ffffff"
+                />
+            <!--corners allow us to make the rounded corners button-->
+            <corners android:radius="5dp" />
+
+            <padding android:bottom="4dp"
+                android:top="4dp"
+                android:left="4dp"
+                android:right="4dp"/>
+        </shape>
+    </item>
+</selector>

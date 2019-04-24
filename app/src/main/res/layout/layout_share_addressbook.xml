@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/linlytHeader"
+            android:gravity="center_horizontal"
+            android:background="#ebebf1"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:text="title"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:id="@+id/txtvwHeaderTitle"
+                android:textColor="@color/text_dark"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="5sp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_black_24dp"
+                android:layout_centerVertical="true"
+                android:id="@+id/imgvwShareTick"
+                android:visibility="gone"
+                android:tint="@color/colorHeaderBackground"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:id="@+id/txtVwAddrBookList"
+                android:text="Smith Man"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="#000000"
+                android:layout_marginRight="10dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:layout_toRightOf="@+id/imgvwShareTick"
+                android:gravity="center_vertical"
+               />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/imgVwAddrListUserPic"
+                android:background="@drawable/profile_pic"
+                android:layout_alignParentRight="true"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

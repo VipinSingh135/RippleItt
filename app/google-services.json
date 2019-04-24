@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "925891659973",
+    "firebase_url": "https://rippleitt-bd90d.firebaseio.com",
+    "project_id": "rippleitt-bd90d",
+    "storage_bucket": "rippleitt-bd90d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925891659973:android:a9a20c54c4f37a04",
+        "android_client_info": {
+          "package_name": "com.rippleitt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925891659973-88cfnl59dq1ke26un0l9m0js397t0fua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rippleitt",
+            "certificate_hash": "4ec9b38b1a5b107e802c016d902719430ecbf29e"
+          }
+        },
+        {
+          "client_id": "925891659973-bqbjct8pd8t9h4c3avbq0koqg9s3opka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBOUSq7jCsTA6f-qblYke1n8PHapMl9_c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925891659973-bqbjct8pd8t9h4c3avbq0koqg9s3opka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

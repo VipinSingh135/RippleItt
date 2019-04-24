@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="com.rippleitt.activities.ActivityLogin">
+
+
+   <ImageView
+       android:layout_width="220dp"
+       android:layout_height="90dp"
+       android:layout_gravity="center_horizontal"
+       android:id="@+id/imgVwLogo"
+       android:background="@drawable/logo"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:padding="10sp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/relEmailLogin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVmUserLogo"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/user"
+            android:layout_centerVertical="true"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgVmUserLogo"
+        android:paddingLeft="8dp"
+        android:textColor="@color/grey_darker"
+        android:textColorHint="#cccccc"
+        android:padding="5sp"
+        android:singleLine="true"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/email"
+        android:paddingRight="8dp"
+        android:layout_marginRight="5dp"
+        android:background="@null"
+        android:id="@+id/edittxtEmailLogin"
+       />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10sp"
+        android:background="@drawable/edittxt_bg_login"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/relPassLogin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgVmPassLogo"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/password"
+            android:layout_centerVertical="true"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgVmPassLogo"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:padding="5sp"
+            android:textColor="@color/grey_darker"
+            android:textColorHint="#cccccc"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:hint="@string/pass"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:layout_marginRight="5dp"
+            android:id="@+id/edittxtPassLogin"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:padding="5sp"
+        android:text="@string/login"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/white"
+        android:background="@drawable/button_left_gradient"
+        android:textAllCaps="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/signup"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="16sp"
+            android:id="@+id/txtvmSignUpLogin"
+            android:textColor="@color/text_dark"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/forgotPass"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/text_dark"
+            android:id="@+id/txtVwForgotPass"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1.5"
+            android:background="@color/text_dark"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/or"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_dark"
+            android:id="@+id/txtVwOr"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:background="@color/text_dark"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnFacbookLogin"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:padding="5sp"
+        android:text="@string/fbLogin"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
+        android:background="@drawable/bg_round_border"
+        android:textAllCaps="false"/>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_marginBottom="30dp" />
+
+
+</LinearLayout>

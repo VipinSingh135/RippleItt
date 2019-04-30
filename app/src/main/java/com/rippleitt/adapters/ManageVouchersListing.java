@@ -131,6 +131,7 @@ public class ManageVouchersListing extends BaseAdapter {
                             Intent intent = new Intent(context,
                                     ActivitySelectListing.class);
                             intent.putExtra("voucher_id", voucherListing.get(i).getVoucherId());
+                            intent.putExtra("amount_type", voucherListing.get(i).getType());
                             if (voucherListing.get(i).getAsignedListingId() != null)
                                 intent.putExtra("added_listing", voucherListing.get(i).getAsignedListingId());
                             context.startActivity(intent);

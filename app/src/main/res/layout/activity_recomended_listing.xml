@@ -57,7 +57,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-
+        android:layout_weight="1"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -272,7 +272,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:id="@+id/linearPrice"
                         android:orientation="horizontal">
 
                         <TextView
@@ -562,14 +561,81 @@
                 android:text="0 pcs"
                 android:fontFamily="@font/montserrat_regular"/>
 
-
-            <View
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/button_bg_blue">
 
-                android:background="#dad8d8"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textSize="12sp"
+                        android:id="@+id/tvBuyerDiscount"
+                        android:gravity="center_horizontal"
+                        android:text="@string/strVoucherText"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
 
-                android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="@string/strOr"
+                        android:layout_below="@id/tvBuyerDiscount"
+                        android:id="@+id/tvOr"
+                        android:gravity="center_horizontal"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_below="@id/tvOr"
+                        android:id="@+id/tvReferrerDiscount"
+                        android:gravity="center_horizontal"
+                        android:text="@string/strVoucherText"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+                    <Button
+                        android:id="@+id/btnReferAFriend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/button_left_gradient_edge"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Refer"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+
+                <!--android:background="#dad8d8"-->
+
+                <!--android:layout_marginTop="10dp"/>-->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -720,63 +786,109 @@
 
 
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnReferAFriend"
-                android:padding="20sp"
-                android:layout_marginTop="50sp"
-                android:layout_margin="10dp"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Refer a Friend"
-                android:textColor="#ffffff"
-                android:background="@drawable/button_left_gradient"
-                android:textAllCaps="false"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnSetYourPrice"
-                android:padding="20sp"
-                android:layout_margin="10dp"
-                android:textSize="15sp"
-                android:text="Make an Offer"
-                android:fontFamily="@font/montserrat_regular"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:background="@drawable/button_right_gradient"
-                android:textAllCaps="false"/>
+            <!--<Button-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/btnReferAFriend"-->
+                <!--android:padding="20sp"-->
+                <!--android:layout_marginTop="50sp"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:textSize="15sp"-->
+                <!--android:textStyle="bold"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:text="Refer a Friend"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:background="@drawable/button_left_gradient"-->
+                <!--android:textAllCaps="false"/>-->
+            <!--<Button-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/btnSetYourPrice"-->
+                <!--android:padding="20sp"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:textSize="15sp"-->
+                <!--android:text="Make an Offer"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:background="@drawable/button_right_gradient"-->
+                <!--android:textAllCaps="false"/>-->
 
-            <Button
-                android:id="@+id/btnBuyNow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginTop="50sp"
-                android:background="@drawable/button_left_gradient"
-                android:fontFamily="@font/montserrat_regular"
-                android:padding="20sp"
-                android:text="@string/strBuyNow"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/btnBuyNow"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:layout_marginTop="50sp"-->
+                <!--android:background="@drawable/button_left_gradient"-->
+                <!--android:fontFamily="@font/montserrat_regular"-->
+                <!--android:padding="20sp"-->
+                <!--android:text="@string/strBuyNow"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="15sp"-->
+                <!--android:textStyle="bold" />-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginRight="20dp">
-
-
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--android:layout_marginRight="20dp">-->
 
 
-            </RelativeLayout>
+
+
+            <!--</RelativeLayout>-->
 
         </LinearLayout>
     </ScrollView>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/grey2"
+        android:layout_marginBottom="2dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:id="@+id/linBottom"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnSetYourPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_left_gradient_edge"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Make an Offer"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginRight="2dp"/>
+
+        <Button
+            android:id="@+id/btnBuyNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_right_gradient_edge"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginLeft="1dp"
+            android:text="@string/strBuyNow"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>

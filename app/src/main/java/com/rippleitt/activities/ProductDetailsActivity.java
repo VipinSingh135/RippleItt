@@ -56,6 +56,7 @@ import com.rippleitt.modals.BidTemplate;
 import com.rippleitt.modals.ListingTemplate;
 import com.rippleitt.modals.OtherProductsTemplate;
 import com.rippleitt.modals.ProductDetailsResponseTemplate;
+import com.rippleitt.modals.VoucherTemplate;
 import com.rippleitt.utils.CommonUtils;
 import com.rippleitt.webservices.AddToWishListApi;
 import com.rippleitt.webservices.GetProductDetailsApi;
@@ -116,7 +117,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     LinearLayout linProductQtyDetails, linProductShippingDetails;
     FrameLayout mFrmLytBadge;
     TextView mTxtvwBadgeStatus;
-    View viewServiceCodesDivider;
+    TextView tvBuyerDiscount, tvReferrerDiscount, tvOr;
+
+//    View viewServiceCodesDivider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +150,10 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         mTxtVwPaymentMode = (TextView) findViewById(R.id.txtvwPaymentMode);
         mFrmLytBadge = (FrameLayout) findViewById(R.id.frmlytOrderFlagColor);
         mTxtvwBadgeStatus = (TextView) findViewById(R.id.txtvwLabelOrderStatus);
-        viewServiceCodesDivider = findViewById(R.id.viewServiceCodesDivider);
+        tvBuyerDiscount = (TextView) findViewById(R.id.tvBuyerDiscount);
+        tvReferrerDiscount = (TextView) findViewById(R.id.tvReferrerDiscount);
+        tvOr = (TextView) findViewById(R.id.tvOr);
+//        viewServiceCodesDivider = findViewById(R.id.viewServiceCodesDivider);
         mRelLtyServiceAreContainer.setOnClickListener(this);
 
         mScrlViewParent = (ScrollView) findViewById(R.id.scrlVwParent);
@@ -174,7 +180,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         linProductShippingDetails = findViewById(R.id.linProductShippingDetails);
         linProductQtyDetails = findViewById(R.id.linProductQtyDetails);
         relOtherBuyers = findViewById(R.id.relOtherBuyers);
-        viewServiceCodesDivider = findViewById(R.id.viewServiceCodesDivider);
+//        viewServiceCodesDivider = findViewById(R.id.viewServiceCodesDivider);
 
         mTxtVWAvailableQty = (TextView) findViewById(R.id.txtvwAvailableQty);
         //   mrelViewProfileDetails=(RelativeLayout)findViewById(R.id.relViewProfileDetails);
@@ -431,7 +437,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                 .getSELECTED_LISTING_DETAIL_OBJECT().getListing_type().equals("2")) {
 //            relProductPriceDetails.setVisibility(View.GONE);
             linProductQtyDetails.setVisibility(View.GONE);
-            viewServiceCodesDivider.setVisibility(View.GONE);
+//            viewServiceCodesDivider.setVisibility(View.GONE);
             linProductShippingDetails.setVisibility(View.GONE);
 //            relOtherBuyers.setVisibility(View.GONE);
 //            btnBuyNow.setVisibility(View.GONE);
@@ -441,7 +447,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             relProductPriceDetails.setVisibility(View.VISIBLE);
             linProductQtyDetails.setVisibility(View.VISIBLE);
             linProductShippingDetails.setVisibility(View.VISIBLE);
-            viewServiceCodesDivider.setVisibility(View.VISIBLE);
+//            viewServiceCodesDivider.setVisibility(View.VISIBLE);
             relOtherBuyers.setVisibility(View.VISIBLE);
             populateBids();
         }
@@ -451,21 +457,114 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                 .getSELECTED_LISTING_DETAIL_OBJECT().getHas_voucher().equals("1") &&
                 RippleittAppInstance.getInstance()
                         .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details() != null) {
-            txtVwVoucher.setVisibility(View.VISIBLE);
+
             if (RippleittAppInstance.getInstance()
-                    .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType()!= null) {
+                    .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType() != null) {
                 if (RippleittAppInstance.getInstance()
                         .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType().equals("1")) {
-                    txtVwVoucher.setText("$" + RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + " Off");
+
+                    if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status() != null &&
+                            RippleittAppInstance.getInstance()
+                                    .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("2")) {
+
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a $" + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + " voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    } else if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a $" + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + " voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    }else {
+                        tvBuyerDiscount.setText("Give your friend a $" + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + " discount voucher");
+
+                        if (RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode() != null &&
+                                RippleittAppInstance.getInstance()
+                                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("2")) {
+
+                            tvReferrerDiscount.setText("Claim your  $" + RippleittAppInstance.getInstance()
+                                    .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + " discount voucher");
+
+                        } else {
+                            tvReferrerDiscount.setVisibility(View.GONE);
+                            tvOr.setVisibility(View.GONE);
+                        }
+                    }
+
+                } else if (RippleittAppInstance.getInstance()
+                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType().equals("3")) {
+                    if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status() != null &&
+                            RippleittAppInstance.getInstance()
+                                    .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("2")) {
+
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a free session voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    } else if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a free session voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    }else {
+                        tvBuyerDiscount.setText("Give your friend a free session now");
+
+                        if (RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode() != null &&
+                                RippleittAppInstance.getInstance()
+                                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("2")) {
+
+                            tvReferrerDiscount.setText("Claim your free session also");
+
+                        } else {
+                            tvReferrerDiscount.setVisibility(View.GONE);
+                            tvOr.setVisibility(View.GONE);
+                        }
+                    }
                 } else {
-                    txtVwVoucher.setText(RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + "% Off");
+                    if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status() != null &&
+                            RippleittAppInstance.getInstance()
+                                    .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("2")) {
+
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a " + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + "% voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    } else if (RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                        tvBuyerDiscount.setText("Congratulations you have unlocked a " + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + "% voucher");
+                        tvReferrerDiscount.setVisibility(View.GONE);
+                        tvOr.setVisibility(View.GONE);
+                    }else {
+                        tvBuyerDiscount.setText("Give your friend a " + RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount() + "% discount voucher");
+
+                        if (RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode() != null &&
+                                RippleittAppInstance.getInstance()
+                                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("2")) {
+
+                            tvReferrerDiscount.setText("Claim your " + RippleittAppInstance.getInstance()
+                                    .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + "% discount voucher");
+                        } else {
+                            tvReferrerDiscount.setVisibility(View.GONE);
+                            tvOr.setVisibility(View.GONE);
+                        }
+                    }
                 }
             }
-        }else{
+        } else {
             txtVwVoucher.setVisibility(View.GONE);
-
+            tvReferrerDiscount.setVisibility(View.GONE);
+            tvOr.setVisibility(View.GONE);
+            tvBuyerDiscount.setText("Refer your friends and get some exciting vouchers");
         }
     }
 
@@ -654,15 +753,36 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             i.putExtra("isBuyNow", true);
             i.putExtra("price", RippleittAppInstance.getInstance().getSELECTED_LISTING_DETAIL_OBJECT().getListing_price());
 
+            ListingTemplate template= RippleittAppInstance.getInstance()
+                    .getSELECTED_LISTING_DETAIL_OBJECT();
+
             if (RippleittAppInstance.getInstance()
-                    .getSELECTED_LISTING_DETAIL_OBJECT().getHas_referral().equals("1") &&
+                    .getSELECTED_LISTING_DETAIL_OBJECT().getHas_voucher().equals("1") &&
                     RippleittAppInstance.getInstance()
-                    .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details() != null) {
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getHas_referral() != null &&
+                    RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getHas_referral().equals("1") &&
+                    RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details()!=null &&
+                    !RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAvailed().equals("1")) {
+
 
                 i.putExtra("voucher_id", RippleittAppInstance.getInstance()
                         .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getVoucherId());
-                i.putExtra("voucher_price", RippleittAppInstance.getInstance()
-                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount());
+                if (RippleittAppInstance.getInstance()
+                        .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status() != null &&
+                        RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("2")) {
+
+                    i.putExtra("voucher_price", RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount());
+                } else {
+
+                    i.putExtra("voucher_price", RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount());
+                }
+
                 i.putExtra("voucher_type", RippleittAppInstance.getInstance()
                         .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType());
 
@@ -782,7 +902,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                         "could not update listing information",
                         Toast.LENGTH_LONG).show();
                 VolleyLog.d("", "Error: " + error.getMessage());
-                Log.d("",   "" + error.getMessage() + "," + error.toString());
+                Log.d("", "" + error.getMessage() + "," + error.toString());
                 CommonUtils.dismissProgress();
             }
         }) {
@@ -886,7 +1006,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             mImgVwRatingStarFour.setImageResource(R.drawable.blank_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.blank_rating);
         }
-        if (rating.equalsIgnoreCase("1.user")) {
+        if (rating.equalsIgnoreCase("1.5")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.half_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.blank_rating);
@@ -900,7 +1020,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             mImgVwRatingStarFour.setImageResource(R.drawable.blank_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.blank_rating);
         }
-        if (rating.equalsIgnoreCase("2.user")) {
+        if (rating.equalsIgnoreCase("2.5")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.half_rating);
@@ -914,28 +1034,28 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             mImgVwRatingStarFour.setImageResource(R.drawable.blank_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.blank_rating);
         }
-        if (rating.equalsIgnoreCase("3.user")) {
+        if (rating.equalsIgnoreCase("3.5")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarFour.setImageResource(R.drawable.half_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.blank_rating);
         }
-        if (rating.equalsIgnoreCase("mail")) {
+        if (rating.equalsIgnoreCase("4")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarFour.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.blank_rating);
         }
-        if (rating.equalsIgnoreCase("mail.user")) {
+        if (rating.equalsIgnoreCase("4.5")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarFour.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarFive.setImageResource(R.drawable.half_rating);
         }
-        if (rating.equalsIgnoreCase("user")) {
+        if (rating.equalsIgnoreCase("5")) {
             mImgVwRatingStarOne.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarTwo.setImageResource(R.drawable.full_rating);
             mImgVwRatingStarThree.setImageResource(R.drawable.full_rating);

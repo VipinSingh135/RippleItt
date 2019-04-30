@@ -52,7 +52,8 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
     AVLoadingIndicatorView mLoader;
     Button mBtnAddNewVouchersCenter,btnDone;
     LinearLayout mLinLytCenterControl;
-    int selected_pos=-1;
+    int selected_pos=-1,voucher_type=-1;
+    boolean isProduct=false;
     String voucher_id, listing_id;
     List<VoucherTemplate> list;
     MyVoucherListing manageVouchers;
@@ -78,6 +79,22 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
 
         listing_id=  RippleittAppInstance.getInstance().getCURRENT_SELECTED_LISTING_ID();
 
+        if (RippleittAppInstance.getInstance().getCURRENT_ADDED_LISTING_OBJECT() != null) {
+
+            if (RippleittAppInstance.getInstance().getCURRENT_ADDED_LISTING_OBJECT().getListing_type().equalsIgnoreCase("2")){
+                isProduct=false;
+            }else {
+                isProduct=true;
+            }
+
+
+        } else if (RippleittAppInstance.getInstance().getCURRENT_LISTING_OBJECT() != null) {
+            if (RippleittAppInstance.getInstance().getCURRENT_LISTING_OBJECT().getListing_type().equalsIgnoreCase("2")){
+                isProduct=false;
+            }else {
+                isProduct=true;
+            }
+        }
     }
 
     @Override
@@ -101,6 +118,9 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
         }else if(view== btnDone){
             if (selected_pos<0) {
 
+            }
+            else if (voucher_type==3 && isProduct) {
+                Toast.makeText(getBaseContext(), "This voucher is only applicable to service", Toast.LENGTH_SHORT).show();
             }
             else {
                 if (list.get(selected_pos).getAsignedListingId().length()>0){
@@ -316,6 +336,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
         selected_pos= pos;
         manageVouchers.notifyAdapter(pos);
         voucher_id= list.get(pos).getVoucherId();
+        voucher_type= Integer.parseInt(list.get(pos).getType());
     }
 
     @Override
@@ -324,7 +345,8 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
         if (resultCode== RESULT_OK){
             if (requestCode==11){
                 voucher_id= data.getStringExtra("voucher_id");
-                Toast.makeText(this,voucher_id,Toast.LENGTH_LONG).show();
+                voucher_type= data.getIntExtra("amount_type",-1);
+//                Toast.makeText(this,voucher_id,Toast.LENGTH_LONG).show();
             }
         }
     }

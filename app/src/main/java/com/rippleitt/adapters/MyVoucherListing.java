@@ -16,11 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rippleitt.R;
-import com.rippleitt.activities.ActivityAddVoucher;
-import com.rippleitt.activities.ActivitySelectListing;
 import com.rippleitt.activities.ActivityVoucherListings;
 import com.rippleitt.callback.ItemClickListener;
-import com.rippleitt.controller.RippleittAppInstance;
 import com.rippleitt.modals.VoucherTemplate;
 import com.rippleitt.utils.CommonUtils;
 import com.rippleitt.webservices.DeleteVoucherApi;

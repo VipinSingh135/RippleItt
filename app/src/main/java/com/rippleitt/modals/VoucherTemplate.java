@@ -14,6 +14,9 @@ public class VoucherTemplate {
     @SerializedName("type")
     @Expose
     private String type;
+    @SerializedName("availed")
+    @Expose
+    private String availed;
     @SerializedName("name")
     @Expose
     private String name;
@@ -26,6 +29,9 @@ public class VoucherTemplate {
     @SerializedName("amount")
     @Expose
     private String amount;
+    @SerializedName("get_amount")
+    @Expose
+    private String get_amount;
     @SerializedName("created_on")
     @Expose
     private String createdOn;
@@ -191,5 +197,21 @@ public class VoucherTemplate {
 
     public void setIsExpired(String isExpired) {
         this.isExpired = isExpired;
+    }
+
+    public String getGet_amount() {
+        return get_amount;
+    }
+
+    public void setGet_amount(String get_amount) {
+        this.get_amount = get_amount;
+    }
+
+    public String getAvailed() {
+        return availed;
+    }
+
+    public void setAvailed(String availed) {
+        this.availed = availed;
     }
 }

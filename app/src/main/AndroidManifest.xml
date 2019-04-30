@@ -143,7 +143,8 @@
         <activity
             android:name=".activities.ProductDetailsActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:fitsSystemWindows="true"
+            />
         <activity
             android:name=".activities.ActivitySubmitReview"
             android:screenOrientation="portrait"

@@ -31,6 +31,7 @@ public class ListingTemplate {
     private String is_new="";
     private String has_voucher="";
     private String has_referral="";
+    private String referral_status="";
     private VoucherTemplate voucher_details;
 
     private String is_disabled="";
@@ -447,6 +448,14 @@ public class ListingTemplate {
 
     public void setHas_referral(String has_referral) {
         this.has_referral = has_referral;
+    }
+
+    public String getReferral_status() {
+        return referral_status;
+    }
+
+    public void setReferral_status(String referral_status) {
+        this.referral_status = referral_status;
     }
 
     public String getGateway_fee() {

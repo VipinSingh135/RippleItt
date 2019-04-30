@@ -66,6 +66,7 @@ public class ActivitySelectListing extends AppCompatActivity implements View.OnC
     List<ListingTemplate> selectedListings;
     List<ListingTemplate> searchedListings;
     String voucher_id = "";
+    String amount_type = "";
     String added_listing_ids = "";
 
     @Override
@@ -93,6 +94,7 @@ public class ActivitySelectListing extends AppCompatActivity implements View.OnC
 
         if (bundle != null) {
             voucher_id = bundle.getString("voucher_id");
+            amount_type = bundle.getString("amount_type");
             if (bundle.getString("added_listing")!=null){
                 added_listing_ids= bundle.getString("added_listing");
             }else {
@@ -242,17 +244,29 @@ public class ActivitySelectListing extends AppCompatActivity implements View.OnC
                         if (parsedResponse.getData().length != 0) {
 //                            Collections.addAll(userListings, parsedResponse.getData());
                             for (ListingTemplate template: parsedResponse.getData()) {
-                                if (template.getHas_voucher().equals("1")){
-                                    if (added_listing_ids!=null && added_listing_ids.contains(template.getListing_id())){
-                                        userListings.add(template);
-                                        selectedListings.add(template);
-                                    }
-//                                    else if (add)
-                                }
-                                else if (template.getQuantity()==null || template.getQuantity().length()<1) {
+
+                                if (amount_type.equals("3")){
+                                    if (template.getHas_voucher().equals("1") && template.getListing_type().equals("2")) {
+                                        if (added_listing_ids != null && added_listing_ids.contains(template.getListing_id())) {
+                                            userListings.add(template);
+                                            selectedListings.add(template);
+                                        }
+                                    } else if ((template.getQuantity() == null || template.getQuantity().length() < 1) && template.getListing_type().equals("2")){
 //                                    userListings.add(template);
-                                }else if (Integer.parseInt(template.getQuantity()) > 0) {
-                                    userListings.add(template);
+                                    } else if (Integer.parseInt(template.getQuantity()) > 0  && template.getListing_type().equals("2")) {
+                                        userListings.add(template);
+                                    }
+                                }else {
+                                    if (template.getHas_voucher().equals("1")) {
+                                        if (added_listing_ids != null && added_listing_ids.contains(template.getListing_id())) {
+                                            userListings.add(template);
+                                            selectedListings.add(template);
+                                        }
+                                    } else if (template.getQuantity() == null || template.getQuantity().length() < 1) {
+//                                    userListings.add(template);
+                                    } else if (Integer.parseInt(template.getQuantity()) > 0) {
+                                        userListings.add(template);
+                                    }
                                 }
                             }
                             searchedListings.clear();

@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ import com.sdsmdg.tastytoast.TastyToast;
 public class SetYourPriceActivity extends AppCompatActivity implements View.OnClickListener {
 
     RelativeLayout mrelSetPriceBack;
+    LinearLayout linPriceDetails;
     EditText medittxtAddPrice;
     Button mbtnSetPrice;
     EditText mEdtxtAddQty;
@@ -54,6 +56,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
 
     public void init() {
         mChkBxTerms = (CheckBox) findViewById(R.id.chkbxTerms);
+        linPriceDetails = (LinearLayout) findViewById(R.id.linPriceDetails);
         mTxtVwListingTerms = (TextView) findViewById(R.id.txtvwListingPolicyLauncher);
         mTxtVwListingTerms.setText(Html.fromHtml("<u>Rippleitt Terms & Conditions</u>"));
         mTxtVwListingTerms.setOnClickListener(this);
@@ -104,6 +107,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
         tvProductAmount.setVisibility(View.GONE);
         view2.setVisibility(View.GONE);
         tvTotalProductAmount.setVisibility(View.GONE);
+        linPriceDetails.setVisibility(View.GONE);
 
         tvName.setText(RippleittAppInstance.getInstance().getSELECTED_LISTING_DETAIL_OBJECT().getListing_name());
         Glide.with(getBaseContext())
@@ -119,6 +123,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
             mEdtxtAddQty.setText("1");
             tvProductAmount.setVisibility(View.VISIBLE);
             view2.setVisibility(View.VISIBLE);
+            linPriceDetails.setVisibility(View.VISIBLE);
             tvTotalProductAmount.setVisibility(View.VISIBLE);
             if (voucher_id != null && voucher_id.length() > 0) {
                 tvVoucherAmount.setVisibility(View.VISIBLE);
@@ -190,6 +195,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
 
 //                            tvTotalAmount.setVisibility(View.VISIBLE);
                         tvProductAmount.setVisibility(View.VISIBLE);
+                        linPriceDetails.setVisibility(View.VISIBLE);
                         view2.setVisibility(View.VISIBLE);
                         tvTotalProductAmount.setVisibility(View.VISIBLE);
                         if (voucher_id != null && voucher_id.length() > 0) {
@@ -206,6 +212,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
 //                            tvAdditionalFee.setText("Processing Fee:- $" + "12.00");
 //                        }
                     } else {
+                        linPriceDetails.setVisibility(View.GONE);
                         tvTotalAmount.setVisibility(View.GONE);
                         tvAdditionalFee.setVisibility(View.GONE);
                         tvProductAmount.setVisibility(View.GONE);
@@ -222,6 +229,7 @@ public class SetYourPriceActivity extends AppCompatActivity implements View.OnCl
                         }
                     }
                 } else {
+                    linPriceDetails.setVisibility(View.GONE);
                     tvTotalAmount.setVisibility(View.GONE);
                     tvAdditionalFee.setVisibility(View.GONE);
                     tvProductAmount.setVisibility(View.GONE);

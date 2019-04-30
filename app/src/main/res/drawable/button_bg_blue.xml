@@ -3,10 +3,10 @@
     <item>
         <shape android:shape="rectangle"
             >
-            <stroke android:color="@color/fb_blue"
+            <stroke android:color="@color/colorPink"
                 android:dashGap="3dp"
-                android:width="3dp"
-                android:dashWidth="8dp"
+                android:width="2dp"
+                android:dashWidth="10dp"
                 />
             <solid android:color="#ffffff"
                 />

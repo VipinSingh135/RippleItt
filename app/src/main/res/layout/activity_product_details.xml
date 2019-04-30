@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
@@ -11,6 +11,7 @@
     <RelativeLayout
         android:id="@+id/relTopBarProductDetail"
         android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/header">
 
@@ -58,11 +59,14 @@
     <ScrollView
         android:id="@+id/scrlVwParent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linBottom"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/relTopBarProductDetail">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
@@ -79,8 +83,8 @@
                     android:id="@+id/frmlytOrderFlagColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
                     android:background="#2f4fb9"
                     android:padding="4sp">
 
@@ -111,8 +115,8 @@
                 android:layout_below="@+id/viewProfile"
 
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="25dp"
+                android:layout_marginRight="10sp"
                 android:orientation="horizontal"
                 android:weightSum="1.0">
 
@@ -139,8 +143,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10sp"
                 android:ellipsize="end"
                 android:fontFamily="@font/montserrat_regular"
                 android:maxLines="2"
@@ -161,8 +165,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10sp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgVwprofileImageDetails"
@@ -257,8 +261,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10sp"
                 android:visibility="gone">
 
                 <ImageView
@@ -292,8 +296,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10sp">
 
 
                 <LinearLayout
@@ -303,10 +307,10 @@
                     android:weightSum="1.0">
 
                     <LinearLayout
+                        android:id="@+id/linearPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
-                        android:id="@+id/linearPrice"
                         android:orientation="horizontal">
 
                         <TextView
@@ -324,10 +328,10 @@
                         <TextView
                             android:id="@+id/txtVwProductPrice"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/montserrat_regular"
                             android:gravity="center_vertical"
                             android:paddingRight="8dp"
@@ -350,7 +354,6 @@
                             android:textSize="16sp" />
 
 
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -358,8 +361,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:gravity="right"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/imgVmShareSign"
@@ -421,8 +424,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10sp"
                 android:orientation="horizontal"
                 android:weightSum="1.0">
 
@@ -462,8 +465,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="10sp"
                 android:orientation="horizontal"
                 android:weightSum="1.0">
 
@@ -504,10 +507,10 @@
                 android:id="@+id/linProductShippingDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="10sp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal"
                 android:weightSum="1.0">
 
@@ -545,10 +548,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="5dp"
-                android:paddingBottom="10sp"
+                android:layout_marginRight="10sp"
                 android:paddingTop="10sp"
+                android:paddingBottom="10sp"
                 android:visibility="gone">
 
                 <TextView
@@ -590,23 +593,89 @@
                 android:textSize="12sp"
                 android:visibility="gone" />
 
-            <View
-                android:id="@+id/viewServiceCodesDivider"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="#dad8d8" />
+            <!--<View-->
+                <!--android:id="@+id/viewServiceCodesDivider"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="#dad8d8" />-->
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/button_bg_blue">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textSize="12sp"
+                        android:id="@+id/tvBuyerDiscount"
+                        android:gravity="center_horizontal"
+                        android:text="@string/strVoucherText"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="@string/strOr"
+                        android:layout_below="@id/tvBuyerDiscount"
+                        android:id="@+id/tvOr"
+                        android:gravity="center_horizontal"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_below="@id/tvOr"
+                        android:id="@+id/tvReferrerDiscount"
+                        android:gravity="center_horizontal"
+                        android:text="@string/strVoucherText"
+                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+                    <Button
+                        android:id="@+id/btnReferAFriend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/button_left_gradient_edge"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Refer"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/relOtherBuyers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="5dp"
-                android:paddingBottom="10sp"
-                android:paddingTop="10sp">
+                android:layout_marginRight="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
 
                 <TextView
                     android:id="@+id/txtvwBidCount"
@@ -653,10 +722,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="5dp"
-                android:paddingBottom="10sp"
-                android:paddingTop="10sp">
+                android:layout_marginRight="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
 
 
                 <TextView
@@ -689,9 +758,9 @@
                 android:id="@+id/linlytOtherSellers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40sp"
                 android:layout_marginLeft="10sp"
                 android:layout_marginRight="10sp"
+                android:layout_marginBottom="40sp"
                 android:orientation="vertical"
                 android:visibility="gone" />
 
@@ -701,8 +770,8 @@
                 android:layout_height="30dp"
                 android:layout_below="@+id/viewProfile"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="10sp"
                 android:visibility="gone">
 
 
@@ -752,10 +821,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
                 android:layout_marginTop="5dp"
-                android:paddingBottom="10sp"
-                android:paddingTop="10sp">
+                android:layout_marginRight="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
 
                 <TextView
                     android:id="@+id/txtvwLaunchComments"
@@ -783,34 +852,6 @@
             </RelativeLayout>
 
 
-            <Button
-                android:id="@+id/btnReferAFriend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginTop="50sp"
-                android:background="@drawable/button_left_gradient"
-                android:fontFamily="@font/montserrat_regular"
-                android:padding="20sp"
-                android:text="Refer a Friend"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/btnSetYourPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/button_right_gradient"
-                android:fontFamily="@font/montserrat_regular"
-                android:padding="20sp"
-                android:text="Make an Offer"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnFAQ"
@@ -827,28 +868,14 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnBuyNow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginTop="50sp"
-                android:background="@drawable/button_left_gradient"
-                android:fontFamily="@font/montserrat_regular"
-                android:padding="20sp"
-                android:text="@string/strBuyNow"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp">
+                android:layout_marginBottom="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -894,6 +921,52 @@
             </RelativeLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
-</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/linBottom"
+        android:background="@color/grey2"
+        android:layout_marginBottom="2dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/linBottom"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnSetYourPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_left_gradient_edge"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Make an Offer"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginRight="2dp"/>
+
+        <Button
+            android:id="@+id/btnBuyNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_right_gradient_edge"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginLeft="1dp"
+            android:text="@string/strBuyNow"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

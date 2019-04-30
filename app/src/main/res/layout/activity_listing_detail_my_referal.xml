@@ -711,8 +711,6 @@
                 android:layout_marginRight="10sp"
                 />
 
-
-
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

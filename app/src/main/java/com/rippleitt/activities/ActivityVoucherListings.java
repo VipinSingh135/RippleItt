@@ -78,7 +78,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
         btnDone.setOnClickListener(this);
 
         listing_id=  RippleittAppInstance.getInstance().getCURRENT_SELECTED_LISTING_ID();
-
+        btnDone.setVisibility(View.GONE);
         if (RippleittAppInstance.getInstance().getCURRENT_ADDED_LISTING_OBJECT() != null) {
 
             if (RippleittAppInstance.getInstance().getCURRENT_ADDED_LISTING_OBJECT().getListing_type().equalsIgnoreCase("2")){
@@ -171,7 +171,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
                             mLinLytCenter.setVisibility(View.GONE);
                             Button mBtnAddListing = ((Activity) context).findViewById(R.id.btnAddVouchersCenter);
                             mBtnAddListing.setVisibility(View.VISIBLE);
-                            btnDone.setVisibility(View.VISIBLE);
+//                            btnDone.setVisibility(View.VISIBLE);
                         }
 
                         for (VoucherTemplate obj: list) {
@@ -229,6 +229,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
 
 //                        Toast.makeText(getApplicationContext(), response_.getResponse_message(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
+                        intent.putExtra("voucher_id", list.get(selected_pos).getVoucherId());
                         intent.putExtra("voucher_name", list.get(selected_pos).getName());
                         intent.putExtra("voucher_type", list.get(selected_pos).getType());
                         intent.putExtra("voucher_amount", list.get(selected_pos).getAmount());
@@ -290,6 +291,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
 
                         Toast.makeText(getApplicationContext(), response_.getResponse_message(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent();
+                        intent.putExtra("voucher_id", list.get(selected_pos).getVoucherId());
                         intent.putExtra("voucher_name", list.get(selected_pos).getName());
                         intent.putExtra("voucher_type", list.get(selected_pos).getType());
                         intent.putExtra("voucher_amount", list.get(selected_pos).getAmount());
@@ -337,6 +339,8 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
         manageVouchers.notifyAdapter(pos);
         voucher_id= list.get(pos).getVoucherId();
         voucher_type= Integer.parseInt(list.get(pos).getType());
+        btnDone.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -346,6 +350,7 @@ public class ActivityVoucherListings extends AppCompatActivity implements View.O
             if (requestCode==11){
                 voucher_id= data.getStringExtra("voucher_id");
                 voucher_type= data.getIntExtra("amount_type",-1);
+                btnDone.setVisibility(View.VISIBLE);
 //                Toast.makeText(this,voucher_id,Toast.LENGTH_LONG).show();
             }
         }

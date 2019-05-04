@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -116,7 +117,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     private RelativeLayout relProductPriceDetails;
     LinearLayout linProductQtyDetails, linProductShippingDetails;
     FrameLayout mFrmLytBadge;
-    TextView mTxtvwBadgeStatus;
+    TextView mTxtvwBadgeStatus,tvShare;
     TextView tvBuyerDiscount, tvReferrerDiscount, tvOr;
 
 //    View viewServiceCodesDivider;
@@ -153,6 +154,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         tvBuyerDiscount = (TextView) findViewById(R.id.tvBuyerDiscount);
         tvReferrerDiscount = (TextView) findViewById(R.id.tvReferrerDiscount);
         tvOr = (TextView) findViewById(R.id.tvOr);
+        tvShare = (TextView) findViewById(R.id.tvShare);
 //        viewServiceCodesDivider = findViewById(R.id.viewServiceCodesDivider);
         mRelLtyServiceAreContainer.setOnClickListener(this);
 
@@ -214,6 +216,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         mbtnSellOnReppliett.setOnClickListener(this);
         mimgVwAddToWishlist.setOnClickListener(this);
         relOtherBuyers.setOnClickListener(this);
+        tvShare.setOnClickListener(this);
         mRelLytOtherSellerWrapper.setOnClickListener(this);
         configViewPagerClickListener();
         try {
@@ -473,7 +476,8 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                         tvReferrerDiscount.setVisibility(View.GONE);
                         tvOr.setVisibility(View.GONE);
                     } else if (RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1") && !RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("1")) {
                         tvBuyerDiscount.setText("Congratulations you have unlocked a $" + RippleittAppInstance.getInstance()
                                 .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + " voucher");
                         tvReferrerDiscount.setVisibility(View.GONE);
@@ -507,7 +511,8 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                         tvReferrerDiscount.setVisibility(View.GONE);
                         tvOr.setVisibility(View.GONE);
                     } else if (RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1") && !RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("1")) {
                         tvBuyerDiscount.setText("Congratulations you have unlocked a free session voucher");
                         tvReferrerDiscount.setVisibility(View.GONE);
                         tvOr.setVisibility(View.GONE);
@@ -537,7 +542,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                         tvReferrerDiscount.setVisibility(View.GONE);
                         tvOr.setVisibility(View.GONE);
                     } else if (RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1")) {
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("1") && !RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("1")
+                    ) {
                         tvBuyerDiscount.setText("Congratulations you have unlocked a " + RippleittAppInstance.getInstance()
                                 .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount() + "% voucher");
                         tvReferrerDiscount.setVisibility(View.GONE);
@@ -687,6 +694,24 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
             //startActivity(new Intent(Pro ductDetailsActivity.this, ActivityListingFaq.class));
         }
 
+
+        if (tvShare == view) {
+            SharedPreferences sharedPreferences = ProductDetailsActivity.this
+                    .getSharedPreferences("preferences", Context.MODE_PRIVATE);
+            String name= sharedPreferences.getString("user_name", "");
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Your Friend "+name+" shared you a product "+
+                    RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getListing_name()+" on www.rippleitt.com");
+            sendIntent.setType("text/plain");
+//            sendIntent.putExtra(Intent.EXTRA_STREAM, RippleittAppInstance.formatPicPath(RippleittAppInstance.getInstance()
+////                    .getSELECTED_LISTING_DETAIL_OBJECT().getListing_photos()[0].getPhoto_path()));
+//            sendIntent.setType("image/*");
+            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.strSelectOption)));
+        }
+
         if (view == mTxtVwShowMore) {
             if (mtxtVwProductDetail.getMaxLines() == 2) {
                 mtxtVwProductDetail.setMaxLines(Integer.MAX_VALUE);
@@ -768,23 +793,30 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                             .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAvailed().equals("1")) {
 
 
-                i.putExtra("voucher_id", RippleittAppInstance.getInstance()
-                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getVoucherId());
+
                 if (RippleittAppInstance.getInstance()
                         .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status() != null &&
                         RippleittAppInstance.getInstance()
                                 .getSELECTED_LISTING_DETAIL_OBJECT().getReferral_status().equals("2")) {
 
+                    i.putExtra("voucher_id", RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getVoucherId());
                     i.putExtra("voucher_price", RippleittAppInstance.getInstance()
                             .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getAmount());
-                } else {
+                    i.putExtra("voucher_type", RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType());
 
-                    i.putExtra("voucher_price", RippleittAppInstance.getInstance()
-                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount());
-                }
+                } else if (
+                        !RippleittAppInstance.getInstance()
+                                .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getMode().equals("1")) {
 
-                i.putExtra("voucher_type", RippleittAppInstance.getInstance()
-                        .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType());
+                                    i.putExtra("voucher_id", RippleittAppInstance.getInstance()
+                                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getVoucherId());
+                                    i.putExtra("voucher_price", RippleittAppInstance.getInstance()
+                                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getGet_amount());
+                                    i.putExtra("voucher_type", RippleittAppInstance.getInstance()
+                                            .getSELECTED_LISTING_DETAIL_OBJECT().getVoucher_details().getType());
+                                }
 
             }
             startActivityForResult(i, REFRESH_DATA);

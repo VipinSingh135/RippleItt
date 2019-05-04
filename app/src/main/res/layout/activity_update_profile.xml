@@ -130,9 +130,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="42sp"
                     android:padding="5sp">
 
                     <RadioGroup
@@ -142,6 +140,8 @@
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center_horizontal"
                         android:orientation="horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:weightSum="1">
 
                         <RadioButton

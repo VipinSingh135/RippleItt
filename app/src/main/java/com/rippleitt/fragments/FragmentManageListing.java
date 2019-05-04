@@ -80,6 +80,7 @@ public class FragmentManageListing extends Fragment implements View.OnClickListe
         mlistManageProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                volleyFetchProductDetails();
                 if (RippleittAppInstance
                         .getInstance().getCURRENT_USER_LISTING()[i].getListing_flag_name()
                         .equalsIgnoreCase("drafted")) {
@@ -90,8 +91,10 @@ public class FragmentManageListing extends Fragment implements View.OnClickListe
                     if (RippleittAppInstance
                             .getInstance().getCURRENT_USER_LISTING()[i].getQuantity() != null && RippleittAppInstance
                             .getInstance().getCURRENT_USER_LISTING()[i].getQuantity().trim().length() > 0) {
-                        startActivity(new Intent(getActivity(),
-                                ActivityAddListingStep2.class));
+//                        startActivity(new Intent(getActivity(),
+//                                ActivityAddListingStep2.class));
+                        volleyFetchProductDetails();
+
                     } else {
                         startActivity(new Intent(getActivity(),
                                 ActivityAddListingStep1.class));

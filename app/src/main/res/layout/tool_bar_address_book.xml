@@ -11,6 +11,35 @@
         android:layout_height="wrap_content">
 
 
+        <RelativeLayout
+            android:id="@+id/relUpdateProfileBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/imgBackUpdateProfile"
+                android:layout_width="30dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/back_arrow" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtvwUpdateProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Add Contacts"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/btnUnselectAll"
             android:layout_width="wrap_content"
@@ -19,8 +48,9 @@
             android:fontFamily="@font/montserrat_regular"
             android:gravity="right"
             android:padding="5dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:text="Unselect All"
+            android:text="Select All"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
     </RelativeLayout>

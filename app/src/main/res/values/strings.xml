@@ -377,6 +377,8 @@ This Privacy Policy was last updated on 31/01/2019.
     <string name="bankName">Bank Name*</string>
     <string name="strFAQ"><u>FAQs</u></string>
     <string name="strOr">&amp;</string>
+    <string name="strShare">Share</string>
+    <string name="strSelectOption">Select Option</string>
 
     <string-array name="strArrayAccType">
         <item>Account Type*</item>

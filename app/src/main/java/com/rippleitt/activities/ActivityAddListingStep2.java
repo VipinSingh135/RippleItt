@@ -12,7 +12,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +45,8 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.gson.Gson;
 import com.rippleitt.R;
 import com.rippleitt.adapters.HorizontalReyclerViewAdapter;
+import com.rippleitt.adapters.PostalCodesAdapter;
+import com.rippleitt.callback.ItemClickListener;
 import com.rippleitt.commonUtilities.PreferenceHandler;
 import com.rippleitt.commonUtilities.UpdateListingAsync;
 import com.rippleitt.controller.CustomTextWatcher;
@@ -49,17 +55,25 @@ import com.rippleitt.modals.CategoryListTemplate;
 import com.rippleitt.modals.ListingSyncProcessCallback;
 import com.rippleitt.modals.ListingSyncResponseTemplate;
 import com.rippleitt.modals.ListingSyncTemplate;
+import com.rippleitt.modals.PostalCodeApiResponse;
+import com.rippleitt.modals.PostalCodeModal;
 import com.rippleitt.utils.CommonUtils;
 import com.robertlevonyan.views.chip.OnCloseClickListener;
+import com.wang.avi.AVLoadingIndicatorView;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import id.zelory.compressor.Compressor;
 
 public class ActivityAddListingStep2 extends AppCompatActivity
-        implements View.OnClickListener, ListingSyncProcessCallback {
+        implements View.OnClickListener, ListingSyncProcessCallback, ItemClickListener {
 
 
     private EditText medittxtAddProductPrice;
@@ -115,6 +129,12 @@ public class ActivityAddListingStep2 extends AppCompatActivity
     ListingSyncTemplate listingTemplate = new ListingSyncTemplate();
 //    private EditText mEdtxtRewardPoint;
     String voucher_id = null;
+    private AVLoadingIndicatorView mLoader;
+
+
+    private List<PostalCodeModal> placesList ;
+    PostalCodesAdapter adapter;
+    RecyclerView recyclerPostcodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +178,39 @@ public class ActivityAddListingStep2 extends AppCompatActivity
             }
             preloadListingData();
         }
+
+
+        placesList=new ArrayList<>();
+        adapter = new PostalCodesAdapter(placesList, ActivityAddListingStep2.this);
+//        edPostalCode.setThreshold(1); //will start working from first character
+        recyclerPostcodes.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        recyclerPostcodes.setAdapter(adapter);
+        recyclerPostcodes.setVisibility(View.GONE);
+
+//        edPostalCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (hasFocus){
+
+        mEdtxtAddress.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mEdtxtAddress.hasFocus()) {
+                    recyclerPostcodes.setVisibility(View.VISIBLE);
+                    postalCodeApi(s.toString());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -186,6 +239,7 @@ public class ActivityAddListingStep2 extends AppCompatActivity
         linearShippingMethods = findViewById(R.id.linearShippingMethods);
 //        linearBuyingOptions = findViewById(R.id.linearBuyingOptions);
         mLnLtZipContainer = (LinearLayout) findViewById(R.id.linlytZipCodeContainer);
+        recyclerPostcodes= findViewById(R.id.recyclerPostcodes);
         mChkBxTC = (CheckBox) findViewById(R.id.chkbxTerms);
         chkBuyNow = (CheckBox) findViewById(R.id.chkBuyNow);
         chkMakeOffer = (CheckBox) findViewById(R.id.chkMakeOffer);
@@ -229,6 +283,9 @@ public class ActivityAddListingStep2 extends AppCompatActivity
         tvVoucherText = findViewById(R.id.tvVoucherText);
         btnDeleteVoucher = findViewById(R.id.btnDeleteVoucher);
         linearVoucher = findViewById(R.id.linearVoucher);
+
+        mLoader = findViewById(R.id.mLoader);
+
         mrelAddProduct_back.setOnClickListener(this);
         mbtnAddPRoductPublish.setOnClickListener(this);
         mbtnAddProdSaveDraft.setOnClickListener(this);
@@ -240,6 +297,7 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 //        linlytMakeOffer.setOnClickListener(this);
         linlytShipping.setOnClickListener(this);
         linlytPickup.setOnClickListener(this);
+        mLoader.setVisibility(View.GONE);
 
         medittxtAddProductPrice.addTextChangedListener(new CustomTextWatcher(
                 medittxtAddProductPrice));
@@ -308,9 +366,9 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 //            mImgVwAddZipCode.setVisibility(View.VISIBLE);
 //        }
         if (view == linlytPickup) {
-            mHrscrlVwZipContainer.setVisibility(View.GONE);
-            mEdtxtZipCode.setVisibility(View.GONE);
-            mImgVwAddZipCode.setVisibility(View.GONE);
+//            mHrscrlVwZipContainer.setVisibility(View.GONE);
+//            mEdtxtZipCode.setVisibility(View.GONE);
+//            mImgVwAddZipCode.setVisibility(View.GONE);
 
             linlytPickup.setBackground(getResources().getDrawable(R.drawable.tab_green_centre));
             linlytShipping.setBackground(getResources().getDrawable(R.drawable.tab_green_centre_outline));
@@ -322,9 +380,9 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 
         }
         if (view == linlytShipping) {
-            mHrscrlVwZipContainer.setVisibility(View.VISIBLE);
-            mEdtxtZipCode.setVisibility(View.VISIBLE);
-            mImgVwAddZipCode.setVisibility(View.VISIBLE);
+//            mHrscrlVwZipContainer.setVisibility(View.VISIBLE);
+//            mEdtxtZipCode.setVisibility(View.VISIBLE);
+//            mImgVwAddZipCode.setVisibility(View.VISIBLE);
             linlytShipping.setBackground(getResources().getDrawable(R.drawable.tab_green_centre));
             linlytPickup.setBackground(getResources().getDrawable(R.drawable.tab_green_centre_outline));
             imgPickup.setImageResource(R.drawable.light_blue_circle);
@@ -1184,14 +1242,16 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 
     public void RemoveVoucherListingApi() {
 
-//        mLoader.setVisibility(View.VISIBLE);
+        mLoader.setVisibility(View.VISIBLE);
+        linearVoucher.setVisibility(View.GONE);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
         final StringRequest myRqst = new StringRequest(Request.Method.POST, RippleittAppInstance.BASE_URL + RippleittAppInstance.REMOVE_VOUCHER_LISTING, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-//                mLoader.hide();
+                mLoader.hide();
+                mLoader.setVisibility(View.GONE);
 
                 try {
                     Gson gson = new Gson();
@@ -1206,6 +1266,8 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 //                        Toast.makeText(getApplicationContext(), response_.getResponse_message(), Toast.LENGTH_SHORT).show();
 
                     } else {
+                        linearVoucher.setVisibility(View.VISIBLE);
+                        btnAddVoucher.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), response_.getResponse_message(), Toast.LENGTH_SHORT).show();
                         // show response_message in alert...
                     }
@@ -1218,7 +1280,10 @@ public class ActivityAddListingStep2 extends AppCompatActivity
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                mLoader.hide();
+                mLoader.hide();
+                mLoader.setVisibility(View.GONE);
+                linearVoucher.setVisibility(View.VISIBLE);
+                btnAddVoucher.setVisibility(View.GONE);
             }
         }) {
             @Override
@@ -1238,6 +1303,70 @@ public class ActivityAddListingStep2 extends AppCompatActivity
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(myRqst);
+    }
+
+
+    public void postalCodeApi(final String strSearch) {
+
+//        String google_key= "AIzaSyBqjRtP_5cOGuigZyf5qNMq8LzcU7hzRY0";
+//        String url= String.format("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%1$s&types=geocode&key=%2$s",
+//                strSearch, google_key);
+
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final StringRequest myRqst = new StringRequest(Request.Method.POST,RippleittAppInstance.BASE_URL + RippleittAppInstance.FETCH_POSTAL_CODES, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+//                mProgressDialog.dismiss();
+                try {
+                    recyclerPostcodes.setVisibility(View.VISIBLE);
+
+//                      maviLoaderHome.hide();
+                    JSONObject object = new JSONObject(response);
+                    PostalCodeApiResponse parsedResponse = (PostalCodeApiResponse)
+                            new Gson()
+                                    .fromJson(response, PostalCodeApiResponse.class);
+                    placesList.clear();
+                    placesList.addAll(parsedResponse.getData());
+                    adapter.notifyAdapter(placesList);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                recyclerPostcodes.setVisibility(View.GONE);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("token", PreferenceHandler.readString(ActivityAddListingStep2.this,
+                        PreferenceHandler.AUTH_TOKEN, ""));
+                params.put("search", strSearch);
+                System.out.print(params);
+                return params;
+            }
+        };
+
+        myRqst.setRetryPolicy(new DefaultRetryPolicy(
+                20000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        requestQueue.add(myRqst);
+
+    }
+
+    @Override
+    public void onItemClick(int pos) {
+        mEdtxtAddress.clearFocus();
+        com.rippleitt.commonUtilities.CommonUtils.keyboardHide(getBaseContext(),getWindow().getDecorView().getRootView());
+        mEdtxtAddress.setText(placesList.get(pos).getPostcode());
+        recyclerPostcodes.setVisibility(View.GONE);
     }
 
 }

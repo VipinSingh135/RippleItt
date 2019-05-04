@@ -118,17 +118,21 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         medittxtPostalCode = (EditText) findViewById(R.id.edittxtPostalCode);
         if (PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.USER_TYPE, "1")
                 .equalsIgnoreCase("2")) {
+
             mEdtxtAnNumber.setVisibility(View.VISIBLE);
             mEdtxtBusinessName.setVisibility(View.VISIBLE);
             mEdtxtAccountType.setText("Business");
             mRdGrpAccountType.check(R.id.rdbtnBusiness);
+            mRdGrpAccountType.setVisibility(View.GONE);
             userType=2;
             mEdtxtAnNumber.setText(PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.ABN_NUMBER, ""));
             mEdtxtBusinessName.setText(PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.BUSINESS_NAME, ""));
+
         } else {
             mEdtxtAnNumber.setVisibility(View.GONE);
             mEdtxtBusinessName.setVisibility(View.GONE);
             mRdGrpAccountType.check(R.id.rdbtnPersonal);
+            mRdGrpAccountType.setVisibility(View.VISIBLE);
             userType=1;
             mEdtxtAccountType.setText("Individual");
         }

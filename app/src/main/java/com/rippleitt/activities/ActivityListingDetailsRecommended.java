@@ -3,8 +3,10 @@ package com.rippleitt.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -82,7 +84,7 @@ public class ActivityListingDetailsRecommended extends AppCompatActivity impleme
     private RelativeLayout mRelLytDownArrowBids, mRelLytDownArrowSellers;
     private TextView mTxtVwSellerCount;
     private LinearLayout mLinLytRootView;
-    private TextView mTxtVwShowMore;
+    private TextView mTxtVwShowMore,tvShare;
 
     private ImageView mImgVwRatingStarOne, mImgVwRatingStarTwo,
             mImgVwRatingStarThree, mImgVwRatingStarFour, mImgVwRatingStarFive;
@@ -130,7 +132,7 @@ public class ActivityListingDetailsRecommended extends AppCompatActivity impleme
         tvBuyerDiscount = (TextView) findViewById(R.id.tvBuyerDiscount);
         tvReferrerDiscount = (TextView) findViewById(R.id.tvReferrerDiscount);
         tvOr = (TextView) findViewById(R.id.tvOr);
-//
+        tvShare = (TextView) findViewById(R.id.tvShare);
         mTxtVWAvailableQty = (TextView) findViewById(R.id.txtvwAvailableQty);
         mTxtVwPaymentMode = (TextView) findViewById(R.id.txtvwPaymentMode);//txtvwDeliveryMode
         mTxtVwDeliveryType = (TextView) findViewById(R.id.txtvwDeliveryMode);//
@@ -189,6 +191,7 @@ public class ActivityListingDetailsRecommended extends AppCompatActivity impleme
         mbtnReferAFriend.setOnClickListener(this);
 
         mrelProductDetailsback.setOnClickListener(this);
+        tvShare.setOnClickListener(this);
 
         mimgVwAddToWishlist.setOnClickListener(this);
 
@@ -454,6 +457,22 @@ public class ActivityListingDetailsRecommended extends AppCompatActivity impleme
         }
 
 
+        if (tvShare == view) {
+            SharedPreferences sharedPreferences = ActivityListingDetailsRecommended.this
+                    .getSharedPreferences("preferences", Context.MODE_PRIVATE);
+            String name= sharedPreferences.getString("user_name", "");
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Your Friend "+name+" shared you a product "+
+                    RippleittAppInstance.getInstance()
+                            .getSELECTED_LISTING_DETAIL_OBJECT().getListing_name()+" on www.rippleitt.com");
+            sendIntent.setType("text/plain");
+//            sendIntent.putExtra(Intent.EXTRA_STREAM, RippleittAppInstance.formatPicPath(RippleittAppInstance.getInstance()
+////                    .getSELECTED_LISTING_DETAIL_OBJECT().getListing_photos()[0].getPhoto_path()));
+//            sendIntent.setType("image/*");
+            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.strSelectOption)));
+        }
         if (view == mTxtVwShowMore) {
             if (mtxtVwProductDetail.getMaxLines() == 2) {
                 mtxtVwProductDetail.setMaxLines(Integer.MAX_VALUE);

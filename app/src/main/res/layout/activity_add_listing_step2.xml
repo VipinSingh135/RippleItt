@@ -51,16 +51,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="36dp"
+                android:id="@+id/linear1"
                 android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -109,6 +109,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
+                android:layout_below="@id/linear1"
+                android:id="@+id/linear2"
                 android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -122,7 +124,7 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/strPostalCode"
                     android:inputType="number"
-                    android:maxLength="6"
+                    android:maxLength="4"
                     android:paddingLeft="15dp"
                     android:paddingTop="15sp"
                     android:paddingRight="15dp"
@@ -134,6 +136,7 @@
 
             </LinearLayout>
 
+
             <RelativeLayout
 
                 android:layout_width="match_parent"
@@ -142,9 +145,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/drawable_long_oval"
+                android:id="@+id/relative3"
+                android:layout_below="@+id/linear2"
                 android:padding="5sp"
                 android:visibility="gone">
-
 
                 <Spinner
                     android:id="@+id/spnrUnits"
@@ -174,6 +178,7 @@
 
             <EditText
                 android:id="@+id/edtxtReferralAmount"
+                android:layout_below="@id/relative3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -196,6 +201,7 @@
             <LinearLayout
                 android:id="@+id/linearShippingMethods"
                 android:layout_width="match_parent"
+                android:layout_below="@id/edtxtReferralAmount"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="54dp"
                 android:orientation="vertical"
@@ -349,7 +355,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    android:visibility="gone">
 
                     <EditText
                         android:id="@+id/edtxtZipCode"
@@ -404,6 +411,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="54dp"
                 android:orientation="vertical"
+                android:id="@+id/linear4"
+                android:layout_below="@id/linearShippingMethods"
                 android:paddingLeft="15dp">
 
 
@@ -555,6 +564,7 @@
 
             <LinearLayout
                 android:id="@+id/linearBuyingOptions"
+                android:layout_below="@+id/linear4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="54dp"
@@ -812,8 +822,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="36dp"
                 android:layout_marginRight="20dp"
+                android:layout_below="@id/linearBuyingOptions"
                 android:background="@drawable/button_bg_blue"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -845,16 +856,29 @@
 
             </LinearLayout>
 
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/mLoader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:indicatorColor="#71b9af"
+                android:layout_below="@id/linearVoucher"
+                app:indicatorName="BallSpinFadeLoaderIndicator" />
+
+
             <Button
                 android:id="@+id/btnAddVoucher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="36dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/button_right_gradient"
                 android:fontFamily="@font/montserrat_bold"
                 android:padding="15sp"
+                android:layout_below="@id/mLoader"
                 android:text="@string/strAddVoucher"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
@@ -865,6 +889,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
+                android:id="@+id/linear5"
+                android:layout_below="@id/btnAddVoucher"
                 android:layout_marginBottom="20sp"
                 android:orientation="horizontal">
 
@@ -900,6 +926,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:layout_below="@id/linear5"
                 android:weightSum="2">
 
                 <Button
@@ -939,8 +966,20 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerPostcodes"
+                android:layout_below="@+id/linear2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/white"
+                >
 
-        </LinearLayout>
+            </android.support.v7.widget.RecyclerView>
+
+
+        </RelativeLayout>
     </ScrollView>
 
 </LinearLayout>

@@ -107,6 +107,7 @@ public class ActivityHome extends AppCompatActivity
     private final String TAG_FRAGMENT_MY_ORDERS = "frag_my_orders";
     private final String TAG_FRAGMENT_MY_DISPUTES = "frag_my_disputes";
     private final String TAG_FRAGMENT_MY_DISBURSALS = "frag_my_disbursals";
+    private final String TAG_FRAGMENT_INVITE_FRIENDS = "frag_invite_friends";
     private LinearLayout mLinLytLogoutContainer;
     private TextView mTxtvwUserName, mTxtVwUserEmail;
     private CircleImageView mImgVwUserProfilePic;
@@ -243,7 +244,6 @@ public class ActivityHome extends AppCompatActivity
         try {
             SharedPreferences sharedPreferences = ActivityHome.this
                     .getSharedPreferences("preferences", Context.MODE_PRIVATE);
-            mTxtvwUserName.setText(sharedPreferences.getString("user_name", ""));
             mTxtVwUserEmail.setText(sharedPreferences.getString("email", ""));
 
             if (sharedPreferences.getString("image", "").equalsIgnoreCase("")
@@ -262,8 +262,13 @@ public class ActivityHome extends AppCompatActivity
             if(PreferenceHandler.readString(ActivityHome.this, PreferenceHandler.USER_TYPE,"1")
                     .equalsIgnoreCase("2")){
                 isBusiness=true;
+                mTxtvwUserName.setText(PreferenceHandler.readString(ActivityHome.this, PreferenceHandler.BUSINESS_NAME, ""));
+
+//                mTxtvwUserName.setText(sharedPreferences.getString("user_name", ""));
             }else{
                 isBusiness=false;
+
+                mTxtvwUserName.setText(sharedPreferences.getString("user_name", ""));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -360,7 +365,9 @@ public class ActivityHome extends AppCompatActivity
                 "Wishlist",
                 "Messages",
                 "Notification",
-                "Settings"};
+                "Settings",
+                "Invite"
+        };
         Integer[] icons = {R.drawable.dashboard,
                 R.drawable.dashboard,
                 R.drawable.listing,
@@ -377,7 +384,9 @@ public class ActivityHome extends AppCompatActivity
                 R.drawable.wishlist,
                 R.drawable.messages,
                 R.drawable.notification,
-                R.drawable.settings};
+                R.drawable.settings,
+                R.drawable.wishlist
+        };
         /*
         String[] titles ={"Home","Dashboard", "My Listings","My Bids",
                 "My Referrals","Recomendations for me","My Orders",
@@ -434,7 +443,8 @@ public class ActivityHome extends AppCompatActivity
                 "Wishlist",
                 "Messages",
                 "Notification",
-                "Settings"};
+                "Settings",
+                "Invite"};
         Integer[] icons = {R.drawable.dashboard,
                 R.drawable.dashboard,
                 R.drawable.listing,
@@ -450,7 +460,9 @@ public class ActivityHome extends AppCompatActivity
                 R.drawable.wishlist,
                 R.drawable.messages,
                 R.drawable.notification,
-                R.drawable.settings};
+                R.drawable.settings,
+                R.drawable.wishlist
+        };
         /*
         String[] titles ={"Home","Dashboard", "My Listings","My Bids",
                 "My Referrals","Recomendations for me","My Orders",
@@ -1093,6 +1105,15 @@ public class ActivityHome extends AppCompatActivity
                                         fragmentSettings, TAG_FRAGMENT_SETTINGS)
                                 .commit();
                     }
+                }else{
+                    mImgVwAddListing.setVisibility(View.GONE);
+                    startActivity(new Intent(ActivityHome.this, ReferFriendActivity.class));
+                }
+                break;
+            case 17:// settings
+                if (isBusiness) {
+                    mImgVwAddListing.setVisibility(View.GONE);
+                    startActivity(new Intent(ActivityHome.this, ReferFriendActivity.class));
                 }else{
 
                 }

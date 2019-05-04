@@ -70,9 +70,7 @@ public class ActivityAddVoucher extends AppCompatActivity implements View.OnClic
     private LinearLayout linlytPercent, linlytDollar, linlytFree;
     private TextView tvPercent, tvDollar, tvFree;
     private ImageView imgPercent, imgDollar, imgFree;
-
 //    private Spinner mspinnerAmountType;
-
     private Button mbtnAddVoucher;
 
     private CheckBox mChkBxTC;
@@ -102,9 +100,7 @@ public class ActivityAddVoucher extends AppCompatActivity implements View.OnClic
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setCancelable(false);
         init();
-
     }
-
 
     @Override
     public void onPause() {
@@ -156,7 +152,8 @@ public class ActivityAddVoucher extends AppCompatActivity implements View.OnClic
         mrelAddProduct_back.setOnClickListener(this);
         mbtnAddVoucher.setOnClickListener(this);
         tvExpiryDate.setOnClickListener(this);
-        tvRestrictedDays.setOnClickListener(this);
+        tvRestrictedDays.setVisibility(View.GONE);
+//        tvRestrictedDays.setOnClickListener(this);
         linlytDollar.setOnClickListener(this);
         linlytPercent.setOnClickListener(this);
         linlytFree.setOnClickListener(this);

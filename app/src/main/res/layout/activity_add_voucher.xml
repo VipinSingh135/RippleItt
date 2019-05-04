@@ -598,6 +598,7 @@
                 android:background="@drawable/drawable_long_oval"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="Quantity"
+                android:inputType="number"
                 android:paddingBottom="15sp"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"

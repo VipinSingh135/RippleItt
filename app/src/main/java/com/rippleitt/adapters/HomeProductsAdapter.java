@@ -39,19 +39,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by hp on 06-03-2018.
  */
 
-public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapter.MyViewHolder>{
+public class HomeProductsAdapter extends RecyclerView.Adapter<HomeProductsAdapter.MyViewHolder> {
 
     Context context;
     HomeProductTapped callbackReference;
-    int currentFilterMode=1;
-    private  ArrayList<ListingTemplate> results=new ArrayList<>();
+    int currentFilterMode = 1;
+    private ArrayList<ListingTemplate> results = new ArrayList<>();
 
     public HomeProductsAdapter(Context context,
                                HomeProductTapped callback,
                                ArrayList<ListingTemplate> data) {
-        this.context=context;
-        callbackReference=callback;
-        this.results=data;
+        this.context = context;
+        callbackReference = callback;
+        this.results = data;
     }
 
 
@@ -68,49 +68,62 @@ public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapt
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 //        holder.mimageProductWishlist.setImageResource((Integer) productImages.get(position));
-       holder.mrelAddWishlistImage.setBackgroundResource(R.drawable.wishlist_icon);
-       holder.mtxtVwProductWishlistTitle.setText(results.get(position).getProductname());
-       holder.mtxtVwProductWishlistPrice.setText("$"+results.get(position).getListing_price());
-       holder.mtxtVwProductWishlistDetail.setText(results.get(position).getListing_description());
-       holder.mtxtVwUserNameDetails.setText(results.get(position).getUserinformation().getFname());
+        holder.mrelAddWishlistImage.setBackgroundResource(R.drawable.wishlist_icon);
+        holder.mtxtVwProductWishlistTitle.setText(results.get(position).getProductname());
+        holder.mtxtVwProductWishlistPrice.setText("$" + results.get(position).getListing_price());
+        holder.mtxtVwProductWishlistDetail.setText(results.get(position).getListing_description());
+        holder.mtxtVwUserNameDetails.setText(results.get(position).getUserinformation().getFname());
         holder.mrelAddWishlistImage.setVisibility(View.GONE);
-        if(results.get(position).getRefer_amount().equalsIgnoreCase("")){
+        if (results.get(position).getRefer_amount().equalsIgnoreCase("")) {
             holder.mTxtVwReferAmount.setVisibility(View.GONE);
-        }else{
+        } else {
             holder.mTxtVwReferAmount.setText("Earn: "
-                    +results.get(position)
+                    + results.get(position)
                     .getRefer_amount()
             );
         }
 
-        if (results.get(position).getListing_type().equals("1")){
+        if (results.get(position).getHas_voucher().equalsIgnoreCase("1") && results.get(position).getVoucher_details() != null) {
+            holder.mtxtVwVoucherPrice.setVisibility(View.VISIBLE);
+            if (results.get(position).getVoucher_details().getType().equals("1")) {
+                holder.mtxtVwVoucherPrice.setText("$"+results.get(position).getVoucher_details().getAmount()+" 0ff");
+            } else if (results.get(position).getVoucher_details().getType().equals("2")) {
+                holder.mtxtVwVoucherPrice.setText(results.get(position).getVoucher_details().getAmount()+"% 0ff");
+            } else if (results.get(position).getVoucher_details().getType().equals("3")) {
+                holder.mtxtVwVoucherPrice.setText("Free Session");
+            }
+        } else {
+            holder.mtxtVwVoucherPrice.setVisibility(View.GONE);
+        }
+
+        if (results.get(position).getListing_type().equals("1")) {
             holder.mFrmLytBadge.setVisibility(View.VISIBLE);
             holder.mtxtVwProductWishlistPrice.setVisibility(View.VISIBLE);
             holder.mTxtVwReferAmount.setVisibility(View.GONE);
-        }else {
+        } else {
             holder.mFrmLytBadge.setVisibility(View.GONE);
             holder.mtxtVwProductWishlistPrice.setVisibility(View.VISIBLE);
             holder.mTxtVwReferAmount.setVisibility(View.GONE);
         }
-        if(results.get(position).getIs_new().equals("1")){
+        if (results.get(position).getIs_new().equals("1")) {
             holder.mFrmLytBadge.setBackground(context.getResources().getDrawable(R.drawable.curved_top_green_background));
             holder.mTxtvwBadgeStatus.setText(" New ");
-        }else{
+        } else {
             holder.mFrmLytBadge.setBackground(context.getResources().getDrawable(R.drawable.curved_top_grey_background));
             holder.mTxtvwBadgeStatus.setText(" Used ");
         }
 
-       if((results.get(position)
-                .getListing_photos().length!=0)){
-            try{
-                if(results
+        if ((results.get(position)
+                .getListing_photos().length != 0)) {
+            try {
+                if (results
                         .get(position)
                         .getListing_photos()[0].getPhoto_path().equalsIgnoreCase("null")
                         || results
                         .get(position)
-                        .getListing_photos()[0].getPhoto_path().equalsIgnoreCase("")){
+                        .getListing_photos()[0].getPhoto_path().equalsIgnoreCase("")) {
                     holder.mimageProductWishlist.setImageResource(R.drawable.default_profile_icon);
-                }else{
+                } else {
 
                     Glide.with(context)
                             .load(RippleittAppInstance.formatPicPath(
@@ -121,12 +134,12 @@ public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapt
                             .into(holder.mimageProductWishlist);
                 }
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 holder.mimageProductWishlist.setImageResource(R.drawable.default_profile_icon);
             }
         }
 
-        try{
+        try {
             Picasso.with(context)
                     .load(RippleittAppInstance.formatPicPath(
                             results
@@ -137,25 +150,25 @@ public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapt
                     .into(holder.imgVwprofileImageHome)
             ;
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             holder.imgVwprofileImageHome.setImageResource(R.drawable.default_profile_icon);
         }
-
 
 
         //=============onitem click=========
         holder.mlinrListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
+                try {
                     callbackReference.itemSelected(position);
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
 
 
             }
         });
+
     }
 
 
@@ -176,6 +189,7 @@ public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapt
         RelativeLayout mrelAddWishlistImage;
         TextView mtxtVwProductWishlistTitle;
         TextView mtxtVwProductWishlistPrice;
+        TextView mtxtVwVoucherPrice;
         TextView mtxtVwProductWishlistDetail;
         TextView mtxtVwUserNameDetails;
         CircleImageView imgVwprofileImageHome;
@@ -186,18 +200,19 @@ public class HomeProductsAdapter extends  RecyclerView.Adapter<HomeProductsAdapt
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            mimageProductWishlist=(RoundedImageView)itemView.findViewById(R.id.imageProductWishlist);
-            mrelAddWishlistImage=(RelativeLayout) itemView.findViewById(R.id.relAddWishlistImage);
-            mlinrListItem=(LinearLayout) itemView.findViewById(R.id.linrListItem);
-            mtxtVwProductWishlistTitle=(TextView) itemView.findViewById(R.id.txtVwProductWishlistTitle);
-            mtxtVwProductWishlistPrice=(TextView) itemView.findViewById(R.id.txtVwProductWishlistPrice);
-            mtxtVwProductWishlistDetail=(TextView) itemView.findViewById(R.id.txtVwProductWishlistDetail);
-            imgVwprofileImageHome=(CircleImageView) itemView.findViewById(R.id.imgVwprofileImageHome);
-            mtxtVwUserNameDetails=(TextView) itemView.findViewById(R.id.txtVwUserNameHome);
-            mTxtVwReferAmount=(TextView)itemView.findViewById(R.id.txtVwProductReferAmount);
-            mFrmLytBadge=(FrameLayout) itemView.findViewById(R.id.frmlytOrderFlagColor);
-            mTxtvwBadgeStatus=(TextView)itemView.findViewById(R.id.txtvwLabelOrderStatus);
-                    //relAddWishlistImage
+            mimageProductWishlist = (RoundedImageView) itemView.findViewById(R.id.imageProductWishlist);
+            mrelAddWishlistImage = (RelativeLayout) itemView.findViewById(R.id.relAddWishlistImage);
+            mlinrListItem = (LinearLayout) itemView.findViewById(R.id.linrListItem);
+            mtxtVwProductWishlistTitle = (TextView) itemView.findViewById(R.id.txtVwProductWishlistTitle);
+            mtxtVwProductWishlistPrice = (TextView) itemView.findViewById(R.id.txtVwProductWishlistPrice);
+            mtxtVwVoucherPrice = (TextView) itemView.findViewById(R.id.txtVwVoucherPrice);
+            mtxtVwProductWishlistDetail = (TextView) itemView.findViewById(R.id.txtVwProductWishlistDetail);
+            imgVwprofileImageHome = (CircleImageView) itemView.findViewById(R.id.imgVwprofileImageHome);
+            mtxtVwUserNameDetails = (TextView) itemView.findViewById(R.id.txtVwUserNameHome);
+            mTxtVwReferAmount = (TextView) itemView.findViewById(R.id.txtVwProductReferAmount);
+            mFrmLytBadge = (FrameLayout) itemView.findViewById(R.id.frmlytOrderFlagColor);
+            mTxtvwBadgeStatus = (TextView) itemView.findViewById(R.id.txtvwLabelOrderStatus);
+            //relAddWishlistImage
             // get the reference of item view's
         }
     }

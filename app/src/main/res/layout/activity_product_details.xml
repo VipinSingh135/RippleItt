@@ -113,7 +113,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/viewProfile"
-
                 android:layout_marginLeft="10sp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="10sp"
@@ -122,11 +121,11 @@
 
                 <TextView
                     android:id="@+id/txtVwProductName"
-                    android:layout_width="match_parent"
+                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/ratingBarProductDetails"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center_vertical"
                     android:singleLine="true"
@@ -134,7 +133,21 @@
                     android:textColor="#313131"
                     android:textSize="24sp" />
 
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/strShare"
+                    android:id="@+id/tvShare"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text_dark"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginRight="12dp"
+                    android:drawableLeft="@drawable/share"
+                    android:paddingLeft="8dp"
+                    android:drawablePadding="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    />
             </LinearLayout>
 
 

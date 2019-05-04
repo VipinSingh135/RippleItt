@@ -731,17 +731,17 @@
                     android:textSize="15sp" />
             </RelativeLayout>
 
-            <ListView
+            <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/recyclerPostcodes"
                 android:layout_above="@+id/relPostalCode"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/white"
                 >
 
-            </ListView>
+            </android.support.v7.widget.RecyclerView>
 
             <RelativeLayout
                 android:id="@+id/relPostalCode"
@@ -762,8 +762,8 @@
                     android:background="@drawable/address" />
 
 
-                <AutoCompleteTextView
-                    android:id="@+id/autotxtPostalCode"
+                <EditText
+                    android:id="@+id/edPostalCode"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="-4dp"

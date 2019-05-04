@@ -759,11 +759,11 @@ public class FragmentHome extends Fragment implements
                 CommonUtils.dismissProgress();
             }
         }) {
-            @Override
-            protected Map<String, String> getParams() {
+                    @Override
+                    protected Map<String, String> getParams() {
 
-                Map<String, String> params = new HashMap<>();
-                params.put("token", PreferenceHandler.readString(getActivity(),
+                        Map<String, String> params = new HashMap<>();
+                        params.put("token", PreferenceHandler.readString(getActivity(),
                         PreferenceHandler.AUTH_TOKEN, ""));
                 params.put("page", Integer.toString(RippleittAppInstance
                         .getInstance()

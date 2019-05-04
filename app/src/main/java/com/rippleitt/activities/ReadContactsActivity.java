@@ -33,6 +33,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,21 +68,24 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
     private ArrayList<ContactTemplate> mArrLstContactsList = new ArrayList<>();
     private ArrayList<ContactTemplate> mArrLstRefrenceContacts = new ArrayList<>();
     private CustomListAdapterContacts mCustomListAdapterContacts;
-    private TextView  mBtnUnselectAll;
+    private TextView mBtnUnselectAll;
     private EditText mEdtxtQuickSearch;
     private Button mBtnImport;
     private SharedPreferences sharedPref;
     private ImageView mImgVwClearSearch;
-    private final int ACTION_READ_CONTACTS=20;
+    private final int ACTION_READ_CONTACTS = 20;
+    private RelativeLayout mrelUpdateProfileBack;
+    private boolean isSelectAll=false;
 
     @Override
-    public void onCreate(Bundle bundle){
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_read_contacts);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         initializeLayout();
-        mArrLstContactsList.clear();;
+        mArrLstContactsList.clear();
+        ;
         setTextChangedListner();
         // verify if permission exists....
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
@@ -98,15 +102,15 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
     }
 
 
-
     @Override
-    public void onRequestPermissionsResult(int requestCode,  String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case ACTION_READ_CONTACTS:
                 if ((grantResults.length > 0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     new LoadContactsAyscn().execute();
                 } else {
-                    Toast.makeText(ReadContactsActivity.this,"Read contacts permission denied",Toast.LENGTH_SHORT).show();;
+                    Toast.makeText(ReadContactsActivity.this, "Read contacts permission denied", Toast.LENGTH_SHORT).show();
+                    ;
                 }
                 break;
             default:
@@ -116,7 +120,7 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
 
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         sharedPref = PreferenceManager.getDefaultSharedPreferences(ReadContactsActivity.this);
     }
@@ -143,16 +147,17 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
     }
 
     private void initializeLayout() {
-        mImgVwClearSearch=(ImageView)findViewById(R.id.imgVwClearSearch);
+        mImgVwClearSearch = (ImageView) findViewById(R.id.imgVwClearSearch);
         mImgVwClearSearch.setOnClickListener(this);
-        mLstVwContacts = (ListView)findViewById(R.id.listView1);
-
-        mBtnUnselectAll =(TextView)toolbar.findViewById(R.id.btnUnselectAll);
+        mLstVwContacts = (ListView) findViewById(R.id.listView1);
+        mrelUpdateProfileBack = (RelativeLayout) findViewById(R.id.relUpdateProfileBack);
+        mBtnUnselectAll = (TextView) toolbar.findViewById(R.id.btnUnselectAll);
 
         mBtnUnselectAll.setOnClickListener(this);
-        mEdtxtQuickSearch = (EditText)findViewById(R.id.inputSearch);
-        mBtnImport=(Button)findViewById(R.id.btnImportAction);
+        mEdtxtQuickSearch = (EditText) findViewById(R.id.inputSearch);
+        mBtnImport = (Button) findViewById(R.id.btnImportAction);
         mBtnImport.setOnClickListener(this);
+        mrelUpdateProfileBack.setOnClickListener(this);
     }
 
     @Override
@@ -172,45 +177,58 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
     }
 
 
-
-
     @Override
     public void onClick(View view) {
-        if(view.getId()==R.id.btnUnselectAll){
-            for (ContactTemplate template:mArrLstContactsList) {
-                template.setIsselected(false);
-                mCustomListAdapterContacts.notifyDataSetChanged();
+        if (view.getId() == R.id.btnUnselectAll) {
+            if (!isSelectAll) {
+                mBtnUnselectAll.setText("UnSelect All");
+                for (ContactTemplate template : mArrLstContactsList) {
+                    template.setIsselected(true);
+                    mCustomListAdapterContacts.notifyDataSetChanged();
+                }
+                isSelectAll=true;
+            }else{
+                mBtnUnselectAll.setText("Select All");
+                for (ContactTemplate template : mArrLstContactsList) {
+                    template.setIsselected(false);
+                    mCustomListAdapterContacts.notifyDataSetChanged();
+                }
+                isSelectAll=false;
             }
 
-        }if(view.getId()==R.id.btnImportAction){
+        }
+        if (view.getId() == R.id.btnImportAction) {
             mBtnImport.setEnabled(false);
             preparePatientRecords();
-
-        }if(view==mImgVwClearSearch){
+        }
+        if (view == mImgVwClearSearch) {
             mEdtxtQuickSearch.setText("");
         }
-
+        if (view == mrelUpdateProfileBack) {
+            finish();
+        }
 
     }
 
     private void preparePatientRecords() {
         // first verify if max limit has not been exceeded.
         ArrayList<ContactTemplate> contactsToCopy = new ArrayList<>();
-        contactsToCopy.clear();;
-        ArrayList<ContactUploadTemplate> contactTemplate=new ArrayList<>();
-        for(ContactTemplate contact :mArrLstRefrenceContacts) {
+        contactsToCopy.clear();
+        ;
+        ArrayList<ContactUploadTemplate> contactTemplate = new ArrayList<>();
+        for (ContactTemplate contact : mArrLstRefrenceContacts) {
             if (contact.isselected()) {
 
-                if(contact!=null
-                        && (contact.getContactName()!=null)
-                        && (contact.getContactPhoneNumber()!=null) ){
+                if (contact != null
+                        && (contact.getContactName() != null)
+                        && (contact.getContactPhoneNumber() != null)) {
 
-                    ContactUploadTemplate uploadTemplate= new ContactUploadTemplate();
+                    ContactUploadTemplate uploadTemplate = new ContactUploadTemplate();
                     uploadTemplate.setFname(contact.getContactName());
                     uploadTemplate.setLname("");
-                    if(contact.getContactEmailAddress()!=null)
+                    if (contact.getContactEmailAddress() != null)
                         uploadTemplate.setEmail(contact.getContactEmailAddress());
-                    if(contact.getContactPhoneNumber()!=null)
+                    if (contact.getContactPhoneNumber() != null)
                         uploadTemplate.setMobilenumber(contact.getContactPhoneNumber());
                     contactTemplate.add(uploadTemplate);
                 }
@@ -218,15 +236,13 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
 
             }
         }
-        if(contactTemplate.size()!=0) {
+        if (contactTemplate.size() != 0) {
             volleyUploadContact(contactTemplate);
-        }else{
+        } else {
             mBtnImport.setEnabled(true);
-            Toast.makeText(ReadContactsActivity.this,"Please select a contact to import",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReadContactsActivity.this, "Please select a contact to import", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 
 
     // load the contacts asynchronously...
@@ -279,7 +295,7 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
             super.onPostExecute(contacts);
             pd.cancel();
             mCustomListAdapterContacts = new CustomListAdapterContacts(ReadContactsActivity.this,
-                    mArrLstContactsList,ReadContactsActivity.this);
+                    mArrLstContactsList, ReadContactsActivity.this);
             mLstVwContacts.setAdapter(mCustomListAdapterContacts);
 
         }
@@ -287,12 +303,13 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
     }
 
 
-    private void volleyUploadContact(final ArrayList<ContactUploadTemplate> contactList){
+    private void volleyUploadContact(final ArrayList<ContactUploadTemplate> contactList) {
 
-      final ProgressDialog pDialog =new ProgressDialog(ReadContactsActivity.this);
-      pDialog.setCancelable(false);
-      pDialog.setMessage("Importing your contacts");
-      pDialog.show();;
+        final ProgressDialog pDialog = new ProgressDialog(ReadContactsActivity.this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Importing your contacts");
+        pDialog.show();
+        ;
         StringRequest sr = new StringRequest(Request.Method.POST,
                 RippleittAppInstance.ADD_EXTERNAL_CONTACT,
                 new com.android.volley.Response.Listener<String>() {
@@ -300,28 +317,28 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
                     public void onResponse(String response) {
                         pDialog.dismiss();
                         mBtnImport.setEnabled(true);
-                        try{
+                        try {
                             AddressBookShareTemplate addressBook = (AddressBookShareTemplate)
-                                    new Gson().fromJson(response,AddressBookShareTemplate.class);
-                            if(addressBook.getResponse_code().equalsIgnoreCase("1")) {
+                                    new Gson().fromJson(response, AddressBookShareTemplate.class);
+                            if (addressBook.getResponse_code().equalsIgnoreCase("1")) {
 
 
                             }
-                        }catch (Exception e){
+                        } catch (Exception e) {
 
                             Toast.makeText(ReadContactsActivity.this,
                                     "Could not import your contacts", Toast.LENGTH_SHORT).show();
                         }
                         AddressBookShareTemplate addressBook = (AddressBookShareTemplate)
-                                new Gson().fromJson(response,AddressBookShareTemplate.class);
-                        if(addressBook.getResponse_code().equalsIgnoreCase("1")) {
+                                new Gson().fromJson(response, AddressBookShareTemplate.class);
+                        if (addressBook.getResponse_code().equalsIgnoreCase("1")) {
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(ReadContactsActivity.this);
                             builder.setMessage("Contacts were successfully imported to your Rippleitt Address Book")
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-                                           finish();
+                                            finish();
                                         }
                                     });
                             AlertDialog alert = builder.create();
@@ -336,23 +353,23 @@ public class ReadContactsActivity extends AppCompatActivity implements ItemSelec
                 mBtnImport.setEnabled(true);
                 pDialog.dismiss();
                 Toast.makeText(ReadContactsActivity.this,
-                        "could not fetch your address book, please try again",Toast.LENGTH_LONG).show();
+                        "could not fetch your address book, please try again", Toast.LENGTH_LONG).show();
                 VolleyLog.d("", "Error: " + error.getMessage());
-                Log.d("", ""+error.getMessage()+","+error.toString());
+                Log.d("", "" + error.getMessage() + "," + error.toString());
                 CommonUtils.dismissProgress();
             }
-        }){
+        }) {
             @Override
-            protected Map<String,String> getParams(){
-                String payload="";
-                if(contactList.size()!=0){
+            protected Map<String, String> getParams() {
+                String payload = "";
+                if (contactList.size() != 0) {
                     Gson g = new Gson();
                     payload = g.toJson(contactList);
                 }
                 Map<String, String> params = new HashMap<>();
                 params.put("token", PreferenceHandler.readString(ReadContactsActivity.this,
                         PreferenceHandler.AUTH_TOKEN, ""));
-                params.put("users",payload);
+                params.put("users", payload);
                 return params;
             }
         };

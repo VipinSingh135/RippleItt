@@ -100,6 +100,7 @@ public class RippleittAppInstance extends Application {
     public static String MAKE_OFFER = "makeoffer.php";
     public static String ADD_VOUCHER = "add_voucher.php";
     public static String EDIT_VOUCHER = "edit_voucher.php";
+    public static String FETCH_POSTAL_CODES = "fetchpostalcodes.php";
     public static String FETCH_ACCOUNT_DETAILS = BASE_URL + "getbankinfo.php";
     public static String FETCH_ACCOUNT_DETAILS_SUBMIT = BASE_URL + "updatebankinfo.php";
     public static String POST_DISBURSE = BASE_URL + "submitdisbursalrequest.php";

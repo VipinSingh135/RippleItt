@@ -35,6 +35,7 @@ import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.Html;
@@ -82,6 +83,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 import com.rippleitt.R;
+import com.rippleitt.adapters.PostalCodesAdapter;
+import com.rippleitt.callback.ItemClickListener;
 import com.rippleitt.commonUtilities.CommonUtils;
 import com.rippleitt.commonUtilities.ImageFilePath;
 import com.rippleitt.commonUtilities.PreferenceHandler;
@@ -94,6 +97,8 @@ import com.rippleitt.modals.EditProfileDetailTemplate;
 import com.rippleitt.modals.EditProfileSyncResponseTemplate;
 import com.rippleitt.modals.IoCallback;
 import com.rippleitt.modals.ListingResponsePayload;
+import com.rippleitt.modals.PostalCodeApiResponse;
+import com.rippleitt.modals.PostalCodeModal;
 import com.rippleitt.modals.SignUpTemplate;
 import com.rippleitt.modals.googleApiResults.GoogleApiResponse;
 import com.rippleitt.modals.googleApiResults.Predictions;
@@ -121,7 +126,7 @@ import id.zelory.compressor.Compressor;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 
 public class SignUpActivity extends AppCompatActivity
-        implements View.OnClickListener, IoCallback {
+        implements View.OnClickListener, ItemClickListener,IoCallback {
     private RelativeLayout mrelSignup;
     private Button mbtnNextSignup;
     private EditText medittxtFrstName;
@@ -132,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity
     private EditText medittxtConfirmPassSignup;
     private EditText medtxtBusinessName;
     private EditText medittxtaddr1Signup;
-    private AutoCompleteTextView mautotxtPostalCode;
+    private EditText edPostalCode;
     private EditText medittxtaddr2Signup;
     private CircleImageView mprofile_image;
     private LinearLayout mLinLytMaleWrapper, mLinLytFemaleWrapper;
@@ -186,9 +191,9 @@ public class SignUpActivity extends AppCompatActivity
     private final int CAMERA_ACTION_IMAGE_CAPTURE = 19;
     private String dirPath;
     private ProgressDialog pdialog;
-    private List<String> placesList ;
-    ArrayAdapter<String> adapter;
-    ListView recyclerPostcodes;
+    private List<PostalCodeModal> placesList ;
+    PostalCodesAdapter adapter;
+    RecyclerView recyclerPostcodes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -219,27 +224,42 @@ public class SignUpActivity extends AppCompatActivity
         work();
 
         placesList=new ArrayList<>();
-        adapter = new ArrayAdapter<String>
-                (this, android.R.layout.select_dialog_item, placesList);
-//        mautotxtPostalCode.setThreshold(1); //will start working from first character
+        adapter = new PostalCodesAdapter(placesList, SignUpActivity.this);
+//        edPostalCode.setThreshold(1); //will start working from first character
+        recyclerPostcodes.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         recyclerPostcodes.setAdapter(adapter);
-        mautotxtPostalCode.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        recyclerPostcodes.setVisibility(View.GONE);
 
-            }
+//        edPostalCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (hasFocus){
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                postalCodeApi(s.toString());
-            }
+                    edPostalCode.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            @Override
-            public void afterTextChanged(Editable s) {
+                        }
 
-            }
-        });
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            if (edPostalCode.hasFocus()) {
+                                recyclerPostcodes.setVisibility(View.VISIBLE);
+                                postalCodeApi(s.toString());
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+
+                        }
+                    });
+//                }
+//            }
+//        });
+
 //        captureUserLocation();
+
     }
 
     @Override
@@ -258,6 +278,8 @@ public class SignUpActivity extends AppCompatActivity
             doLocationStuff();
         }
     }
+
+
 
 
     private class LocationTimeoutAsync extends AsyncTask<Void, Void, Void> {
@@ -371,7 +393,7 @@ public class SignUpActivity extends AppCompatActivity
         medittxPassSignup=(EditText)findViewById(R.id.edittxPassSignup);
         medittxtConfirmPassSignup=(EditText)findViewById(R.id.edittxtConfirmPassSignup);
         medittxtaddr1Signup=(EditText)findViewById(R.id.edittxtaddr1Signup);
-        mautotxtPostalCode=(AutoCompleteTextView) findViewById(R.id.autotxtPostalCode);
+        edPostalCode=(EditText) findViewById(R.id.edPostalCode);
         medittxtaddr2Signup=(EditText)findViewById(R.id.edittxtaddr2Signup);
         mLinLytFemaleWrapper=(LinearLayout)findViewById(R.id.linlytFemaleWrapper);
         mLinLytMaleWrapper=(LinearLayout)findViewById(R.id.linlytMaleWrapper);
@@ -483,10 +505,10 @@ public class SignUpActivity extends AppCompatActivity
             medittxPassSignup.setError("Please provide password.");
             medittxPassSignup.getParent().requestChildFocus(medittxPassSignup,medittxPassSignup);
             return false;
-        }if(mautotxtPostalCode.getText()
+        }if(edPostalCode.getText()
                 .toString().equalsIgnoreCase("")){
-            mautotxtPostalCode.setError("Please provide post code.");
-            mautotxtPostalCode.getParent().requestChildFocus(mautotxtPostalCode,mautotxtPostalCode);
+            edPostalCode.setError("Please provide post code.");
+            edPostalCode.getParent().requestChildFocus(edPostalCode,edPostalCode);
             return false;
         }if(medittxPassSignup.getText()
                 .toString()
@@ -527,7 +549,7 @@ public class SignUpActivity extends AppCompatActivity
         signUpTemplate.setEmail(medittxtEmailSignup.getText().toString().trim());
         signUpTemplate.setNumber(medittxtContactSignup.getText().toString().trim());
         signUpTemplate.setPassword(CommonUtils.md5(medittxPassSignup.getText().toString().trim()));
-        signUpTemplate.setPost_code(mautotxtPostalCode.getText().toString().trim());
+        signUpTemplate.setPost_code(edPostalCode.getText().toString().trim());
 //        signUpTemplate.setAddress1(medittxtaddr1Signup.getText().toString().trim());
 //        signUpTemplate.setAddress2(medittxtaddr2Signup.getText().toString().trim());
 
@@ -562,8 +584,16 @@ public class SignUpActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (recyclerPostcodes.getVisibility()== View.VISIBLE){
+            recyclerPostcodes.setVisibility(View.GONE);
+        }else{
 
-
+            finish();
+        }
+    }
 
     private void showPhotoOptions(){
         android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
@@ -932,39 +962,51 @@ public class SignUpActivity extends AppCompatActivity
         }
     }
 
-    public void postalCodeApi(String strSearch) {
+    public void postalCodeApi(final String strSearch) {
 
-        String google_key= "AIzaSyBqjRtP_5cOGuigZyf5qNMq8LzcU7hzRY0";
-        String url= String.format("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%1$s&types=geocode&key=%2$s",
-                strSearch, google_key);
+//        String google_key= "AIzaSyBqjRtP_5cOGuigZyf5qNMq8LzcU7hzRY0";
+//        String url= String.format("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%1$s&types=geocode&key=%2$s",
+//                strSearch, google_key);
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);
-        final StringRequest myRqst = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        final StringRequest myRqst = new StringRequest(Request.Method.POST,RippleittAppInstance.BASE_URL + RippleittAppInstance.FETCH_POSTAL_CODES, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
 //                mProgressDialog.dismiss();
                 try {
+                    recyclerPostcodes.setVisibility(View.VISIBLE);
 
-                    //  maviLoaderHome.hide();
+//                      maviLoaderHome.hide();
                     JSONObject object = new JSONObject(response);
-                    GoogleApiResponse parsedResponse = (GoogleApiResponse)
+                    PostalCodeApiResponse parsedResponse = (PostalCodeApiResponse)
                             new Gson()
-                                    .fromJson(response, GoogleApiResponse.class);
+                                    .fromJson(response, PostalCodeApiResponse.class);
                     placesList.clear();
-                    for (Predictions predictions :parsedResponse.getPredictions()){
-                        placesList.add(predictions.getDescription());
-                    }
-                    adapter.notifyDataSetChanged();
+                    placesList.addAll(parsedResponse.getData());
+                    adapter.notifyAdapter(placesList);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
+            }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                recyclerPostcodes.setVisibility(View.GONE);
+
             }
-        }) ;
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("token", PreferenceHandler.readString(SignUpActivity.this,
+                        PreferenceHandler.AUTH_TOKEN, ""));
+                params.put("search", strSearch);
+                System.out.print(params);
+                return params;
+            }
+        };
 
         myRqst.setRetryPolicy(new DefaultRetryPolicy(
                 20000,
@@ -975,4 +1017,11 @@ public class SignUpActivity extends AppCompatActivity
 
     }
 
+    @Override
+    public void onItemClick(int pos) {
+        edPostalCode.clearFocus();
+        CommonUtils.keyboardHide(getBaseContext(),getWindow().getDecorView().getRootView());
+        edPostalCode.setText(placesList.get(pos).getPostcode());
+        recyclerPostcodes.setVisibility(View.GONE);
+    }
 }

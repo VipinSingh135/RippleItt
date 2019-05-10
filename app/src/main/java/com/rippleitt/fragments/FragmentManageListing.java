@@ -1,7 +1,6 @@
 package com.rippleitt.fragments;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,10 +23,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.rippleitt.R;
 import com.rippleitt.activities.ActivityAddListingStep1;
-import com.rippleitt.activities.ActivityAddListingStep2;
 import com.rippleitt.activities.ActivityHome;
 import com.rippleitt.activities.ActivityMyProductDetails;
-import com.rippleitt.activities.AddNewProduct;
 import com.rippleitt.adapters.ManageProductListing;
 import com.rippleitt.commonUtilities.PreferenceHandler;
 import com.rippleitt.controller.RippleittAppInstance;

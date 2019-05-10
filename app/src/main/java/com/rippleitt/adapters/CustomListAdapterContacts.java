@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -62,6 +63,7 @@ public class CustomListAdapterContacts extends BaseAdapter {
         holder = new ViewHolder();
             view= mLayoutInflator.inflate(R.layout.layout_contact_list_row,null);
             holder.txtVwPatientName= (TextView)view.findViewById(R.id.txtvwContactName);
+            holder.linParent= (LinearLayout) view.findViewById(R.id.linParent);
             holder.chkbxSelect=(CheckBox)view.findViewById(R.id.chkbxSelect);
             view.setTag(holder);
         }else{
@@ -74,15 +76,18 @@ public class CustomListAdapterContacts extends BaseAdapter {
         return view;
     }
 
-    private void setupClicListners(ViewHolder holder, final int position) {
+    private void setupClicListners(final ViewHolder holder, final int position) {
 
-        holder.chkbxSelect.setOnClickListener(new View.OnClickListener() {
+        holder.linParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(((CheckBox)view).isChecked()){
+                if(!holder.chkbxSelect.isChecked()){
+                    holder.chkbxSelect.setChecked(true);
                     lCallback.onSelected(position);
+
                 }else{
+                    holder.chkbxSelect.setChecked(false);
                     lCallback.onUnSelected(position);
                 }
 
@@ -93,6 +98,7 @@ public class CustomListAdapterContacts extends BaseAdapter {
 
     private class ViewHolder{
         TextView txtVwPatientName;
+        LinearLayout linParent;
 
          CheckBox chkbxSelect;
     }

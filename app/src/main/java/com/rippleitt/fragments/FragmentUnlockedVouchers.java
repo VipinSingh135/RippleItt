@@ -38,6 +38,7 @@ import com.rippleitt.modals.ListingResponsePayload;
 import com.rippleitt.modals.ListingTemplate;
 import com.rippleitt.modals.MyListingDetailsPayload;
 import com.rippleitt.modals.ProductDetailsResponseTemplate;
+import com.rippleitt.modals.VoucherTemplate;
 import com.rippleitt.utils.CommonUtils;
 import com.rippleitt.webservices.FetchUnlockedVouchers;
 import com.rippleitt.webservices.FetchUserListingApi;
@@ -134,14 +135,16 @@ public class FragmentUnlockedVouchers extends Fragment implements View.OnClickLi
 //                            mBtnAddListing.setVisibility(View.GONE);
                             // Toast.makeText(context,"You have not submitted any listings yet",Toast.LENGTH_SHORT).show();
                         } else {
-                            unlockedListings= parsedResponse.getData();
+                            unlockedListings= reverse(parsedResponse.getData(),parsedResponse.getData().length);
+//                            reverse(unlockedListings,unlockedListings.length);
+//
                             mLinLytCenterControl.setVisibility(View.GONE);
 //                            Button mBtnAddListing = ((Activity)context).findViewById(R.id.btnAddPRoductPublish);
 //                            mBtnAddListing.setVisibility(View.VISIBLE);
                         }
 
 
-                        UnlockedVouchersAdapter unlockedVouchersAdapter = new UnlockedVouchersAdapter(getContext(), parsedResponse.getData(), mLoader);
+                        UnlockedVouchersAdapter unlockedVouchersAdapter = new UnlockedVouchersAdapter(getContext(), unlockedListings, mLoader);
                         mlistManageProducts.setAdapter(unlockedVouchersAdapter);
                     } else {
                         Toast.makeText(getContext(), "Could not fetch your listings", Toast.LENGTH_SHORT).show();
@@ -150,7 +153,6 @@ public class FragmentUnlockedVouchers extends Fragment implements View.OnClickLi
                     e.printStackTrace();
                 }
                 // Log.e("Response", response);
-
 
             }
         }, new Response.ErrorListener() {
@@ -229,6 +231,19 @@ public class FragmentUnlockedVouchers extends Fragment implements View.OnClickLi
         };
         sr.setShouldCache(false);
         RippleittAppInstance.getInstance().addToRequestQueue(sr, "rippleitt");
+    }
+
+    static ListingTemplate[] reverse(ListingTemplate a[], int n)
+    {
+        ListingTemplate[] b = new ListingTemplate[n];
+        int j = n;
+        for (int i = 0; i < n; i++) {
+            b[j - 1] = a[i];
+            j = j - 1;
+        }
+
+        return b;
+
     }
 
 }

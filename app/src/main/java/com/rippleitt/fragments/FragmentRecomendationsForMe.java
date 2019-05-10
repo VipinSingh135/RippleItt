@@ -131,6 +131,7 @@ public class FragmentRecomendationsForMe extends Fragment {
 
 
     private void populateList(ListingTemplate[] listings){
+
         if(listings.length==0){
             mTxtVwNoRecomendations.setVisibility(View.VISIBLE);
         }else{

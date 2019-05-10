@@ -17,6 +17,7 @@ public class EditProfileDetailTemplate {
     private String address1;
     private String address2;
     private String image;
+    private String post_code;
     private String user_type;
     private String abn_number;
     private String business_name;
@@ -125,4 +126,11 @@ public class EditProfileDetailTemplate {
         this.image = image;
     }
 
+    public String getPost_code() {
+        return post_code;
+    }
+
+    public void setPost_code(String post_code) {
+        this.post_code = post_code;
+    }
 }

@@ -137,6 +137,34 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20sp"
+                android:paddingTop="2sp"
+                android:paddingLeft="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status  :  "
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#555555"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/txtVwStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="#0c9695"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
 

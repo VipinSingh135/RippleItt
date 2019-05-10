@@ -36,7 +36,7 @@ public class TermsConditionsActivity extends AppCompatActivity {
             if (!extras.getBoolean("isTerms",true)){
                 textView.setText(R.string.strPrivacyPolicy);
                 txtvwTitle.setText("Privacy Policy");
-            }if (extras.getBoolean("isFAQ",true)){
+            }else if (extras.getBoolean("isFAQ",false)){
                 textView.setText(R.string.strDummy);
                 txtvwTitle.setText("FAQs");
             }else

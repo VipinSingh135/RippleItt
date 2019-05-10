@@ -22,6 +22,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.rippleitt.R;
 import com.rippleitt.controller.RippleittAppInstance;
 import com.rippleitt.modals.ListingTemplate;
+import com.rippleitt.utils.CommonUtils;
 import com.rippleitt.webservices.DeleteListingProductApi;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -61,6 +62,7 @@ public class UnlockedVouchersAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.adapter_unlocked_vouchers, viewGroup, false);
             holder.txtVwProductNameMAnage=(TextView)view.findViewById(R.id.txtVwProductNameMAnage);
             holder.txtVwVoucher=(TextView)view.findViewById(R.id.txtVwVoucher);
+            holder.txtVwStatus=(TextView)view.findViewById(R.id.txtVwStatus);
             holder.imgVwProductManageList=(ImageView)view.findViewById(R.id.imgVwProductManageList);
             holder.txtVwProductDescrptionMAnage=(TextView)view.findViewById(R.id.txtVwProductDescrptionMAnage);
             holder.txtVwProductPriceMAnage=(TextView)view.findViewById(R.id.txtVwProductPriceMAnage);
@@ -80,7 +82,7 @@ public class UnlockedVouchersAdapter extends BaseAdapter {
         holder.txtVwProductPriceMAnage.setText("$"+userListings[i].getListing_price());
         holder.mTxtVwDraftStatus.setText(userListings[i].getListing_flag_name());
         Log.e(userListings[i].getListing_flag_name(),userListings[i].getListing_flag());
-        if(userListings[i].getListing_flag()!=null && userListings[i].getListing_flag().equalsIgnoreCase("user")
+        if(userListings[i].getListing_flag()!=null && userListings[i].getListing_flag().equalsIgnoreCase("5")
                 || userListings[i].getListing_flag().equalsIgnoreCase("6")){
             holder.mTxtVwDraftStatus.setTextColor(Color.RED);
         }else{
@@ -109,7 +111,7 @@ public class UnlockedVouchersAdapter extends BaseAdapter {
             holder.mFrmLytBadge.setVisibility(View.VISIBLE);
         }else{
             holder.mFrmLytBadge.setVisibility(View.GONE);
-            holder.txtVwProductPriceMAnage.setVisibility(View.GONE);
+//            holder.txtVwProductPriceMAnage.setVisibility(View.GONE);
         }
 
         if(userListings[i].getIs_new()!=null && userListings[i].getIs_new().equals("1")){
@@ -131,6 +133,27 @@ public class UnlockedVouchersAdapter extends BaseAdapter {
             holder.txtVwVoucher.setText("Not Applicable");
         }
 
+
+        if (userListings[i].getVoucher_details()!=null && userListings[i].getVoucher_details().getIsDeleted().equals("1")) {
+//            holder.mrelMenuManage.setVisibility(View.GONE);
+            holder.txtVwStatus.setText("Deleted");
+            holder.txtVwStatus.setTextColor(Color.parseColor("#FFF44336"));
+        } else if (userListings[i].getVoucher_details()!=null && CommonUtils.isExpired(CommonUtils.getCurrentDate(),userListings[i].getVoucher_details().getExpiry())) {
+//            holder.mrelMenuManage.setVisibility(View.GONE);
+            holder.txtVwStatus.setText("Expired");
+            holder.txtVwStatus.setTextColor(Color.parseColor("#FFF44336"));
+        } else if (userListings[i].getVoucher_details()!=null && userListings[i].getVoucher_details().getAvailed().equals("1")) {
+//            holder.mrelMenuManage.setVisibility(View.GONE);
+            holder.txtVwStatus.setText("Redeemed");
+            holder.txtVwStatus.setTextColor(Color.parseColor("#36568d"));
+        } else if( userListings[i].getVoucher_details()!=null) {
+//            holder.mrelMenuManage.setVisibility(View.VISIBLE);
+            holder.txtVwStatus.setText("Active");
+            holder.txtVwStatus.setTextColor(Color.parseColor("#0c9695"));
+        }else{
+            holder.txtVwStatus.setVisibility(View.GONE);
+        }
+
         return view;
     }
 
@@ -138,6 +161,7 @@ public class UnlockedVouchersAdapter extends BaseAdapter {
         ImageView imgVwProductManageList;
         TextView txtVwProductNameMAnage;
         TextView txtVwVoucher;
+        TextView txtVwStatus;
         TextView txtVwProductDescrptionMAnage;
         TextView txtVwProductPriceMAnage;
         TextView mTxtVwDraftStatus;

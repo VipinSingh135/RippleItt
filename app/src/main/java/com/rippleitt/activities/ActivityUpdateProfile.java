@@ -23,6 +23,10 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,10 +35,20 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.facebook.login.LoginManager;
+import com.google.gson.Gson;
 import com.rippleitt.R;
+import com.rippleitt.adapters.PostalCodesAdapter;
+import com.rippleitt.callback.ItemClickListener;
 import com.rippleitt.commonUtilities.CommonUtils;
 import com.rippleitt.commonUtilities.ImageFilePath;
 import com.rippleitt.commonUtilities.PreferenceHandler;
@@ -46,21 +60,30 @@ import com.rippleitt.modals.EditProfileSyncProcessCallback;
 import com.rippleitt.modals.EditProfileSyncResponseTemplate;
 import com.rippleitt.modals.EditProfileSyncTemplate;
 import com.rippleitt.modals.ListingSyncTemplate;
+import com.rippleitt.modals.PostalCodeApiResponse;
+import com.rippleitt.modals.PostalCodeModal;
 import com.sdsmdg.tastytoast.TastyToast;
 import com.squareup.picasso.Picasso;
 import com.wang.avi.AVLoadingIndicatorView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
 
-public class ActivityUpdateProfile extends AppCompatActivity implements View.OnClickListener, EditProfileSyncProcessCallback, RadioGroup.OnCheckedChangeListener {
+public class ActivityUpdateProfile extends AppCompatActivity implements View.OnClickListener, ItemClickListener, EditProfileSyncProcessCallback, RadioGroup.OnCheckedChangeListener {
 
 
     private RelativeLayout mrelUpdateProfileBack;
@@ -99,6 +122,11 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
     private int userType;
     private RadioGroup mRdGrpAccountType;
 
+
+    private List<PostalCodeModal> placesList ;
+    PostalCodesAdapter adapter;
+    RecyclerView recyclerPostcodes;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +135,35 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_update_profile);
         init();
         setData();
+
+        placesList=new ArrayList<>();
+        adapter = new PostalCodesAdapter(placesList, ActivityUpdateProfile.this);
+//        medittxtPostalCode.setThreshold(1); //will start working from first character
+        recyclerPostcodes.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        recyclerPostcodes.setAdapter(adapter);
+        recyclerPostcodes.setVisibility(View.GONE);
+
+
+        medittxtPostalCode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (medittxtPostalCode.hasFocus()) {
+                    recyclerPostcodes.setVisibility(View.VISIBLE);
+                    postalCodeApi(s.toString());
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     public void init() {
@@ -115,6 +172,7 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         mEdtxtAnNumber = (EditText) findViewById(R.id.edtxtAbnNumber);
         mRdGrpAccountType = (RadioGroup) findViewById(R.id.rdgrpAcType);
         mEdtxtBusinessName = (EditText) findViewById(R.id.edtxtBusinessName);
+        recyclerPostcodes = (RecyclerView) findViewById(R.id.recyclerPostcodes);
         medittxtPostalCode = (EditText) findViewById(R.id.edittxtPostalCode);
         if (PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.USER_TYPE, "1")
                 .equalsIgnoreCase("2")) {
@@ -201,7 +259,6 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         return mediaFile;
     }
     //====================
-
 
     private boolean validate() {
 
@@ -436,6 +493,7 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         medittxtLstName.setText(sharedPreferences.getString("lname", ""));
         medittxtPhone.setText(sharedPreferences.getString("mobilenumber", ""));
         medittxtAddress.setText(sharedPreferences.getString("address1", ""));
+        medittxtPostalCode.setText(sharedPreferences.getString("post_code", ""));
         medittxtAddressTwo.setText(sharedPreferences.getString("address2", ""));
 
 
@@ -475,59 +533,64 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
         mbtnSaveProfile.setEnabled(true);
 
         Log.e("USER_DETAILS", template.getResponse_message() + "");
-        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdateProfile.this);
-        builder.setMessage("You need to login again for changes to apply")
-                .setCancelable(false)
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                        SharedPreferences sharedPreferences = getSharedPreferences(RippleittAppInstance.PREFERENCES, MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.clear();
-                        editor.commit();
-                        try {
-                            LoginManager.getInstance().logOut();
-                        } catch (Exception e) {
 
+        if (PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.USER_TYPE, "1")
+                .equalsIgnoreCase(template.getUserinformation().getUser_type())) {
+//
+            SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("user_name", template.getUserinformation().getFname() + " " + template.getUserinformation().getLname());
+            editor.putString("fname", template.getUserinformation().getFname());
+            editor.putString("lname", template.getUserinformation().getLname());
+            editor.putString("email", template.getUserinformation().getEmail());
+            editor.putString("image", template.getUserinformation().getImage());
+            editor.putString("post_code", template.getUserinformation().getPost_code());
+            editor.putString("mobilenumber", template.getUserinformation().getMobilenumber());
+            editor.putString("longitude", template.getUserinformation().getLongitude());
+            editor.putString("latitude", template.getUserinformation().getLatitude());
+            editor.putString("latitude", template.getUserinformation().getLatitude());
+            editor.putString("address1", template.getUserinformation().getAddress1());
+            editor.putString("address2", template.getUserinformation().getAddress2());
+//        editor.pu("post_code",payload.getPost_code());
+
+            editor.putString("abn_number", template.getUserinformation().getAbn_number());
+            editor.putString("business_name", template.getUserinformation().getBusiness_name());
+
+
+            editor.commit();
+            Toast.makeText(ActivityUpdateProfile.this,
+                    "Your profile has been updated successfully...",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
+        else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityUpdateProfile.this);
+            builder.setMessage("You need to login again for changes to apply")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            SharedPreferences sharedPreferences = getSharedPreferences(RippleittAppInstance.PREFERENCES, MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.clear();
+                            editor.commit();
+                            try {
+                                LoginManager.getInstance().logOut();
+                            } catch (Exception e) {
+
+                            }
+                            Intent intent = new Intent(ActivityUpdateProfile.this, ActivityLogin.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
                         }
-                        Intent intent = new Intent(ActivityUpdateProfile.this, ActivityLogin.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
 
-//        if (PreferenceHandler.readString(ActivityUpdateProfile.this, PreferenceHandler.USER_TYPE, "1")
-//                .equalsIgnoreCase(template.getUserinformation().)) {
-
-//        SharedPreferences sharedPreferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("user_name", template.getUserinformation().getFname() + " " + template.getUserinformation().getLname());
-//        editor.putString("fname", template.getUserinformation().getFname());
-//        editor.putString("lname", template.getUserinformation().getLname());
-//        editor.putString("email", template.getUserinformation().getEmail());
-//        editor.putString("image", template.getUserinformation().getImage());
-//        editor.putString("mobilenumber", template.getUserinformation().getMobilenumber());
-//        editor.putString("longitude", template.getUserinformation().getLongitude());
-//        editor.putString("latitude", template.getUserinformation().getLatitude());
-//        editor.putString("latitude", template.getUserinformation().getLatitude());
-//        editor.putString("address1", template.getUserinformation().getAddress1());
-//        editor.putString("address2", template.getUserinformation().getAddress2());
-////        editor.pu("post_code",payload.getPost_code());
-//
-//        editor.putString("abn_number", template.getUserinformation().getAbn_number());
-//        editor.putString("business_name", template.getUserinformation().getBusiness_name());
-//
-//
-//        editor.commit();
-//        Toast.makeText(ActivityUpdateProfile.this,
-//                "Your profile has been updated successfully...",
-//                Toast.LENGTH_LONG).show();
-//        finish();
+        }
     }
-
+//
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -557,6 +620,14 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
             mEdtxtAnNumber.setVisibility(View.GONE);
             mEdtxtBusinessName.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onItemClick(int pos) {
+        medittxtPostalCode.clearFocus();
+        CommonUtils.keyboardHide(getBaseContext(),getWindow().getDecorView().getRootView());
+        medittxtPostalCode.setText(placesList.get(pos).getPostcode());
+        recyclerPostcodes.setVisibility(View.GONE);
     }
 
 
@@ -626,6 +697,57 @@ public class ActivityUpdateProfile extends AppCompatActivity implements View.OnC
 
 
         }
+    }
+
+    public void postalCodeApi(final String strSearch) {
+
+        final RequestQueue requestQueue = Volley.newRequestQueue(this);
+        final StringRequest myRqst = new StringRequest(Request.Method.POST,RippleittAppInstance.BASE_URL + RippleittAppInstance.FETCH_POSTAL_CODES, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+//                mProgressDialog.dismiss();
+                try {
+                    recyclerPostcodes.setVisibility(View.VISIBLE);
+
+//                      maviLoaderHome.hide();
+                    JSONObject object = new JSONObject(response);
+                    PostalCodeApiResponse parsedResponse = (PostalCodeApiResponse)
+                            new Gson()
+                                    .fromJson(response, PostalCodeApiResponse.class);
+                    placesList.clear();
+                    placesList.addAll(parsedResponse.getData());
+                    adapter.notifyAdapter(placesList);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                recyclerPostcodes.setVisibility(View.GONE);
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+
+                Map<String, String> params = new HashMap<>();
+                params.put("token", PreferenceHandler.readString(ActivityUpdateProfile.this,
+                        PreferenceHandler.AUTH_TOKEN, ""));
+                params.put("search", strSearch);
+                System.out.print(params);
+                return params;
+            }
+        };
+
+        myRqst.setRetryPolicy(new DefaultRetryPolicy(
+                20000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        requestQueue.add(myRqst);
+
     }
 
 }

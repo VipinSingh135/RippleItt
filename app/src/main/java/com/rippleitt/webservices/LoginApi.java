@@ -18,7 +18,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.rippleitt.activities.ActivityAddMobileNumber;
 import com.rippleitt.activities.ActivityHome;
-import com.rippleitt.activities.ActivityPhoneVerification;
 import com.rippleitt.activities.ActivityVerifyEmail;
 import com.rippleitt.commonUtilities.PreferenceHandler;
 import com.rippleitt.controller.RippleittAppInstance;
@@ -65,6 +64,7 @@ public class LoginApi {
                         String longitude = userDetailsObj.getString("longitude");
                         String latitude = userDetailsObj.getString("latitude");
                         String address1 = userDetailsObj.getString("address1");
+                        String postal_code = userDetailsObj.getString("post_code");
                         String address2 = userDetailsObj.getString("address2");
                         String gender = userDetailsObj.getString("gender");
                         String image = userDetailsObj.getString("image");
@@ -110,6 +110,7 @@ public class LoginApi {
                             editor.putString("email", email);
                             editor.putString("image", image);
                             editor.putString("address1", address1);
+                            editor.putString("post_code", postal_code);
                             editor.putString("address2", address2);
                             editor.putString("mobilenumber", mobilenumber);
                             editor.putString("user_id", user_id);

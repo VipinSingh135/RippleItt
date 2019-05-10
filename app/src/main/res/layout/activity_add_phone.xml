@@ -152,17 +152,16 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical">
+        android:layout_centerInParent="true">
 
         <ImageView
             android:id="@+id/imgVwLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20sp"
             android:tint="@color/text_dark"
             android:src="@drawable/shield" />
@@ -171,10 +170,11 @@
             android:id="@+id/tvPhoneVerifyTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_below="@id/imgVwLogo"
             android:layout_marginLeft="28dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="28dp"
+            android:layout_marginBottom="48dp"
             android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:textSize="16sp"
@@ -185,7 +185,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linearPhone"
-            android:layout_marginTop="32dp"
+            android:layout_below="@id/tvPhoneVerifyTxt"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -193,7 +193,6 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="16dp"
                 android:background="@drawable/edittxt_bg_login"
                 android:padding="10sp">
 
@@ -216,12 +215,12 @@
                     android:background="@null"
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/ContryCode"
-                    android:inputType="phone"
-                    android:padding="5sp"
+                    android:inputType="text"
+                    android:paddingTop="5sp"
+                    android:paddingBottom="5sp"
                     android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
+                    android:paddingRight="4dp"
                     android:singleLine="true"
-                    android:maxLength="4"
                     android:textColor="@color/grey_darker"
                     android:textColorHint="#cccccc"
                     android:textSize="16sp" />
@@ -232,7 +231,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/edittxt_bg_login"
                 android:padding="10sp">
@@ -258,6 +256,7 @@
                     android:hint="@string/phone_number"
                     android:inputType="phone"
                     android:padding="5sp"
+                    android:maxLength="10"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:singleLine="true"
@@ -267,6 +266,8 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+
 
     <!--<RelativeLayout-->
         <!--android:layout_width="match_parent"-->
@@ -311,6 +312,11 @@
     <!--</RelativeLayout>-->
 
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/linearPhone"
+    >
 
     <Button
         android:layout_width="match_parent"
@@ -327,8 +333,23 @@
         android:textColor="@color/white"
         android:background="@drawable/button_left_gradient"
         android:textAllCaps="false"/>
+</RelativeLayout>
 
-    </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerCodes"
+            android:layout_below="@+id/linearPhone"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/white"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
 
 
 

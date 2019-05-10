@@ -124,7 +124,6 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/strPostalCode"
                     android:inputType="number"
-                    android:maxLength="4"
                     android:paddingLeft="15dp"
                     android:paddingTop="15sp"
                     android:paddingRight="15dp"

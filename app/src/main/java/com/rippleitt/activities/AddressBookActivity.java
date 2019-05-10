@@ -407,7 +407,9 @@ public class AddressBookActivity extends AppCompatActivity implements View.OnCli
                                     .setCancelable(false)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
+                                            setResult(Activity.RESULT_OK);
                                             finish();
+
                                         }
                                     });
                             AlertDialog alert = builder.create();

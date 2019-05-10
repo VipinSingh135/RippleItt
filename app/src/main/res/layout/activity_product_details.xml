@@ -138,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/strShare"
                     android:id="@+id/tvShare"
+                    android:visibility="gone"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/text_dark"
                     android:fontFamily="@font/montserrat_regular"
@@ -148,6 +149,20 @@
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVwAddress"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:textSize="14sp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"  />
+
             </LinearLayout>
 
 
@@ -615,52 +630,61 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeVoucher">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="120dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:background="@drawable/button_bg_blue">
+                    android:background="@drawable/voucher">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/montserrat_light"
-                        android:textSize="12sp"
-                        android:id="@+id/tvBuyerDiscount"
-                        android:gravity="center_horizontal"
-                        android:text="@string/strVoucherText"
-                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/btnReferAFriend">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:id="@+id/tvBuyerDiscount"
+                            android:gravity="center_horizontal"
+                            android:text="@string/strVoucherText"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@string/strOr"
+                            android:layout_below="@id/tvBuyerDiscount"
+                            android:textColor="@color/black"
+                            android:id="@+id/tvOr"
+                            android:gravity="center_horizontal"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:textSize="12sp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/tvOr"
+                            android:id="@+id/tvReferrerDiscount"
+                            android:gravity="center_horizontal"
+                            android:text="@string/strVoucherText"
+                           />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/montserrat_light"
-                        android:text="@string/strOr"
-                        android:layout_below="@id/tvBuyerDiscount"
-                        android:id="@+id/tvOr"
-                        android:gravity="center_horizontal"
-                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_light"
-                        android:textSize="12sp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="12dp"
-                        android:layout_below="@id/tvOr"
-                        android:id="@+id/tvReferrerDiscount"
-                        android:gravity="center_horizontal"
-                        android:text="@string/strVoucherText"
-                        android:layout_toLeftOf="@+id/btnReferAFriend"/>
                     <Button
                         android:id="@+id/btnReferAFriend"
                         android:layout_width="wrap_content"

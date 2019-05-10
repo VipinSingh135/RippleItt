@@ -497,7 +497,7 @@ public class ActivityAddListingStep2 extends AppCompatActivity
     }
 
     private void publishListing(int flag) {
-        listingTemplate.setAddress(mEdtxtAddress.getText().toString());
+        listingTemplate.setPost_code(mEdtxtAddress.getText().toString());
         listingTemplate.setPrice(medittxtAddProductPrice.getText().toString());
 //        listingTemplate.setRewardAmount(mEdtxtRewardPoint.getText().toString());
         listingTemplate.setRewardAmount("0");
@@ -703,6 +703,12 @@ public class ActivityAddListingStep2 extends AppCompatActivity
                     Toast.LENGTH_SHORT).show();*/
             return false;
         }
+//        if (listingTemplate.getAddress()==null || listingTemplate.getAddress().trim().equals("") ) {
+//            Toast.makeText(ActivityAddListingStep2.this,
+//                    "Please select post code.",
+//                    Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
 
         return true;
     }
@@ -944,7 +950,7 @@ public class ActivityAddListingStep2 extends AppCompatActivity
 
             mEdtxtAddress.setText(RippleittAppInstance
                     .getInstance()
-                    .getCURRENT_LISTING_OBJECT().getLocation().getAddress());
+                    .getCURRENT_LISTING_OBJECT().getLocation().getAddress().split(",")[0]);
         }
 
 //        if (RippleittAppInstance
@@ -1366,6 +1372,7 @@ public class ActivityAddListingStep2 extends AppCompatActivity
         mEdtxtAddress.clearFocus();
         com.rippleitt.commonUtilities.CommonUtils.keyboardHide(getBaseContext(),getWindow().getDecorView().getRootView());
         mEdtxtAddress.setText(placesList.get(pos).getPostcode());
+        listingTemplate.setAddress(placesList.get(pos).getPostcode() + ", "+placesList.get(pos).getName());
         recyclerPostcodes.setVisibility(View.GONE);
     }
 

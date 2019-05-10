@@ -87,7 +87,7 @@ public class ActivityMyProductDetails extends AppCompatActivity
     private RelativeLayout mRelLtyServiceAreContainer, mRelLtyServiceAreaIcon;
     private TextView mtxtVwServiceZip, mTxtVwShippingMode;
     FrameLayout mFrmLytBadge;
-    TextView mTxtvwBadgeStatus, txtvwProductDetails;
+    TextView mTxtvwBadgeStatus,txtVwAddress, txtvwProductDetails;
     RelativeLayout relOtherBuyers;
 
     @Override
@@ -105,6 +105,7 @@ public class ActivityMyProductDetails extends AppCompatActivity
         mRelLtyServiceAreaIcon = (RelativeLayout) findViewById(R.id.relServiceAreaIcon);
         mTxtVwShippingMode = (TextView) findViewById(R.id.txtvwDeliveryMode);
         mtxtVwServiceZip = (TextView) findViewById(R.id.txtvwServiceCodes);
+        txtVwAddress = (TextView) findViewById(R.id.txtVwAddress);
         txtvwProductDetails = (TextView) findViewById(R.id.txtvwProductDetails);
         mRelLytCommentBox = (RelativeLayout) findViewById(R.id.relCommentsBox);
         mRelLytCommentBox.setOnClickListener(this);
@@ -369,6 +370,7 @@ public class ActivityMyProductDetails extends AppCompatActivity
                 .getQuantity()
         );
         mtxtVwProductName.setText(RippleittAppInstance.getInstance().getMY_CURRENT_LISTING().getListing_name());
+        txtVwAddress.setText(RippleittAppInstance.getInstance().getMY_CURRENT_LISTING().getLocation().getAddress());
         mtxtVwProductDetail.setText(RippleittAppInstance.getInstance().getMY_CURRENT_LISTING().getListing_description());
         mtxtVwUserNameDetails.setText(RippleittAppInstance.getInstance()
                 .getMY_CURRENT_LISTING().getUserinformation().getFname() + " "
@@ -628,7 +630,7 @@ public class ActivityMyProductDetails extends AppCompatActivity
             public void onErrorResponse(VolleyError error) {
                 mPDialog.dismiss();
                 Toast.makeText(ActivityMyProductDetails.this,
-                        "could not complete your request, please try again", Toast.LENGTH_LONG).show();
+                        "Could not complete your request, please try again", Toast.LENGTH_LONG).show();
                 VolleyLog.d("", "Error: " + error.getMessage());
                 Log.d("", "" + error.getMessage() + "," + error.toString());
                 CommonUtils.dismissProgress();

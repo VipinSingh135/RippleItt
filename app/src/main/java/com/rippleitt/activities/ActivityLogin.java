@@ -282,6 +282,7 @@ public class ActivityLogin extends AppCompatActivity
                                 editor.putString("user_name", authObj.getUserinformation().getFname() + " " + authObj.getUserinformation().getLname());
                                 editor.putString("email", authObj.getUserinformation().getEmail());
                                 editor.putString("image", authObj.getUserinformation().getImage());
+                                editor.putString("post_code", authObj.getUserinformation().getPost_code());
                                 editor.putString("address1", authObj.getUserinformation().getAddress1());
                                 editor.putString("mobilenumber", authObj.getUserinformation().getMobilenumber());
                                 editor.putString("user_id", authObj.getUserinformation().getUser_id());

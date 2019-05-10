@@ -488,7 +488,7 @@ public class ActivityAddVoucher extends AppCompatActivity implements View.OnClic
     public void addVoucherApi() {
         final ArrayList<HashMap<String, String>> arry_Details = new ArrayList<>();
         mProgressDialog.setCancelable(false);
-        mProgressDialog.setMessage("Submitting your offer");
+        mProgressDialog.setMessage("Submitting your voucher");
         mProgressDialog.show();
 
         final RequestQueue requestQueue = Volley.newRequestQueue(this);

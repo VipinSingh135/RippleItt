@@ -110,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/strShare"
                     android:id="@+id/tvShare"
+                    android:visibility="gone"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/text_dark"
                     android:fontFamily="@font/montserrat_regular"
@@ -120,6 +121,18 @@
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
                     />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtVwAddress"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="10sp"
+                    android:textSize="14sp"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"  />
             </LinearLayout>
 
 

@@ -56,17 +56,16 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/edit_profile_image"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="40sp"
 
@@ -82,7 +81,8 @@
                     android:gravity="center"
                     android:text="@string/edit_profile_pic"
                     android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:layout_below="@id/edit_profile_image"/>
                 <EditText
                     android:id="@+id/edittxtLstName"
                     android:layout_width="match_parent"
@@ -102,7 +102,8 @@
                     android:singleLine="true"
                     android:textColor="#666666"
                     android:textColorHint="#666666"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_below="@id/txtvwUploadProfile"/>
 
                 <EditText
                     android:id="@+id/edtxtAccType"
@@ -116,6 +117,7 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/lastname"
                     android:inputType="text"
+                    android:layout_below="@id/edittxtLstName"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
@@ -131,6 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="42sp"
+                    android:id="@+id/relativeType"
+                    android:layout_below="@id/edtxtAccType"
                     android:padding="5sp">
 
                     <RadioGroup
@@ -187,32 +191,13 @@
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
                     android:paddingBottom="15sp"
+                    android:layout_below="@id/relativeType"
                     android:singleLine="true"
                     android:textColor="#666666"
                     android:textColorHint="#666666"
                     android:textSize="15sp" />
 
 
-                <EditText
-                    android:id="@+id/edtxtAbnNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20sp"
-                    android:layout_marginTop="10sp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/drawable_long_oval"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:hint="ABN*"
-                    android:inputType="number"
-                    android:maxLength="11"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="15sp"
-                    android:paddingRight="25sp"
-                    android:paddingBottom="15sp"
-                    android:singleLine="true"
-                    android:textColor="#666666"
-                    android:textColorHint="#666666"
-                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/edtxtBusinessName"
@@ -225,7 +210,30 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="Business Name*"
                     android:inputType="text"
+                    android:layout_below="@id/edittxtFrstName"
                     android:maxLength="15"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15sp"
+                    android:paddingRight="25sp"
+                    android:paddingBottom="15sp"
+                    android:singleLine="true"
+                    android:textColor="#666666"
+                    android:textColorHint="#666666"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/edtxtAbnNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/drawable_long_oval"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="ABN*"
+                    android:inputType="number"
+                    android:layout_below="@id/edtxtBusinessName"
+                    android:maxLength="11"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
@@ -245,6 +253,7 @@
                     android:background="@drawable/drawable_long_oval"
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/email"
+                    android:layout_below="@id/edtxtAbnNumber"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
@@ -261,6 +270,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
                     android:layout_marginTop="10sp"
+                    android:layout_marginBottom="10sp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/drawable_long_oval"
                     android:enabled="false"
@@ -268,6 +278,7 @@
                     android:hint="@string/phone_number"
                     android:inputType="number"
                     android:maxLength="15"
+                    android:layout_below="@id/edittxtEmail"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
@@ -277,18 +288,20 @@
                     android:textColorHint="#666666"
                     android:textSize="15sp" />
 
+
+
                 <EditText
                     android:id="@+id/edittxtPostalCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20sp"
-                    android:layout_marginTop="10sp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/drawable_long_oval"
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/strPostalCode"
                     android:inputType="textPostalAddress"
                     android:maxLines="3"
+                    android:layout_below="@id/edittxtPhone"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
@@ -311,6 +324,7 @@
                     android:inputType="textPostalAddress"
                     android:maxLines="3"
                     android:visibility="gone"
+                    android:layout_below="@id/edittxtPostalCode"
                     android:paddingLeft="25dp"
                     android:paddingTop="15sp"
                     android:paddingRight="25sp"
@@ -330,6 +344,7 @@
                     android:background="@drawable/drawable_long_oval"
                     android:fontFamily="@font/montserrat_regular"
                     android:hint="@string/addr2"
+                    android:layout_below="@id/edittxtAddress"
                     android:inputType="textPostalAddress"
                     android:maxLines="3"
                     android:visibility="gone"
@@ -349,6 +364,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
+                    android:layout_below="@id/edittxtAddressTwo"
                     android:background="@drawable/button_left_gradient"
                     android:fontFamily="@font/montserrat_bold"
                     android:padding="15sp"
@@ -356,7 +372,21 @@
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="15sp" />
-            </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recyclerPostcodes"
+                    android:layout_above="@+id/edittxtPostalCode"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/white"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+
+            </RelativeLayout>
 
 
             <com.wang.avi.AVLoadingIndicatorView

@@ -74,6 +74,8 @@ public class ListingTemplate {
     private String referral_fee = "";
     private String gateway_fee = "";
 
+    private String address = "";
+
     public String getIs_paid() {
         return is_paid;
     }
@@ -464,5 +466,13 @@ public class ListingTemplate {
 
     public void setGateway_fee(String gateway_fee) {
         this.gateway_fee = gateway_fee;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

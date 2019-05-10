@@ -91,7 +91,7 @@ public class ActivityListingDetailsMyReferral   extends AppCompatActivity implem
             mImgVwRatingStarThree,mImgVwRatingStarFour,mImgVwRatingStarFive;
     private RelativeLayout mRelLtyServiceAreContainer;
     private RelativeLayout mRelLtyServiceAreaIcon;
-    private TextView mTxtVwShippingMode;
+    private TextView mTxtVwShippingMode,txtVwAddress;
     private TextView mtxtVwServiceZip,mTxtVwNoRating;
     private RelativeLayout mRelLytFaqBox;
     private RelativeLayout relProductPriceDetails;
@@ -121,6 +121,7 @@ public class ActivityListingDetailsMyReferral   extends AppCompatActivity implem
         mRelLtyServiceAreaIcon=(RelativeLayout)findViewById(R.id.relServiceAreaIcon);
         mTxtVwShippingMode=(TextView)findViewById(R.id.txtvwDeliveryMode);
         mtxtVwServiceZip=(TextView)findViewById(R.id.txtvwServiceCodes);
+        txtVwAddress=(TextView)findViewById(R.id.txtVwAddress);
         mTxtVwPaymentMode=(TextView)findViewById(R.id.txtvwPaymentMode);
         mRelLtyServiceAreContainer.setOnClickListener(this);
 
@@ -263,6 +264,9 @@ public class ActivityListingDetailsMyReferral   extends AppCompatActivity implem
                 .getInstance()
                 .getSELECTED_LISTING_DETAIL_OBJECT().getUserinformation().getFullName());
         mtxtVwAddrDetails.setText(RippleittAppInstance
+                .getInstance()
+                .getSELECTED_LISTING_DETAIL_OBJECT().getLocation().getAddress());
+        txtVwAddress.setText(RippleittAppInstance
                 .getInstance()
                 .getSELECTED_LISTING_DETAIL_OBJECT().getLocation().getAddress());
         mtxtVwProductPrice.setText("$"+RippleittAppInstance

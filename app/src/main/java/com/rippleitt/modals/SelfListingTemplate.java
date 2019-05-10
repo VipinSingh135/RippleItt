@@ -17,6 +17,7 @@ public class SelfListingTemplate {
     private String listing_description;
     private String is_live;
     private String is_new;
+    private String address;
     private String refer_amount="0";
     private String is_disabled;
     private ListingOwnerTemplate userinformation;
@@ -229,5 +230,13 @@ public class SelfListingTemplate {
 
     public void setListing_photos(ListingPhotoTemplate[] listing_photos) {
         this.listing_photos = listing_photos;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -6,6 +6,7 @@
     android:weightSum="1.0"
     android:paddingTop="5sp"
     android:paddingBottom="5sp"
+    android:id="@+id/linParent"
     android:layout_height="wrap_content">
 
 

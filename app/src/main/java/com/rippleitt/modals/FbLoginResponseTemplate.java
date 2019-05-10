@@ -19,6 +19,7 @@ public class FbLoginResponseTemplate {
     private String address2="";
     private String gender="";
     private String image="";
+    private String post_code="";
     private String fnreferalcodeame="";
     private String is_card_available="0";
     private String email_verified="0";
@@ -153,5 +154,13 @@ public class FbLoginResponseTemplate {
 
     public void setIs_card_available(String is_card_available) {
         this.is_card_available = is_card_available;
+    }
+
+    public String getPost_code() {
+        return post_code;
+    }
+
+    public void setPost_code(String post_code) {
+        this.post_code = post_code;
     }
 }

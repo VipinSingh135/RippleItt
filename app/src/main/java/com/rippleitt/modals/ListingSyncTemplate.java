@@ -15,6 +15,7 @@ public class ListingSyncTemplate {
     private String Longitude;
     private String Latitude;
     private String address;
+    private String post_code;
     private String rewardAmount;
     private String listing_type="1";
     private String listingID;
@@ -187,5 +188,13 @@ public class ListingSyncTemplate {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPost_code() {
+        return post_code;
+    }
+
+    public void setPost_code(String post_code) {
+        this.post_code = post_code;
     }
 }

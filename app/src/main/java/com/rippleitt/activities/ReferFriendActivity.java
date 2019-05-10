@@ -1,5 +1,6 @@
 package com.rippleitt.activities;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ClipData;
@@ -94,11 +95,6 @@ public class ReferFriendActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-
-
-
-
-
     private boolean validate(){
         if(mRdBtnEmail.isChecked()){// type email
             if(!CommonUtils.isValidEmail(mEdtxtID.getText().toString())){
@@ -152,6 +148,7 @@ public class ReferFriendActivity extends AppCompatActivity implements View.OnCli
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
                                                 //do things
+                                                setResult(Activity.RESULT_OK);
                                                 finish();
                                             }
                                         });
@@ -185,10 +182,8 @@ public class ReferFriendActivity extends AppCompatActivity implements View.OnCli
                 Map<String, String> params = new HashMap<>();
                 params.put("token", PreferenceHandler.readString(ReferFriendActivity.this,
                         PreferenceHandler.AUTH_TOKEN, ""));
-                params.put("listing_id",RippleittAppInstance
-                                            .getInstance()
-                                            .getSELECTED_LISTING_DETAIL_OBJECT()
-                                            .getListing_id());
+
+                params.put("listing_id",RippleittAppInstance.getInstance().getSELECTED_LISTING_DETAIL_OBJECT().getListing_id());
                 params.put("email",mEdtxtID.getText().toString().trim());
                 params.put("mobile",mEdtxtID.getText().toString().trim());
                 if(mRdBtnEmail.isChecked()){

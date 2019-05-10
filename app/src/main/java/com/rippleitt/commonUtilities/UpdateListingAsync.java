@@ -58,6 +58,7 @@ public class UpdateListingAsync extends AsyncTask<Void,Void,ListingSyncResponseT
             multipart.addFormField("longitude",CURRENT_LISTING.getLatitude());
             multipart.addFormField("latitude",CURRENT_LISTING.getLongitude());
             multipart.addFormField("address",CURRENT_LISTING.getAddress());
+            multipart.addFormField("post_code",CURRENT_LISTING.getPost_code());
             multipart.addFormField("refer_amount",CURRENT_LISTING.getRewardAmount());
             multipart.addFormField("is_drafted",Integer.toString(publishMode));
             multipart.addFormField("listing_type",CURRENT_LISTING.getListing_type());

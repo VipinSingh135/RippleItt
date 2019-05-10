@@ -6,10 +6,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -18,24 +23,36 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.rippleitt.R;
+import com.rippleitt.adapters.CountryCodesAdapter;
+import com.rippleitt.adapters.PostalCodesAdapter;
+import com.rippleitt.callback.ItemClickListener;
 import com.rippleitt.commonUtilities.PreferenceHandler;
 import com.rippleitt.controller.RippleittAppInstance;
 import com.rippleitt.modals.CategoryListTemplate;
+import com.rippleitt.modals.PostalCodeModal;
 import com.rippleitt.utils.CommonUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by manishautomatic on 06/06/18.
  */
 
-public class ActivityAddMobileNumber extends AppCompatActivity implements View.OnClickListener {
+public class ActivityAddMobileNumber extends AppCompatActivity implements View.OnClickListener, ItemClickListener {
 
     private Button mBtnSubmit;
     private ProgressDialog mPDialog;
     private EditText mEdtxtPhone;
     private EditText mEdtxtCode;
+    private RecyclerView recyclerCodes;
+
+    private List<String> searchList ;
+    private List<String> placesList ;
+    CountryCodesAdapter adapter;
 
     @Override
     public void onCreate(Bundle bundle){
@@ -51,10 +68,51 @@ public class ActivityAddMobileNumber extends AppCompatActivity implements View.O
         mEdtxtPhone=(EditText)findViewById(R.id.edittxtPhone);
         mEdtxtCode=(EditText)findViewById(R.id.edittxtPhoneCode);
         mBtnSubmit=(Button)findViewById(R.id.btnVerifyOTP);
+        recyclerCodes=(RecyclerView) findViewById(R.id.recyclerCodes);
         mBtnSubmit.setOnClickListener(this);
+
+        placesList= Arrays.asList(getResources().getStringArray(R.array.countryCodes));
+        searchList= new ArrayList<>();
+        adapter = new CountryCodesAdapter(searchList, ActivityAddMobileNumber.this);
+//        edPostalCode.setThreshold(1); //will start working from first character
+        recyclerCodes.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        recyclerCodes.setAdapter(adapter);
+        recyclerCodes.setVisibility(View.GONE);
+
+        mEdtxtCode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (mEdtxtCode.hasFocus() ) {
+                    recyclerCodes.setVisibility(View.VISIBLE);
+                    searchCodes(s.toString());
+                }else if(s.length()==0){
+                    recyclerCodes.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
+    private void searchCodes(String str) {
+        searchList= new ArrayList<>();
+        for (String code: placesList) {
+            if (code.toLowerCase().contains(str.toLowerCase())){
+                searchList.add(code);
+            }
+        }
 
+        adapter.notifyAdapter(searchList);
+    }
 
     @Override
     public void onClick(View view) {
@@ -63,8 +121,8 @@ public class ActivityAddMobileNumber extends AppCompatActivity implements View.O
                 volleyDispatchOtp();
             }
         }
-    }
 
+    }
 
     private boolean validate(){
         if(mEdtxtCode.getText().toString().trim()
@@ -82,8 +140,6 @@ public class ActivityAddMobileNumber extends AppCompatActivity implements View.O
         return true;
     }
 
-
-
     private void volleyDispatchOtp(){
         mPDialog.setMessage("Submitting your request..");
         mPDialog.show();
@@ -96,7 +152,7 @@ public class ActivityAddMobileNumber extends AppCompatActivity implements View.O
                         Gson gson = new Gson();
                         CategoryListTemplate response_ = (CategoryListTemplate)gson.fromJson(response,CategoryListTemplate.class);
                         if(response_.getResponse_code()==1){
-                            showSuccessAlert("OTP has been sent to your contact number",0);
+                            showSuccessAlert("Verification Code has been sent to your contact number",0);
 
                         }else{
                             Toast.makeText(getApplicationContext(), response_.getResponse_message(), Toast.LENGTH_SHORT).show();
@@ -151,4 +207,9 @@ public class ActivityAddMobileNumber extends AppCompatActivity implements View.O
         alert.show();
     }
 
+    @Override
+    public void onItemClick(int pos) {
+        mEdtxtCode.setText(searchList.get(pos).split(" ")[0]);
+        recyclerCodes.setVisibility(View.GONE);
+    }
 }
